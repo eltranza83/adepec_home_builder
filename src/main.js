@@ -118,6 +118,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Set item in sessionStorage
     sessionStorage.setItem("introPlayed", "true");
 
+    // Add class to change cursor color on dark splash screen
+    document.body.classList.add("loader-active");
+
     // 1. Text reveals
     setTimeout(() => {
       loaderText.classList.add("active");
@@ -128,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       loader.classList.add("loaded");
       loaderText.classList.remove("active");
+      document.body.classList.remove("loader-active");
     }, 2000);
 
     // 3. Reveal hero elements
