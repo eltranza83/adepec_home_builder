@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1200);
 
     setTimeout(() => {
-      loaderText.textContent = "FORM FOLLOWS FEELING";
+      loaderText.textContent = "where form follows feeling";
       loaderText.classList.add("active");
     }, 1800);
 
