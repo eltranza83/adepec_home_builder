@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1200);
 
     setTimeout(() => {
-      loaderText.textContent = "where vision becomes home";
+      loaderText.textContent = "Where Vision Becomes Home";
       loaderText.classList.add("active");
     }, 1800);
 
