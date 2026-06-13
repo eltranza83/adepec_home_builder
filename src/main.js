@@ -3,7 +3,7 @@ const projectsData = {
     title: "Elegant Residence",
     location: "McAllen, Texas",
     specs: {
-      architect: "Adepec Group",
+      architect: "Adepec Homes",
       area: "3,200 Sq Ft",
       beds: "4 Bedrooms",
       baths: "3 Bathrooms",
@@ -21,7 +21,7 @@ const projectsData = {
     title: "Modern Retreat",
     location: "McAllen, Texas",
     specs: {
-      architect: "Adepec Group",
+      architect: "Adepec Homes",
       area: "3,500 Sq Ft",
       beds: "4 Bedrooms",
       baths: "3.5 Bathrooms",
@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <p>${project.description}</p>
             </div>
             <div style="color: var(--color-text-muted);">
-              <p>Every Adepec Group Homes residence is engineered for environmental performance, utilizing intelligent solar orientation, geothermal cooling, and sustainable timber supply chains.</p>
+              <p>Every Adepec Homes residence is engineered for environmental performance, utilizing intelligent solar orientation, geothermal cooling, and sustainable timber supply chains.</p>
             </div>
           </div>
 
