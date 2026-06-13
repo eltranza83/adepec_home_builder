@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1200);
 
     setTimeout(() => {
-      loaderText.textContent = "where form follows feeling";
+      loaderText.textContent = "where vision becomes home";
       loaderText.classList.add("active");
     }, 1800);
 
