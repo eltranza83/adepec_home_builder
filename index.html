@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adepec Group Homes | Premium Architectural Homes</title>
+  <meta name="description" content="Adepec Group Homes builds and sells award-winning premium minimalist homes. Form follows feeling.">
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="custom-cursor"></div>
+  <div class="custom-cursor-outline" id="custom-cursor-outline"></div>
+
+  <!-- Intro Loader -->
+  <div class="loader-container" id="loader">
+    <div class="loader-text" id="loader-text">ADEPEC GROUP HOMES</div>
+    <div class="loader-bar-bg">
+      <div class="loader-bar" id="loader-bar"></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="logo link-hover">ADEPEC GROUP HOMES</a>
+    <button class="nav-toggle link-hover" id="menu-btn" aria-label="Toggle Menu">
+      <span></span>
+      <div style="margin-left: 10px;" id="menu-btn-text">Menu</div>
+    </button>
+  </header>
+
+  <!-- Fullscreen Navigation Overlay -->
+  <div class="menu-overlay" id="menu-overlay">
+    <div class="menu-grid">
+      <ul class="menu-links">
+        <li><a href="#hero" class="link-hover menu-close-trigger">Home</a></li>
+        <li><a href="#philosophy" class="link-hover menu-close-trigger">Philosophy</a></li>
+        <li><a href="#showcase" class="link-hover menu-close-trigger">Showcase</a></li>
+        <li><a href="portfolio.html" class="link-hover">Portfolio</a></li>
+        <li><a href="#contact" class="link-hover menu-close-trigger">Inquire</a></li>
+      </ul>
+      <div class="menu-info">
+        <div>
+          <h4>The Studio</h4>
+          <p>1400 Obsidian Way, Suite 400<br>Los Angeles, CA 90028</p>
+        </div>
+        <div>
+          <h4>Inquiries</h4>
+          <p><a href="mailto:inquire@adepecgrouphomes.com" class="link-hover">inquire@adepecgrouphomes.com</a><br>+1 (310) 555-0199</p>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <p>
+            <a href="#" class="link-hover" style="margin-right: 15px;">Instagram</a>
+            <a href="#" class="link-hover" style="margin-right: 15px;">Journal</a>
+            <a href="#" class="link-hover">Pinterest</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Wrapper (for parallax / scroll containers) -->
+  <main>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-background">
+        <img src="/assets/exterior_2621.jpg" alt="Aethera Residence 2621 Cover" id="hero-img">
+      </div>
+      <div class="hero-content">
+        <span class="section-tag">Introducing Adepec Group</span>
+        <h1 id="hero-title">
+          <span>Where Vision</span><br>
+          <span>Becomes Home.</span>
+        </h1>
+        <div class="hero-footer" id="hero-footer">
+          <p class="hero-desc">We design and build architectural homes that serve as a canvas for life. A harmonious blend of concrete, light, and natural landscape.</p>
+          <a href="#showcase" class="cta-button link-hover">
+            Explore Portfolio
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="scroll-indicator">Scroll</div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy" id="philosophy">
+      <div class="philosophy-grid">
+        <div class="philosophy-text reveal-on-scroll">
+          <span class="section-tag">Our Philosophy</span>
+          <h2>Precision Meets Passion</h2>
+          <p>At Adepec Group Homes, we craft exceptional new homes with an unwavering commitment to quality. From the finest materials to precise craftsmanship, every detail is thoughtfully designed and executed.</p>
+          <p>Our passion is building homes that stand out for their beauty, durability, and lasting value. Discover the difference with Adepec Group Homes—where precision meets passion.</p>
+        </div>
+        <div class="philosophy-img reveal-img-on-scroll">
+          <img src="/assets/foyer.jpg" alt="Aethera Architectural Foyer Space">
+        </div>
+      </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section class="showcase" id="showcase">
+      <span class="section-tag">Featured Works</span>
+      <div class="showcase-header">
+        <h2>Our Crafted Legacy</h2>
+        <div style="color: var(--color-text-muted); font-size: 0.95rem; max-width: 300px;">
+          Explore signature homes
+        </div>
+      </div>
+      <div class="sample-photos" style="display:flex; gap:20px; margin-top:20px;">
+        <a href="portfolio.html" class="project-card reveal-on-scroll" style="width:calc(50% - 10px);">
+          <div class="project-img-wrapper">
+            <img src="/assets/exterior_2621.jpg" alt="Elegant Residence Sample" />
+          </div>
+          <div class="project-details">
+            <h3 class="project-title">Elegant Residence</h3>
+          </div>
+        </a>
+        <a href="portfolio.html" class="project-card reveal-on-scroll" style="width:calc(50% - 10px);">
+          <div class="project-img-wrapper">
+            <img src="./exterior2.jpeg" alt="Modern Retreat Sample" />
+          </div>
+          <div class="project-details">
+            <h3 class="project-title">Modern Retreat</h3>
+          </div>
+        </a>
+      </div>
+      <a href="portfolio.html" class="cta-button link-hover" style="margin-top:30px;">View Full Portfolio</a>
+    </section>
+
+    <!-- Contact / Inquiries Section -->
+    <section class="contact" id="contact">
+      <div class="contact-grid">
+        <div class="contact-info reveal-on-scroll">
+          <span class="section-tag">Begin Your Journey</span>
+          <h2>Let's build a masterpiece.</h2>
+          <div class="contact-details">
+            <p>Interested in acquiring one of our featured builds or starting a custom commission? Drop us a note.</p>
+            <p>
+              <strong>General:</strong> <a href="mailto:info@adepecgrouphomes.com" class="link-hover">info@adepecgrouphomes.com</a><br>
+              <strong>Sales:</strong> <a href="mailto:sales@adepecgrouphomes.com" class="link-hover">sales@adepecgrouphomes.com</a>
+            </p>
+          </div>
+        </div>
+
+        <form class="contact-form reveal-on-scroll" id="inquiry-form" onsubmit="event.preventDefault(); alert('Inquiry sent. The Adepec Group Homes team will contact you shortly.');">
+          <div class="form-group">
+            <input type="text" id="name" class="form-input" required>
+            <label for="name" class="form-label">Your Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" class="form-input" required>
+            <label for="email" class="form-label">Email Address</label>
+          </div>
+          <div class="form-group">
+            <input type="text" id="site" class="form-input" required>
+            <label for="site" class="form-label">Project Location / Site Status</label>
+          </div>
+          <div class="form-group">
+            <input type="text" id="message" class="form-input" required>
+            <label for="message" class="form-label">Tell us about your vision</label>
+          </div>
+          <button type="submit" class="cta-button link-hover" style="align-self: flex-start;">Send Inquiry</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div>&copy; 2019 Adepec Group Homes. All rights reserved.</div>
+    <div style="display: flex; gap: 30px;">
+      <a href="#" class="link-hover" style="color: inherit; text-decoration: none;">Privacy Policy</a>
+      <a href="#" class="link-hover" style="color: inherit; text-decoration: none;">Terms of Service</a>
+    </div>
+  </footer>
+
+  <!-- Fullscreen Project Modal Details -->
+  <div class="project-modal" id="project-modal">
+    <button class="modal-close link-hover" id="modal-close">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.8536 3.14645C12.0488 3.34171 12.0488 3.65829 11.8536 3.85355L8.85355 6.85355C8.65829 7.04882 8.65829 7.3654 8.85355 7.56066L11.8536 10.5607C12.0488 10.7559 12.0488 11.0725 11.8536 11.2678C11.6583 11.463 11.3417 11.463 11.1464 11.2678L8.14645 8.26777C7.81831 7.93963 7.2858 7.93963 6.95766 8.26777L3.95766 11.2678C3.7624 11.463 3.44582 11.463 3.25056 11.2678C3.0553 11.0725 3.0553 10.7559 3.25056 10.5607L6.25056 7.56066C6.5787 7.23252 6.5787 6.69999 6.25056 6.37185L3.25056 3.37185C3.0553 3.17659 3.0553 2.86001 3.25056 2.66475C3.44582 2.46949 3.7624 2.46949 3.95766 2.66475L6.95766 5.66475C7.2858 5.99289 7.81831 5.99289 8.14645 5.66475L11.1464 2.66475C11.3417 2.46949 11.6583 2.46949 11.8536 2.66475Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/>
+      </svg>
+      Close
+    </button>
+    
+    <div class="modal-content" id="modal-content">
+      <!-- Injected dynamically by JS -->
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

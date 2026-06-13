@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Adepec Group Homes</title>
+  <meta name="description" content="Explore our portfolio of premium architectural homes — Home 2621 and Home 4704 in McAllen, Texas.">
+  <link rel="stylesheet" href="./src/style.css">
+  <style>
+    /* Portfolio-specific styles */
+    .portfolio-hero {
+      height: 45vh;
+      min-height: 350px;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 50px 60px;
+      position: relative;
+      background: var(--color-bg-light);
+    }
+
+    .portfolio-hero-content {
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .portfolio-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 5rem;
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 15px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    }
+
+    .portfolio-hero .subtitle {
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      max-width: 500px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .portfolio-home-section {
+      padding: 120px 50px;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .portfolio-home-section + .portfolio-home-section {
+      border-top: 1px solid var(--color-border);
+    }
+
+    .home-section-header {
+      margin-bottom: 60px;
+    }
+
+    .home-section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 300;
+      margin-bottom: 10px;
+    }
+
+    .home-section-header p {
+      color: var(--color-text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .portfolio-grid .portfolio-item {
+      display: block;
+      text-decoration: none;
+      color: var(--color-text);
+      cursor: none;
+      overflow: hidden;
+    }
+
+    .portfolio-grid .portfolio-item .img-wrap {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .portfolio-grid .portfolio-item .img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .portfolio-grid .portfolio-item:hover .img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-grid .portfolio-item .item-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 18px 0 15px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .portfolio-grid .portfolio-item .item-label h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 300;
+    }
+
+    .portfolio-grid .portfolio-item .item-label span {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* First item in each grid spans full width for a hero-style layout */
+    .portfolio-grid .portfolio-item:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .portfolio-grid .portfolio-item:first-child .img-wrap {
+      aspect-ratio: 21/9;
+    }
+
+    /* Back to home link */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--color-text-muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+      margin-bottom: 20px;
+    }
+
+    .back-link:hover {
+      color: var(--color-text);
+    }
+
+    .back-link svg {
+      transform: rotate(180deg);
+    }
+
+    /* Lightbox */
+    .lightbox-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 5000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      cursor: pointer;
+    }
+
+    .lightbox-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-overlay img {
+      max-width: 90%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 4px;
+      transform: scale(0.95);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lightbox-overlay.open img {
+      transform: scale(1);
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 30px;
+      right: 50px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      cursor: pointer;
+      z-index: 5001;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lightbox-caption {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .portfolio-hero h1 { font-size: 3.5rem; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-grid .portfolio-item:first-child .img-wrap { aspect-ratio: 16/10; }
+      .lightbox-close { cursor: pointer; }
+      .portfolio-grid .portfolio-item { cursor: pointer; }
+    }
+
+    @media (max-width: 768px) {
+      .portfolio-hero { padding: 0 30px 40px; height: 35vh; }
+      .portfolio-hero h1 { font-size: 2.8rem; }
+      .portfolio-home-section { padding: 80px 30px; }
+      .home-section-header h2 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="custom-cursor"></div>
+  <div class="custom-cursor-outline" id="custom-cursor-outline"></div>
+
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="logo link-hover">ADEPEC GROUP HOMES</a>
+    <a href="index.html" class="back-link link-hover">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/>
+      </svg>
+      Back to Home
+    </a>
+  </header>
+
+  <!-- Portfolio Hero -->
+  <section class="portfolio-hero">
+    <div class="portfolio-hero-content">
+      <span class="section-tag">Our Portfolio</span>
+      <h1>Signature Residences</h1>
+      <p class="subtitle">A curated collection of our completed homes — each one a testament to modern craftsmanship and architectural precision.</p>
+    </div>
+  </section>
+
+  <!-- Elegant Residence -->
+  <div class="portfolio-home-section">
+    <div class="home-section-header reveal-on-scroll">
+      <span class="section-tag">Residence I</span>
+      <h2>Elegant Residence</h2>
+      <p>A clean stucco and white stone sanctuary featuring bespoke entry details, double-height ceilings, and marble-look polished floors throughout.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item reveal-on-scroll" data-caption="Elegant Residence — Street View">
+        <div class="img-wrap">
+          <img src="./exterior.jpeg" alt="Elegant Residence — Street View">
+        </div>
+        <div class="item-label">
+          <h3>Street View</h3>
+          <span>Exterior</span>
+        </div>
+      </div>
+      <div class="portfolio-item reveal-on-scroll" data-caption="Elegant Residence — Gourmet Kitchen">
+        <div class="img-wrap">
+          <img src="./kitchen.jpeg" alt="Elegant Residence — Gourmet Kitchen">
+        </div>
+        <div class="item-label">
+          <h3>Gourmet Kitchen</h3>
+          <span>Interior</span>
+        </div>
+      </div>
+      <div class="portfolio-item reveal-on-scroll" data-caption="Elegant Residence — Living Suite">
+        <div class="img-wrap">
+          <img src="./living2.jpeg" alt="Elegant Residence — Living Suite">
+        </div>
+        <div class="item-label">
+          <h3>Living Suite</h3>
+          <span>Interior</span>
+        </div>
+      </div>
+      <div class="portfolio-item reveal-on-scroll" data-caption="Elegant Residence — Coffered Ceiling Detail">
+        <div class="img-wrap">
+          <img src="./ceiling.jpeg" alt="Elegant Residence — Coffered Ceiling Detail">
+        </div>
+        <div class="item-label">
+          <h3>Coffered Ceiling Detail</h3>
+          <span>Architectural</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modern Retreat -->
+  <div class="portfolio-home-section">
+    <div class="home-section-header reveal-on-scroll">
+      <span class="section-tag">Residence II</span>
+      <h2>Modern Retreat</h2>
+      <p>Elevated modern interiors with designer pendant lighting, floating vanities, and a geometric glass-enclosed wet shower sanctuary.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item reveal-on-scroll" data-caption="Modern Retreat — Modern Facade">
+        <div class="img-wrap">
+          <img src="./exterior2.jpeg" alt="Modern Retreat — Modern Facade">
+        </div>
+        <div class="item-label">
+          <h3>Modern Facade</h3>
+          <span>Exterior</span>
+        </div>
+      </div>
+      <div class="portfolio-item reveal-on-scroll" data-caption="Modern Retreat — Spa Bathroom">
+        <div class="img-wrap">
+          <img src="./bathroom.jpeg" alt="Modern Retreat — Spa Bathroom">
+        </div>
+        <div class="item-label">
+          <h3>Spa Bathroom</h3>
+          <span>Interior</span>
+        </div>
+      </div>
+      <div class="portfolio-item reveal-on-scroll" data-caption="Modern Retreat — Glass Shower Suite">
+        <div class="img-wrap">
+          <img src="./bathroom2.jpeg" alt="Modern Retreat — Glass Shower Suite">
+        </div>
+        <div class="item-label">
+          <h3>Glass Shower Suite</h3>
+          <span>Interior</span>
+        </div>
+      </div>
+      <div class="portfolio-item reveal-on-scroll" data-caption="Modern Retreat — Grand Entryway">
+        <div class="img-wrap">
+          <img src="./entry2.jpeg" alt="Modern Retreat — Grand Entryway">
+        </div>
+        <div class="item-label">
+          <h3>Grand Entryway</h3>
+          <span>Architectural</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div>&copy; 2019 Adepec Group Homes. All rights reserved.</div>
+    <div style="display: flex; gap: 30px;">
+      <a href="index.html" class="link-hover" style="color: inherit; text-decoration: none;">Home</a>
+      <a href="#" class="link-hover" style="color: inherit; text-decoration: none;">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <!-- Lightbox Overlay -->
+  <div class="lightbox-overlay" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.8536 3.14645C12.0488 3.34171 12.0488 3.65829 11.8536 3.85355L8.85355 6.85355C8.65829 7.04882 8.65829 7.3654 8.85355 7.56066L11.8536 10.5607C12.0488 10.7559 12.0488 11.0725 11.8536 11.2678C11.6583 11.463 11.3417 11.463 11.1464 11.2678L8.14645 8.26777C7.81831 7.93963 7.2858 7.93963 6.95766 8.26777L3.95766 11.2678C3.7624 11.463 3.44582 11.463 3.25056 11.2678C3.0553 11.0725 3.0553 10.7559 3.25056 10.5607L6.25056 7.56066C6.5787 7.23252 6.5787 6.69999 6.25056 6.37185L3.25056 3.37185C3.0553 3.17659 3.0553 2.86001 3.25056 2.66475C3.44582 2.46949 3.7624 2.46949 3.95766 2.66475L6.95766 5.66475C7.2858 5.99289 7.81831 5.99289 8.14645 5.66475L11.1464 2.66475C11.3417 2.46949 11.6583 2.46949 11.8536 2.66475Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/>
+      </svg>
+      Close
+    </button>
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Custom Cursor
+      const cursor = document.getElementById("custom-cursor");
+      const cursorOutline = document.getElementById("custom-cursor-outline");
+      let mouse = { x: 0, y: 0 };
+      let cursorPos = { x: 0, y: 0 };
+      let outlinePos = { x: 0, y: 0 };
+
+      window.addEventListener("mousemove", (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      function lerp(a, b, t) { return (1 - t) * a + t * b; }
+
+      function animateCursor() {
+        cursorPos.x = lerp(cursorPos.x, mouse.x, 0.3);
+        cursorPos.y = lerp(cursorPos.y, mouse.y, 0.3);
+        cursor.style.left = cursorPos.x + "px";
+        cursor.style.top = cursorPos.y + "px";
+
+        outlinePos.x = lerp(outlinePos.x, mouse.x, 0.12);
+        outlinePos.y = lerp(outlinePos.y, mouse.y, 0.12);
+        cursorOutline.style.left = outlinePos.x + "px";
+        cursorOutline.style.top = outlinePos.y + "px";
+
+        requestAnimationFrame(animateCursor);
+      }
+      requestAnimationFrame(animateCursor);
+
+      // Hover states
+      document.querySelectorAll(".link-hover, a, button, .portfolio-item").forEach(el => {
+        el.addEventListener("mouseenter", () => document.body.classList.add("hovering-link"));
+        el.addEventListener("mouseleave", () => document.body.classList.remove("hovering-link"));
+      });
+
+      // Scroll reveals
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+
+      document.querySelectorAll(".reveal-on-scroll").forEach(el => observer.observe(el));
+
+      // Lightbox
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxCaption = document.getElementById("lightbox-caption");
+      const lightboxClose = document.getElementById("lightbox-close");
+
+      document.querySelectorAll(".portfolio-item").forEach(item => {
+        item.addEventListener("click", () => {
+          const img = item.querySelector("img");
+          const caption = item.getAttribute("data-caption") || "";
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightboxCaption.textContent = caption;
+          lightbox.classList.add("open");
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      lightboxClose.addEventListener("click", (e) => {
+        e.stopPropagation();
+        lightbox.classList.remove("open");
+        document.body.style.overflow = "";
+      });
+
+      lightbox.addEventListener("click", () => {
+        lightbox.classList.remove("open");
+        document.body.style.overflow = "";
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lightbox.classList.contains("open")) {
+          lightbox.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
