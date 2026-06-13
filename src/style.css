@@ -1004,16 +1004,19 @@ footer {
 }
 
 @media(max-width: 768px) {
-  header { padding: 20px 30px; }
-  section { padding: 80px 30px; min-height: auto; }
-  .hero { padding: 0 30px; height: 90vh; }
+  header { padding: 20px 25px; }
+  .logo { font-size: 1.1rem; letter-spacing: 0.1em; }
+  .nav-toggle { font-size: 0.8rem; gap: 8px; }
+  .nav-toggle span { width: 16px; }
+  section { padding: 80px 25px; min-height: auto; }
+  .hero { padding: 0 25px; height: 90vh; }
   .hero h1 { font-size: 2.6rem; }
   .showcase-header { flex-direction: column; align-items: flex-start; gap: 15px; margin-bottom: 40px; }
   .showcase-header h2 { font-size: 2.2rem; }
   .philosophy-text h2 { font-size: 2.2rem; }
   .contact-info h2 { font-size: 2.2rem; }
-  .modal-content { padding: 0 30px; }
-  footer { padding: 30px; flex-direction: column; gap: 20px; text-align: center; }
+  .modal-content { padding: 0 25px; }
+  footer { padding: 30px 25px; flex-direction: column; gap: 20px; text-align: center; }
 }
 
 @media(max-width: 480px) {
