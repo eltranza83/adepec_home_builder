@@ -125,29 +125,20 @@ document.addEventListener("DOMContentLoaded", () => {
       loaderBar.style.width = "100%";
     }, 100);
 
-    // 2. Change loader text
-    setTimeout(() => {
-      loaderText.classList.remove("active");
-    }, 1200);
-
-    setTimeout(() => {
-      loaderText.textContent = "Where Vision Becomes Home";
-      loaderText.classList.add("active");
-    }, 1800);
-
-    // 3. Slide up loader
+    // 2. Slide up loader and fade out text
     setTimeout(() => {
       loader.classList.add("loaded");
-    }, 2800);
+      loaderText.classList.remove("active");
+    }, 2000);
 
-    // 4. Reveal hero elements
+    // 3. Reveal hero elements
     setTimeout(() => {
       heroTitleSpans.forEach(span => span.classList.add("revealed"));
       heroFooter.classList.add("revealed");
       // Scale down background image slightly for a camera zoom-out effect
       const heroImg = document.getElementById("hero-img");
       if (heroImg) heroImg.style.transform = "scale(1)";
-    }, 3800);
+    }, 3000);
   };
   runIntro();
 
