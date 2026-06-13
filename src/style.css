@@ -115,6 +115,7 @@ body.hovering-link .custom-cursor-outline {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 1s, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
 }
 
 .loader-text.active {
@@ -156,7 +157,10 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  /* mix-blend-mode removed for white minimalistic theme */
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .logo {
@@ -1023,6 +1027,7 @@ footer {
   .menu-grid { display: flex; flex-direction: column; gap: 50px; }
   .menu-links a { font-size: 2.5rem; }
   .menu-info { justify-content: flex-start; gap: 30px; margin-top: 20px; }
+  .loader-text { font-size: 1.5rem; letter-spacing: 0.08em; padding: 0 20px; }
 }
 
 @media(max-width: 480px) {
