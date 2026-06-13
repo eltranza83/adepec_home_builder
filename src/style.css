@@ -1038,3 +1038,30 @@ footer {
   .logo { font-size: 1rem; letter-spacing: 0.08em; }
   .menu-links a { font-size: 2rem; }
 }
+
+/* Landscape and short viewport spacing adjustments */
+@media (max-height: 600px) {
+  .hero {
+    height: auto !important;
+    min-height: 100vh;
+    padding-top: 120px !important;
+    padding-bottom: 60px !important;
+    overflow: visible !important;
+    display: flex;
+    align-items: center;
+  }
+  .menu-overlay {
+    display: block !important;
+    overflow-y: auto !important;
+    padding: 100px 25px 40px !important;
+    height: 100vh !important;
+  }
+  .menu-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 40px !important;
+  }
+  .menu-links a {
+    font-size: 2rem !important;
+  }
+}
