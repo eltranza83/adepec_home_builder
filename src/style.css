@@ -1011,12 +1011,18 @@ footer {
   section { padding: 80px 25px; min-height: auto; }
   .hero { padding: 0 25px; height: 90vh; }
   .hero h1 { font-size: 2.6rem; }
+  .hero-footer { flex-direction: column; align-items: flex-start; gap: 30px; margin-top: 40px; }
+  .hero-desc { max-width: 100%; font-size: 1rem; }
   .showcase-header { flex-direction: column; align-items: flex-start; gap: 15px; margin-bottom: 40px; }
   .showcase-header h2 { font-size: 2.2rem; }
   .philosophy-text h2 { font-size: 2.2rem; }
   .contact-info h2 { font-size: 2.2rem; }
   .modal-content { padding: 0 25px; }
   footer { padding: 30px 25px; flex-direction: column; gap: 20px; text-align: center; }
+  .menu-overlay { display: block; overflow-y: auto; padding: 120px 25px 60px; }
+  .menu-grid { display: flex; flex-direction: column; gap: 50px; }
+  .menu-links a { font-size: 2.5rem; }
+  .menu-info { justify-content: flex-start; gap: 30px; margin-top: 20px; }
 }
 
 @media(max-width: 480px) {
@@ -1024,6 +1030,6 @@ footer {
   .showcase-header h2 { font-size: 1.8rem; }
   .philosophy-text h2 { font-size: 1.8rem; }
   .contact-info h2 { font-size: 1.8rem; }
-  .logo { font-size: 1.2rem; }
-  .menu-links a { font-size: 2.2rem; }
+  .logo { font-size: 1rem; letter-spacing: 0.08em; }
+  .menu-links a { font-size: 2rem; }
 }
