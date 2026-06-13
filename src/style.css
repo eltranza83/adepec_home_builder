@@ -580,6 +580,14 @@ section {
   gap: 60px;
 }
 
+.sample-photos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+  width: 100%;
+}
+
 .project-card {
   display: flex;
   flex-direction: column;
@@ -980,11 +988,14 @@ footer {
   .cta-button, .material-option, .project-card, .nav-toggle, .modal-close {
     cursor: pointer;
   }
-  .hero h1 { font-size: 4.5rem; }
+  .hero h1 { font-size: 4rem; }
   .philosophy-grid { grid-template-columns: 1fr; gap: 50px; }
+  .philosophy-text h2 { font-size: 2.8rem; }
   .showcase-grid { grid-template-columns: 1fr; gap: 40px; }
+  .sample-photos { grid-template-columns: 1fr; gap: 30px; }
   .configurator-grid { grid-template-columns: 1fr; gap: 50px; }
   .contact-grid { grid-template-columns: 1fr; gap: 60px; }
+  .contact-info h2 { font-size: 3rem; }
   .menu-grid { grid-template-columns: 1fr; gap: 50px; }
   .menu-links a { font-size: 3rem; }
   .modal-header h2 { font-size: 3.5rem; }
@@ -994,9 +1005,22 @@ footer {
 
 @media(max-width: 768px) {
   header { padding: 20px 30px; }
-  section { padding: 100px 30px; }
-  .hero { padding: 0 30px; }
-  .hero h1 { font-size: 3.2rem; }
+  section { padding: 80px 30px; min-height: auto; }
+  .hero { padding: 0 30px; height: 90vh; }
+  .hero h1 { font-size: 2.6rem; }
+  .showcase-header { flex-direction: column; align-items: flex-start; gap: 15px; margin-bottom: 40px; }
+  .showcase-header h2 { font-size: 2.2rem; }
+  .philosophy-text h2 { font-size: 2.2rem; }
+  .contact-info h2 { font-size: 2.2rem; }
   .modal-content { padding: 0 30px; }
   footer { padding: 30px; flex-direction: column; gap: 20px; text-align: center; }
+}
+
+@media(max-width: 480px) {
+  .hero h1 { font-size: 2.1rem; }
+  .showcase-header h2 { font-size: 1.8rem; }
+  .philosophy-text h2 { font-size: 1.8rem; }
+  .contact-info h2 { font-size: 1.8rem; }
+  .logo { font-size: 1.2rem; }
+  .menu-links a { font-size: 2.2rem; }
 }
