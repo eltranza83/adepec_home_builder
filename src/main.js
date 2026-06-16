@@ -301,4 +301,56 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+
+  // Homepage Lightbox
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxCaption = document.getElementById("lightbox-caption");
+  const lightboxClose = document.getElementById("lightbox-close");
+
+  if (lightbox && lightboxImg) {
+    document.querySelectorAll(".project-img-wrapper").forEach(wrapper => {
+      wrapper.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const img = wrapper.querySelector("img");
+        if (img) {
+          const card = wrapper.closest(".project-card");
+          const titleEl = card ? card.querySelector(".project-title") : null;
+          const caption = titleEl ? titleEl.textContent : "";
+          
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt || caption;
+          if (lightboxCaption) {
+            lightboxCaption.textContent = caption;
+          }
+          lightbox.classList.add("open");
+          document.body.style.overflow = "hidden";
+        }
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove("open");
+      if (!menuOverlay.classList.contains("open") && !modal.classList.contains("open")) {
+        document.body.style.overflow = "";
+      }
+    };
+
+    if (lightboxClose) {
+      lightboxClose.addEventListener("click", (e) => {
+        e.stopPropagation();
+        closeLightbox();
+      });
+    }
+
+    lightbox.addEventListener("click", () => {
+      closeLightbox();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox.classList.contains("open")) {
+        closeLightbox();
+      }
+    });
+  }
 });

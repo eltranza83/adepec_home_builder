@@ -172,77 +172,13 @@
 
     .back-link svg {
       transform: rotate(180deg);
-    }
-
-    /* Lightbox */
-    .lightbox-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.92);
-      z-index: 5000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-      cursor: pointer;
-    }
-
-    .lightbox-overlay.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .lightbox-overlay img {
-      max-width: 90%;
-      max-height: 85vh;
-      object-fit: contain;
-      border-radius: 4px;
-      transform: scale(0.95);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .lightbox-overlay.open img {
-      transform: scale(1);
-    }
-
-    .lightbox-close {
-      position: fixed;
-      top: 30px;
-      right: 50px;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      cursor: pointer;
-      z-index: 5001;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .lightbox-caption {
-      position: fixed;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-    }
+    }    /* Lightbox styles are now shared globally from src/style.css */
 
     /* Responsive */
     @media (max-width: 1024px) {
       .portfolio-hero h1 { font-size: 3.5rem; }
       .portfolio-grid { grid-template-columns: 1fr; }
       .portfolio-grid .portfolio-item:first-child .img-wrap { aspect-ratio: 16/10; }
-      .lightbox-close { cursor: pointer; }
       .portfolio-grid .portfolio-item { cursor: pointer; }
     }
 
@@ -411,6 +347,168 @@
           <h3>Grand Entryway</h3>
           <span>Architectural</span>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Falcons Cove (Current Project) -->
+  <div class="portfolio-home-section" id="current-projects">
+    <div class="home-section-header reveal-on-scroll">
+      <span class="section-tag">Current Projects</span>
+      <h2>9908 North 25th Street</h2>
+      <p>Located at the exclusive Falcon's Cove subdivision. An upcoming premium architectural residence currently under construction in McAllen, Texas, 78504.</p>
+    </div>
+    
+    <div class="portfolio-grid">
+      <!-- Top: Large Front Elevation (Hero-style portfolio item) -->
+      <div class="portfolio-item reveal-on-scroll" data-caption="9908 North 25th Street — Front Elevation">
+        <div class="img-wrap" style="background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 25px; border: 1px solid var(--color-border); position: relative;">
+          <img src="./elevations_lot102.png" alt="9908 North 25th Street — Front Elevation" style="width: 100%; height: 100%; object-fit: contain;">
+          <span class="status-badge" style="position: absolute; top: 20px; right: 20px; pointer-events: none;">Under Construction</span>
+        </div>
+        <div class="item-label">
+          <h3>Front Elevation</h3>
+          <span>Upcoming Build — Click to Expand</span>
+        </div>
+      </div>
+      
+      <!-- Bottom Left Card: Specifications -->
+      <div class="build-specs-card reveal-on-scroll">
+        <span class="section-tag">Specifications</span>
+        <h4>Sizing & Layout</h4>
+        
+        <table class="specs-table" style="margin-top: 0;">
+          <tr>
+            <td>Total Slab Footprint</td>
+            <td><strong>3,179.5 SQ. FT.</strong></td>
+          </tr>
+          <tr>
+            <td>Living Space Area</td>
+            <td>2,544.2 SQ. FT.</td>
+          </tr>
+          <tr>
+            <td>Garage Area</td>
+            <td>415.1 SQ. FT. (2-Car Niche)</td>
+          </tr>
+          <tr>
+            <td>Porch & Patio</td>
+            <td>220.2 SQ. FT. (Combined)</td>
+          </tr>
+          <tr>
+            <td>Lot Size</td>
+            <td>79' Front x 110' Depth</td>
+          </tr>
+          <tr>
+            <td>Room Layout</td>
+            <td>4 Bedrooms, 3 Full Baths, 2 Half Baths</td>
+          </tr>
+        </table>
+      </div>
+      
+      <!-- Bottom Middle Card: Finishes & Efficiency -->
+      <div class="build-specs-card reveal-on-scroll">
+        <span class="section-tag">Finishes & Climate</span>
+        <h4>Premium Features</h4>
+        
+        <ul class="features-list" style="margin-top: 0;">
+          <li><strong>Premium Finishes:</strong> Porcelain tile flooring throughout the entire home and showers, paired with custom quartz countertops.</li>
+          <li><strong>Exterior Styling:</strong> Built with a stucco exterior and natural Cantera stone accents.</li>
+          <li><strong>Climate Systems:</strong> Driven by two separate air conditioning units (7.5 tons total).</li>
+          <li><strong>Insulation:</strong> Energy-saving spray foam insulation applied on both the rafters and exterior walls for optimal thermal performance.</li>
+        </ul>
+      </div>
+      
+      <!-- Bottom Right Card: Amenities & Inquiries -->
+      <div class="build-specs-card reveal-on-scroll">
+        <span class="section-tag">Amenities & Site Details</span>
+        <h4>Appliances & Security</h4>
+        
+        <ul class="features-list" style="margin-top: 0;">
+          <li><strong>Gourmet Kitchen:</strong> Includes a dedicated Butler's pantry. Premium appliances are provided: a cooktop, in-cabinet microwave, stove, and a mini fridge.</li>
+          <li><strong>Security & Systems:</strong> Equipped with an active alarm system and a lawn sprinkler system.</li>
+          <li><strong>Fencing & Gating:</strong> The property comes entirely fenced and enclosed with a secure metal gate.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Falcons Cove (9905 North 25th Street Current Project) -->
+  <div class="portfolio-home-section" id="current-projects-9905">
+    <div class="home-section-header reveal-on-scroll">
+      <span class="section-tag">Current Projects</span>
+      <h2>9905 North 25th Street</h2>
+      <p>Located at the exclusive Falcon's Cove subdivision. An upcoming premium architectural residence currently under construction in McAllen, Texas, 78504.</p>
+    </div>
+    
+    <div class="portfolio-grid">
+      <!-- Top: Large Front Elevation (Hero-style portfolio item) -->
+      <div class="portfolio-item reveal-on-scroll" data-caption="9905 North 25th Street — Front Elevation">
+        <div class="img-wrap" style="background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 25px; border: 1px solid var(--color-border); position: relative;">
+          <img src="./elevations_lot115.png" alt="9905 North 25th Street — Front Elevation" style="width: 100%; height: 100%; object-fit: contain;">
+          <span class="status-badge" style="position: absolute; top: 20px; right: 20px; pointer-events: none;">Under Construction</span>
+        </div>
+        <div class="item-label">
+          <h3>Front Elevation</h3>
+          <span>Upcoming Build — Click to Expand</span>
+        </div>
+      </div>
+      
+      <!-- Bottom Left Card: Specifications -->
+      <div class="build-specs-card reveal-on-scroll">
+        <span class="section-tag">Specifications</span>
+        <h4>Sizing & Layout</h4>
+        
+        <table class="specs-table" style="margin-top: 0;">
+          <tr>
+            <td>Total Slab Footprint</td>
+            <td><strong>3,179.5 SQ. FT.</strong></td>
+          </tr>
+          <tr>
+            <td>Living Space Area</td>
+            <td>2,544.2 SQ. FT.</td>
+          </tr>
+          <tr>
+            <td>Garage Area</td>
+            <td>415.1 SQ. FT. (2-Car Niche)</td>
+          </tr>
+          <tr>
+            <td>Porch & Patio</td>
+            <td>220.2 SQ. FT. (Combined)</td>
+          </tr>
+          <tr>
+            <td>Lot Size</td>
+            <td>79' Front x 110' Depth</td>
+          </tr>
+          <tr>
+            <td>Room Layout</td>
+            <td>4 Bedrooms, 3 Full Baths, 2 Half Baths</td>
+          </tr>
+        </table>
+      </div>
+      
+      <!-- Bottom Middle Card: Finishes & Efficiency -->
+      <div class="build-specs-card reveal-on-scroll">
+        <span class="section-tag">Finishes & Climate</span>
+        <h4>Premium Features</h4>
+        
+        <ul class="features-list" style="margin-top: 0;">
+          <li><strong>Premium Finishes:</strong> Porcelain tile flooring throughout the entire home and showers, paired with custom quartz countertops.</li>
+          <li><strong>Exterior Styling:</strong> Built with a stucco exterior and natural Cantera stone accents.</li>
+          <li><strong>Climate Systems:</strong> Driven by two separate air conditioning units (7.5 tons total).</li>
+          <li><strong>Insulation:</strong> Energy-saving spray foam insulation applied on both the rafters and exterior walls for optimal thermal performance.</li>
+        </ul>
+      </div>
+      
+      <!-- Bottom Right Card: Amenities & Inquiries -->
+      <div class="build-specs-card reveal-on-scroll">
+        <span class="section-tag">Amenities & Site Details</span>
+        <h4>Appliances & Security</h4>
+        
+        <ul class="features-list" style="margin-top: 0;">
+          <li><strong>Gourmet Kitchen:</strong> Includes a dedicated Butler's pantry. Premium appliances are provided: a cooktop, in-cabinet microwave, stove, and a mini fridge.</li>
+          <li><strong>Security & Systems:</strong> Equipped with an active alarm system and a lawn sprinkler system.</li>
+          <li><strong>Fencing & Gating:</strong> The property comes entirely fenced and enclosed with a secure metal gate.</li>
+        </ul>
       </div>
     </div>
   </div>
