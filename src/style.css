@@ -736,7 +736,7 @@ section {
 .project-details {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   border-bottom: 1px solid var(--color-border);
   padding-bottom: 15px;
 }
@@ -749,18 +749,22 @@ section {
 
 .view-specs-btn {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
-  opacity: 0.8;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  padding: 8px 16px;
+  background: transparent;
   transition: var(--transition-fast);
+  display: inline-block;
 }
 
 .project-card:hover .view-specs-btn {
-  color: var(--color-text);
-  opacity: 1;
+  border-color: var(--color-text);
+  background: var(--color-text);
+  color: var(--color-bg);
 }
 
 .project-location {
