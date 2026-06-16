@@ -1,10 +1,11 @@
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Syne:wght@400;700;800&display=swap');
 
 /* Design Tokens & Variables */
 :root {
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-syne: 'Syne', sans-serif;
   
   --color-bg: #ffffff;
   --color-bg-light: #f5f5f5;
@@ -138,10 +139,10 @@ body.loader-active .custom-cursor-outline {
 }
 
 .loader-logo-main {
-  font-family: var(--font-sans);
+  font-family: var(--font-syne);
   font-size: 2.2rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.15em;
   color: #ffffff;
   text-transform: uppercase;
   line-height: 1.1;
@@ -151,10 +152,10 @@ body.loader-active .custom-cursor-outline {
   display: flex;
   align-items: center;
   width: 260px;
-  font-family: var(--font-sans);
+  font-family: var(--font-syne);
   font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.25em;
   color: #ffffff;
   text-transform: uppercase;
   margin-top: 8px;
@@ -247,10 +248,10 @@ header {
 }
 
 .logo-main-text {
-  font-family: var(--font-sans);
+  font-family: var(--font-syne);
   font-size: 1.2rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   color: var(--color-text);
   text-transform: uppercase;
 }
@@ -259,10 +260,10 @@ header {
   display: flex;
   align-items: center;
   width: 100%;
-  font-family: var(--font-sans);
+  font-family: var(--font-syne);
   font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.22em;
   color: var(--color-text-muted);
   text-transform: uppercase;
   margin-top: 1px;
@@ -744,6 +745,22 @@ section {
   font-family: var(--font-serif);
   font-size: 1.8rem;
   font-weight: 300;
+}
+
+.view-specs-btn {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  opacity: 0.8;
+  transition: var(--transition-fast);
+}
+
+.project-card:hover .view-specs-btn {
+  color: var(--color-text);
+  opacity: 1;
 }
 
 .project-location {
