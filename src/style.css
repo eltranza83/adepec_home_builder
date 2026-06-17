@@ -816,7 +816,7 @@ section {
 
 .project-img-wrapper {
   position: relative;
-  aspect-ratio: 21/9;
+  aspect-ratio: 16/9;
   overflow: hidden;
   border-radius: 4px;
 }
@@ -1417,9 +1417,6 @@ footer {
 
 /* Responsive styles */
 @media(max-width: 1024px) {
-  .project-img-wrapper {
-    aspect-ratio: 16/10;
-  }
   html {
     cursor: default; /* Disable custom cursor on touch/smaller screens */
   }
