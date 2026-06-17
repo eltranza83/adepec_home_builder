@@ -1217,7 +1217,7 @@ footer {
 
 .build-specs-card {
   background: var(--color-bg-light);
-  padding: 40px;
+  padding: 30px;
   border-radius: 4px;
   border: 1px solid var(--color-border);
 }
