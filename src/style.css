@@ -1417,6 +1417,9 @@ footer {
 
 /* Responsive styles */
 @media(max-width: 1024px) {
+  .project-img-wrapper {
+    aspect-ratio: 16/10;
+  }
   html {
     cursor: default; /* Disable custom cursor on touch/smaller screens */
   }
@@ -1445,6 +1448,29 @@ footer {
 }
 
 @media(max-width: 768px) {
+  .badge-container {
+    top: 10px;
+    right: 10px;
+    gap: 4px;
+  }
+  .status-badge {
+    padding: 4px 8px;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+  }
+  .map-link {
+    padding: 4px 8px;
+    font-size: 0.55rem;
+    gap: 4px;
+    letter-spacing: 0.1em;
+  }
+  .rendering-badge {
+    bottom: 10px;
+    left: 10px;
+    padding: 3px 6px;
+    font-size: 0.52rem;
+    letter-spacing: 0.08em;
+  }
   header { padding: 20px 25px; }
   .logo-icon { width: 32px; height: 32px; }
   .logo-main-text { font-size: 1.05rem; }
