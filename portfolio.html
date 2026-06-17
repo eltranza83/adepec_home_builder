@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio | Adepec Homes</title>
   <meta name="description" content="Explore our portfolio of premium architectural homes — Home 2621 and Home 4704 in McAllen, Texas.">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
   <link rel="stylesheet" href="./src/style.css">
   <style>
-    /* Header background blur fix to prevent text overlap on scroll */
-    header {
-      background: rgba(255, 255, 255, 0.85) !important;
-      backdrop-filter: blur(12px) !important;
-      -webkit-backdrop-filter: blur(12px) !important;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
-    }
-
     /* Portfolio-specific styles */
     .portfolio-hero {
       height: 45vh;
@@ -240,12 +238,23 @@
         <span class="logo-sub-text">HOMES</span>
       </div>
     </a>
-    <a href="index.html" class="back-link link-hover">
-      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/>
-      </svg>
-      <span>Back to Home</span>
-    </a>
+    <div class="header-controls">
+      <button class="theme-toggle link-hover" id="theme-btn" aria-label="Toggle Theme">
+        <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+        <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </button>
+      <a href="index.html" class="back-link link-hover">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/>
+        </svg>
+        <span>Back to Home</span>
+      </a>
+    </div>
   </header>
 
   <!-- Portfolio Hero -->
@@ -268,6 +277,7 @@
       <div class="portfolio-item reveal-on-scroll" data-caption="Elegant Residence — Street View">
         <div class="img-wrap">
           <img src="./exterior.jpeg" alt="Elegant Residence — Street View">
+          <span class="sold-badge">Sold</span>
         </div>
         <div class="item-label">
           <h3>Street View</h3>
@@ -315,6 +325,7 @@
       <div class="portfolio-item reveal-on-scroll" data-caption="Modern Retreat — Modern Facade">
         <div class="img-wrap">
           <img src="./exterior2.jpeg" alt="Modern Retreat — Modern Facade">
+          <span class="sold-badge">Sold</span>
         </div>
         <div class="item-label">
           <h3>Modern Facade</h3>
@@ -362,9 +373,9 @@
     <div class="portfolio-grid">
       <!-- Top: Large Front Elevation (Hero-style portfolio item) -->
       <div class="portfolio-item reveal-on-scroll" data-caption="9908 North 25th Street — Front Elevation">
-        <div class="img-wrap" style="background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 25px; border: 1px solid var(--color-border); position: relative;">
+        <div class="img-wrap" style="background: #ffffff; display: flex; align-items: flex-end; justify-content: center; padding: 35px 25px 15px 25px; border: 1px solid var(--color-border); position: relative;">
           <img src="./elevations_lot102.png" alt="9908 North 25th Street — Front Elevation" style="width: 100%; height: 100%; object-fit: contain;">
-          <span class="status-badge" style="position: absolute; top: 20px; right: 20px; pointer-events: none;">Under Construction</span>
+          <span class="status-badge" style="position: absolute; top: 15px; right: 15px; pointer-events: none;">Under Construction</span>
         </div>
         <div class="item-label">
           <h3>Front Elevation</h3>
@@ -443,9 +454,9 @@
     <div class="portfolio-grid">
       <!-- Top: Large Front Elevation (Hero-style portfolio item) -->
       <div class="portfolio-item reveal-on-scroll" data-caption="9905 North 25th Street — Front Elevation">
-        <div class="img-wrap" style="background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 25px; border: 1px solid var(--color-border); position: relative;">
+        <div class="img-wrap" style="background: #ffffff; display: flex; align-items: flex-end; justify-content: center; padding: 35px 25px 15px 25px; border: 1px solid var(--color-border); position: relative;">
           <img src="./elevations_lot115.png" alt="9905 North 25th Street — Front Elevation" style="width: 100%; height: 100%; object-fit: contain;">
-          <span class="status-badge" style="position: absolute; top: 20px; right: 20px; pointer-events: none;">Under Construction</span>
+          <span class="status-badge" style="position: absolute; top: 15px; right: 15px; pointer-events: none;">Under Construction</span>
         </div>
         <div class="item-label">
           <h3>Front Elevation</h3>
@@ -570,6 +581,17 @@
         el.addEventListener("mouseenter", () => document.body.classList.add("hovering-link"));
         el.addEventListener("mouseleave", () => document.body.classList.remove("hovering-link"));
       });
+
+      // Theme toggle logic
+      const themeBtn = document.getElementById("theme-btn");
+      if (themeBtn) {
+        themeBtn.addEventListener("click", () => {
+          const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
+          const newTheme = currentTheme === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", newTheme);
+          localStorage.setItem("theme", newTheme);
+        });
+      }
 
       // Scroll reveals
       const observer = new IntersectionObserver((entries) => {

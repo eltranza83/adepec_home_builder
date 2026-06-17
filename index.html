@@ -5,16 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adepec Homes | Premium Architectural Homes</title>
   <meta name="description" content="Adepec Homes builds and sells award-winning premium minimalist homes. Form follows feeling.">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
   <link rel="stylesheet" href="./src/style.css">
-  <style>
-    /* Header background blur fix to prevent text overlap on scroll */
-    header {
-      background: rgba(255, 255, 255, 0.85) !important;
-      backdrop-filter: blur(12px) !important;
-      -webkit-backdrop-filter: blur(12px) !important;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
-    }
-  </style>
 </head>
 <body>
 
@@ -64,10 +61,21 @@
         <span class="logo-sub-text">HOMES</span>
       </div>
     </a>
-    <button class="nav-toggle link-hover" id="menu-btn" aria-label="Toggle Menu">
-      <span></span>
-      <div style="margin-left: 10px;" id="menu-btn-text">Menu</div>
-    </button>
+    <div class="header-controls">
+      <button class="theme-toggle link-hover" id="theme-btn" aria-label="Toggle Theme">
+        <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+        <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </button>
+      <button class="nav-toggle link-hover" id="menu-btn" aria-label="Toggle Menu">
+        <span></span>
+        <div style="margin-left: 10px;" id="menu-btn-text">Menu</div>
+      </button>
+    </div>
   </header>
 
   <!-- Fullscreen Navigation Overlay -->
@@ -83,19 +91,13 @@
       </ul>
       <div class="menu-info">
         <div>
-          <h4>The Studio</h4>
-          <p>1400 Obsidian Way, Suite 400<br>Los Angeles, CA 90028</p>
-        </div>
-        <div>
           <h4>Inquiries</h4>
-          <p><a href="mailto:inquire@adepecgrouphomes.com" class="link-hover">inquire@adepecgrouphomes.com</a><br>+1 (310) 555-0199</p>
+          <p><a href="mailto:info@adepechomes.com" class="link-hover">info@adepechomes.com</a><br>956-821-2514</p>
         </div>
         <div>
           <h4>Follow</h4>
           <p>
-            <a href="#" class="link-hover" style="margin-right: 15px;">Instagram</a>
-            <a href="#" class="link-hover" style="margin-right: 15px;">Journal</a>
-            <a href="#" class="link-hover">Pinterest</a>
+            <a href="#" class="link-hover">Instagram</a>
           </p>
         </div>
       </div>
@@ -156,6 +158,7 @@
         <div class="project-card reveal-on-scroll">
           <div class="project-img-wrapper link-hover">
             <img src="/assets/exterior_2621.jpg" alt="Elegant Residence Sample" />
+            <span class="sold-badge">Sold</span>
           </div>
           <div class="project-details">
             <h3 class="project-title">Elegant Residence</h3>
@@ -165,6 +168,7 @@
         <div class="project-card reveal-on-scroll">
           <div class="project-img-wrapper link-hover">
             <img src="./exterior2.jpeg" alt="Modern Retreat Sample" />
+            <span class="sold-badge">Sold</span>
           </div>
           <div class="project-details">
             <h3 class="project-title">Modern Retreat</h3>
@@ -187,9 +191,9 @@
       <div class="sample-photos">
         <!-- 9908 North 25th Street -->
         <div class="project-card reveal-on-scroll">
-          <div class="project-img-wrapper link-hover" style="background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 40px; border: 1px solid var(--color-border); position: relative; aspect-ratio: 21/9;">
+          <div class="project-img-wrapper link-hover" style="background: #ffffff; display: flex; align-items: flex-end; justify-content: center; padding: 50px 40px 20px 40px; border: 1px solid var(--color-border); position: relative; aspect-ratio: 21/9;">
             <img src="./elevations_lot102.png" alt="9908 North 25th Street — Front Elevation" style="width: 100%; height: 100%; object-fit: contain;" />
-            <span class="status-badge" style="position: absolute; top: 25px; right: 25px; z-index: 10;">Under Construction</span>
+            <span class="status-badge" style="position: absolute; top: 20px; right: 20px; z-index: 10;">Under Construction</span>
           </div>
           <div class="project-details">
             <h3 class="project-title" style="font-family: var(--font-serif); font-size: 1.8rem; font-weight: 300;">9908 North 25th Street</h3>
@@ -199,9 +203,9 @@
         
         <!-- 9905 North 25th Street -->
         <div class="project-card reveal-on-scroll">
-          <div class="project-img-wrapper link-hover" style="background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 40px; border: 1px solid var(--color-border); position: relative; aspect-ratio: 21/9;">
+          <div class="project-img-wrapper link-hover" style="background: #ffffff; display: flex; align-items: flex-end; justify-content: center; padding: 50px 40px 20px 40px; border: 1px solid var(--color-border); position: relative; aspect-ratio: 21/9;">
             <img src="./elevations_lot115.png" alt="9905 North 25th Street — Front Elevation" style="width: 100%; height: 100%; object-fit: contain;" />
-            <span class="status-badge" style="position: absolute; top: 25px; right: 25px; z-index: 10;">Under Construction</span>
+            <span class="status-badge" style="position: absolute; top: 20px; right: 20px; z-index: 10;">Under Construction</span>
           </div>
           <div class="project-details">
             <h3 class="project-title" style="font-family: var(--font-serif); font-size: 1.8rem; font-weight: 300;">9905 North 25th Street</h3>
@@ -220,8 +224,7 @@
           <div class="contact-details">
             <p>Interested in acquiring one of our featured builds or starting a custom commission? Drop us a note.</p>
             <p>
-              <strong>General:</strong> <a href="mailto:info@adepecgrouphomes.com" class="link-hover">info@adepecgrouphomes.com</a><br>
-              <strong>Sales:</strong> <a href="mailto:sales@adepecgrouphomes.com" class="link-hover">sales@adepecgrouphomes.com</a>
+              <strong>Inquiries:</strong> <a href="mailto:info@adepechomes.com" class="link-hover">info@adepechomes.com</a>
             </p>
           </div>
         </div>

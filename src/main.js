@@ -96,6 +96,17 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   setupHoverEffects();
 
+  // Theme Toggle Logic
+  const themeBtn = document.getElementById("theme-btn");
+  if (themeBtn) {
+    themeBtn.addEventListener("click", () => {
+      const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+    });
+  }
+
   // Intro Loader Sequence
   const runIntro = () => {
     // Check if intro has already been run in this session
