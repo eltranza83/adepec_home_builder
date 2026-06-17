@@ -332,7 +332,13 @@ document.addEventListener("DOMContentLoaded", () => {
           lightboxImg.src = img.src;
           lightboxImg.alt = img.alt || caption;
           if (lightboxCaption) {
-            lightboxCaption.textContent = caption;
+            let formattedCaption = caption;
+            if (caption.includes("9908")) {
+              formattedCaption = `${caption} &bull; <a href="https://maps.google.com/?q=9908+North+25th+Street,+McAllen,+Texas+78504" target="_blank" style="color: #C5A059; text-decoration: none; border-bottom: 1px solid; margin-left: 8px;" onclick="event.stopPropagation();">Open in Google Maps</a>`;
+            } else if (caption.includes("9905")) {
+              formattedCaption = `${caption} &bull; <a href="https://maps.google.com/?q=9905+North+25th+Street,+McAllen,+Texas+78504" target="_blank" style="color: #C5A059; text-decoration: none; border-bottom: 1px solid; margin-left: 8px;" onclick="event.stopPropagation();">Open in Google Maps</a>`;
+            }
+            lightboxCaption.innerHTML = formattedCaption;
           }
           lightbox.classList.add("open");
           document.body.style.overflow = "hidden";
