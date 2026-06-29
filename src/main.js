@@ -12,9 +12,9 @@ const projectsData = {
     tagline: "A clean stucco and white stone sanctuary with bespoke entry details.",
     description: "Residence 2621 embodies the clean lines of modern suburban luxury. With an open floor plan emphasizing double-height ceilings and marble-look polished floors, the home offers a bright, airy sanctuary. Features include a bespoke double-door entryway, custom coffered ceilings, and a massive kitchen suite opening to the main family quarters.",
     images: [
-      "/assets/foyer.jpg",
-      "/assets/kitchen.jpg",
-      "/assets/bathroom_1.jpg"
+      "/assets/houses/elegant-residence/exterior.jpeg",
+      "/assets/houses/elegant-residence/kitchen.jpeg",
+      "/assets/houses/elegant-residence/bathroom.jpeg"
     ]
   },
   residence4704: {
@@ -30,9 +30,9 @@ const projectsData = {
     tagline: "Elevated modern kitchen suites and private wet baths.",
     description: "Residence 4704 focuses on interior choreography. The heart of the home is a spacious culinary suite featuring cobalt-blue cabinetry, quartz countertops, and designer pendant lights. The private bath suite is designed as a geometric sanctuary, boasting floating double vanities and an glass-enclosed pentagonal wet shower.",
     images: [
-      "/assets/living_kitchen_open.jpg",
-      "/assets/living_room.jpg",
-      "/assets/bathroom_2.jpg"
+      "/assets/houses/modern-retreat/exterior.jpeg",
+      "/assets/houses/modern-retreat/living.jpeg",
+      "/assets/houses/modern-retreat/bathroom.jpeg"
     ]
   }
 };
