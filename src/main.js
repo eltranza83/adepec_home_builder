@@ -30,7 +30,7 @@ const projectsData = {
     tagline: "Elevated modern kitchen suites and private wet baths.",
     description: "Residence 4704 focuses on interior choreography. The heart of the home is a spacious culinary suite featuring cobalt-blue cabinetry, quartz countertops, and designer pendant lights. The private bath suite is designed as a geometric sanctuary, boasting floating double vanities and an glass-enclosed pentagonal wet shower.",
     images: [
-      "/assets/houses/modern-retreat/exterior.jpeg",
+      "/assets/houses/modern-retreat/exterior.webp",
       "/assets/houses/modern-retreat/living.jpeg",
       "/assets/houses/modern-retreat/bathroom.jpeg"
     ]
