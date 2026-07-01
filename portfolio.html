@@ -142,11 +142,11 @@
     }
 
     /* First item in each grid spans full width for a hero-style layout */
-    .portfolio-grid .portfolio-item:first-child {
+    .portfolio-grid > .portfolio-item:first-child {
       grid-column: 1 / -1;
     }
 
-    .portfolio-grid .portfolio-item:first-child .img-wrap {
+    .portfolio-grid > .portfolio-item:first-child .img-wrap {
       aspect-ratio: 16/9;
     }
 
@@ -176,7 +176,7 @@
     @media (max-width: 1024px) {
       .portfolio-hero h1 { font-size: 3.5rem; }
       .portfolio-grid { grid-template-columns: 1fr; }
-      .portfolio-grid .portfolio-item:first-child .img-wrap { aspect-ratio: 16/9; }
+      .portfolio-grid > .portfolio-item:first-child .img-wrap { aspect-ratio: 16/9; }
       .portfolio-grid .portfolio-item { cursor: pointer; }
     }
 
@@ -210,6 +210,100 @@
         min-height: 200px !important;
         height: auto !important;
       }
+    }
+
+    /* Carousel / Slider Gallery styles */
+    .portfolio-carousel-wrapper {
+      grid-column: 1 / -1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .portfolio-carousel-track {
+      display: flex;
+      gap: 30px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      width: 100%;
+      padding: 15px 0;
+      scrollbar-width: none; /* Firefox */
+    }
+
+    .portfolio-carousel-track::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+
+    .portfolio-carousel-track .portfolio-item {
+      flex: 0 0 calc((100% - 60px) / 3); /* 3 items visible */
+      scroll-snap-align: start;
+    }
+
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(18, 18, 18, 0.75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: none;
+      z-index: 10;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      opacity: 0.9;
+    }
+
+    .carousel-arrow:hover {
+      opacity: 1;
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .carousel-arrow.prev {
+      left: -25px;
+    }
+
+    .carousel-arrow.next {
+      right: -25px;
+    }
+
+    /* Light Theme Adjustments */
+    [data-theme="light"] .carousel-arrow {
+      background: rgba(255, 255, 255, 0.75);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .portfolio-carousel-track .portfolio-item {
+        flex: 0 0 calc((100% - 30px) / 2); /* 2 items visible */
+      }
+      .carousel-arrow.prev { left: -15px; }
+      .carousel-arrow.next { right: -15px; }
+    }
+
+    @media (max-width: 768px) {
+      .portfolio-carousel-track .portfolio-item {
+        flex: 0 0 100%; /* 1 item visible */
+      }
+      .carousel-arrow {
+        width: 40px;
+        height: 40px;
+      }
+      .carousel-arrow.prev { left: -10px; }
+      .carousel-arrow.next { right: -10px; }
     }
   </style>
 </head>
@@ -374,7 +468,7 @@
       <!-- Top: Large Front Elevation (Hero-style portfolio item) -->
       <div class="portfolio-item reveal-on-scroll" data-caption="9908 North 25th Street — Front Elevation">
         <div class="img-wrap">
-          <img src="/assets/houses/9908-n-25th-st/elevation.png" alt="9908 North 25th Street — Front Elevation" style="object-position: center 85%;">
+          <img src="/assets/houses/9908-n-25th-st/elevation.png" alt="9908 North 25th Street — Front Elevation" style="object-position: center 25%;">
           <div class="badge-container">
             <span class="status-badge">Available</span>
             <a href="https://maps.google.com/?q=9908+North+25th+Street,+McAllen,+Texas+78504" target="_blank" class="map-link link-hover" onclick="event.stopPropagation();">
@@ -387,6 +481,122 @@
           <h3>Front Elevation</h3>
           <span>Upcoming Build — Click to Expand</span>
         </div>
+      </div>
+
+      <!-- Carousel Row of Details -->
+      <div class="portfolio-carousel-wrapper reveal-on-scroll">
+        <button class="carousel-arrow prev link-hover" aria-label="Previous image">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <div class="portfolio-carousel-track">
+          <!-- 1. Open Area 1 -->
+          <div class="portfolio-item reveal-on-scroll" data-caption="9908 North 25th Street — Open Living Area">
+            <div class="img-wrap">
+              <img src="/assets/houses/9908-n-25th-st/openarea1.jpg" alt="Open Living Area">
+            </div>
+            <div class="item-label">
+              <h3>Open Living Area</h3>
+              <span>Interior</span>
+            </div>
+          </div>
+          <!-- 2. Master Bath -->
+          <div class="portfolio-item reveal-on-scroll" data-caption="9908 North 25th Street — Master Bathroom">
+            <div class="img-wrap">
+              <img src="/assets/houses/9908-n-25th-st/masterBath.jpg" alt="Master Bathroom">
+            </div>
+            <div class="item-label">
+              <h3>Master Bathroom</h3>
+              <span>Interior</span>
+            </div>
+          </div>
+          <!-- 3. Kitchen -->
+          <div class="portfolio-item reveal-on-scroll" data-caption="9908 North 25th Street — Gourmet Kitchen">
+            <div class="img-wrap">
+              <img src="/assets/houses/9908-n-25th-st/kitchen.jpg" alt="Gourmet Kitchen">
+            </div>
+            <div class="item-label">
+              <h3>Gourmet Kitchen</h3>
+              <span>Interior</span>
+            </div>
+          </div>
+          <!-- 4. Bedroom 1 -->
+          <div class="portfolio-item reveal-on-scroll" data-caption="9908 North 25th Street — Bedroom 1">
+            <div class="img-wrap">
+              <img src="/assets/houses/9908-n-25th-st/bedroom1.jpg" alt="Bedroom 1">
+            </div>
+            <div class="item-label">
+              <h3>Bedroom 1</h3>
+              <span>Interior</span>
+            </div>
+          </div>
+          <!-- 5. From Dining -->
+          <div class="portfolio-item reveal-on-scroll" data-caption="9908 North 25th Street — Dining Area Vista">
+            <div class="img-wrap">
+              <img src="/assets/houses/9908-n-25th-st/fromdining.jpg" alt="Dining Area Vista">
+            </div>
+            <div class="item-label">
+              <h3>Dining Area Vista</h3>
+              <span>Interior</span>
+            </div>
+          </div>
+          <!-- 6. Backyard -->
+          <div class="portfolio-item reveal-on-scroll" data-caption="9908 North 25th Street — Backyard Landscape">
+            <div class="img-wrap">
+              <img src="/assets/houses/9908-n-25th-st/backyard.jpg" alt="Backyard Landscape">
+            </div>
+            <div class="item-label">
+              <h3>Backyard Landscape</h3>
+              <span>Exterior</span>
+            </div>
+          </div>
+          <!-- 7. Laundry -->
+          <div class="portfolio-item reveal-on-scroll" data-caption="9908 North 25th Street — Laundry Room">
+            <div class="img-wrap">
+              <img src="/assets/houses/9908-n-25th-st/laundry.jpg" alt="Laundry Room">
+            </div>
+            <div class="item-label">
+              <h3>Laundry Room</h3>
+              <span>Interior</span>
+            </div>
+          </div>
+          <!-- 8. Master Closet -->
+          <div class="portfolio-item reveal-on-scroll" data-caption="9908 North 25th Street — Master Closet">
+            <div class="img-wrap">
+              <img src="/assets/houses/9908-n-25th-st/masterCloset.jpg" alt="Master Closet">
+            </div>
+            <div class="item-label">
+              <h3>Master Closet</h3>
+              <span>Interior</span>
+            </div>
+          </div>
+          <!-- 9. Mini Master RR -->
+          <div class="portfolio-item reveal-on-scroll" data-caption="9908 North 25th Street — Mini Master Restroom">
+            <div class="img-wrap">
+              <img src="/assets/houses/9908-n-25th-st/miniMasterRR.jpg" alt="Mini Master Restroom">
+            </div>
+            <div class="item-label">
+              <h3>Mini Master Restroom</h3>
+              <span>Interior</span>
+            </div>
+          </div>
+          <!-- 10. Shared RR -->
+          <div class="portfolio-item reveal-on-scroll" data-caption="9908 North 25th Street — Shared Restroom">
+            <div class="img-wrap">
+              <img src="/assets/houses/9908-n-25th-st/sharedRR.jpg" alt="Shared Restroom">
+            </div>
+            <div class="item-label">
+              <h3>Shared Restroom</h3>
+              <span>Interior</span>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-arrow next link-hover" aria-label="Next image">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
       </div>
       
       <!-- Bottom Left Card: Specifications -->
@@ -670,6 +880,46 @@
         lightbox.classList.remove("open");
         document.body.style.overflow = "";
       });
+
+      // Carousel logic for 9908 North 25th Street
+      const track = document.querySelector(".portfolio-carousel-track");
+      const prevBtn = document.querySelector(".carousel-arrow.prev");
+      const nextBtn = document.querySelector(".carousel-arrow.next");
+
+      if (track && prevBtn && nextBtn) {
+        const getScrollAmount = () => {
+          const firstItem = track.querySelector(".portfolio-item");
+          if (firstItem) {
+            return firstItem.offsetWidth + 30; // Card width + gap
+          }
+          return track.offsetWidth;
+        };
+
+        nextBtn.addEventListener("click", () => {
+          track.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+        });
+
+        prevBtn.addEventListener("click", () => {
+          track.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+        });
+
+        const toggleArrows = () => {
+          const scrollLeft = Math.round(track.scrollLeft);
+          const maxScrollLeft = track.scrollWidth - track.clientWidth;
+          
+          prevBtn.style.opacity = scrollLeft <= 5 ? "0.2" : "0.9";
+          prevBtn.style.pointerEvents = scrollLeft <= 5 ? "none" : "auto";
+          
+          nextBtn.style.opacity = scrollLeft >= maxScrollLeft - 5 ? "0.2" : "0.9";
+          nextBtn.style.pointerEvents = scrollLeft >= maxScrollLeft - 5 ? "none" : "auto";
+        };
+
+        track.addEventListener("scroll", toggleArrows);
+        // Initial run
+        setTimeout(toggleArrows, 100);
+        // Resize listener
+        window.addEventListener("resize", toggleArrows);
+      }
 
       window.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && lightbox.classList.contains("open")) {
