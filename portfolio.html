@@ -240,6 +240,7 @@
       align-items: center;
       width: 100%;
       margin-top: 20px;
+      overflow: hidden;
     }
 
     .portfolio-carousel-track {
@@ -310,20 +311,35 @@
       .portfolio-carousel-track .portfolio-item {
         flex: 0 0 calc((100% - 30px) / 2); /* 2 items visible */
       }
-      .carousel-arrow.prev { left: -15px; }
-      .carousel-arrow.next { right: -15px; }
+      .carousel-arrow.prev { left: 5px; }
+      .carousel-arrow.next { right: 5px; }
     }
 
     @media (max-width: 768px) {
       .portfolio-carousel-track .portfolio-item {
         flex: 0 0 100%; /* 1 item visible */
       }
-      .carousel-arrow {
-        width: 40px;
-        height: 40px;
+      .portfolio-carousel-track {
+        gap: 15px;
       }
-      .carousel-arrow.prev { left: -10px; }
-      .carousel-arrow.next { right: -10px; }
+      .carousel-arrow {
+        width: 36px;
+        height: 36px;
+      }
+      .carousel-arrow.prev { left: 8px; }
+      .carousel-arrow.next { right: 8px; }
+    }
+
+    @media (max-width: 480px) {
+      .portfolio-carousel-track {
+        gap: 10px;
+      }
+      .carousel-arrow {
+        width: 32px;
+        height: 32px;
+      }
+      .carousel-arrow.prev { left: 6px; }
+      .carousel-arrow.next { right: 6px; }
     }
   </style>
 </head>
