@@ -79,10 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       heroFooter.style.transition = "none";
       heroFooter.classList.add("revealed");
-      const heroImg = document.getElementById("hero-img");
       if (heroImg) {
         heroImg.style.transition = "none";
-        heroImg.style.transform = "scale(1)";
+        heroImg.style.transform = "translate3d(0, 0, 0) scale(1.1)";
       }
       return;
     }
@@ -112,7 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
       heroFooter.classList.add("revealed");
       // Scale down background image slightly for a camera zoom-out effect
       const heroImg = document.getElementById("hero-img");
-      if (heroImg) heroImg.style.transform = "scale(1)";
+      if (heroImg) {
+        heroImg.style.transition = "transform 2s cubic-bezier(0.16, 1, 0.3, 1)";
+        heroImg.style.transform = "translate3d(0, 0, 0) scale(1.1)";
+      }
     }, 3000);
   };
   runIntro();
@@ -215,4 +217,35 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // Parallax Scroll Effect
+  const heroImg = document.getElementById("hero-img");
+  const philosophyImg = document.querySelector(".philosophy-img img");
+
+  let scrollY = window.scrollY;
+
+  function updateParallax() {
+    scrollY = window.scrollY;
+
+    // 1. Hero Image Parallax (moves slowly downwards)
+    if (heroImg) {
+      heroImg.style.transform = `translate3d(0, ${scrollY * 0.35}px, 0) scale(1.1)`;
+    }
+
+    // 2. Philosophy Image Parallax (moves inside relative to viewport)
+    if (philosophyImg) {
+      const rect = philosophyImg.parentElement.getBoundingClientRect();
+      const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+      
+      if (isInViewport) {
+        const offset = (window.innerHeight - rect.top) * 0.12;
+        philosophyImg.style.transform = `translate3d(0, ${-offset}px, 0) scale(1.05)`;
+      }
+    }
+  }
+
+  // Bind to scroll events with requestAnimationFrame
+  window.addEventListener("scroll", () => {
+    requestAnimationFrame(updateParallax);
+  }, { passive: true });
 });
