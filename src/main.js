@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.getElementById("menu-btn");
   const menuOverlay = document.getElementById("menu-overlay");
   const menuBtnText = document.getElementById("menu-btn-text");
+  const heroImg = document.getElementById("hero-img");
+  const philosophyImg = document.querySelector(".philosophy-img img");
   
   // Custom Cursor Physics & Tracking
   let mouse = { x: 0, y: 0 };
@@ -28,16 +30,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function animateCursor() {
     // Inner dot - fast tracking
-    cursorPositions.x = lerp(cursorPositions.x, mouse.x, 0.3);
-    cursorPositions.y = lerp(cursorPositions.y, mouse.y, 0.3);
-    cursor.style.left = `${cursorPositions.x}px`;
-    cursor.style.top = `${cursorPositions.y}px`;
+    if (cursor) {
+      cursorPositions.x = lerp(cursorPositions.x, mouse.x, 0.3);
+      cursorPositions.y = lerp(cursorPositions.y, mouse.y, 0.3);
+      cursor.style.left = `${cursorPositions.x}px`;
+      cursor.style.top = `${cursorPositions.y}px`;
+    }
 
     // Outer outline - slow trailing (lerp)
-    outlinePositions.x = lerp(outlinePositions.x, mouse.x, 0.12);
-    outlinePositions.y = lerp(outlinePositions.y, mouse.y, 0.12);
-    cursorOutline.style.left = `${outlinePositions.x}px`;
-    cursorOutline.style.top = `${outlinePositions.y}px`;
+    if (cursorOutline) {
+      outlinePositions.x = lerp(outlinePositions.x, mouse.x, 0.12);
+      outlinePositions.y = lerp(outlinePositions.y, mouse.y, 0.12);
+      cursorOutline.style.left = `${outlinePositions.x}px`;
+      cursorOutline.style.top = `${outlinePositions.y}px`;
+    }
 
     requestAnimationFrame(animateCursor);
   }
@@ -72,13 +78,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const runIntro = () => {
     // Check if intro has already been run in this session
     if (sessionStorage.getItem("introPlayed")) {
-      loader.style.display = "none";
-      heroTitleSpans.forEach(span => {
-        span.style.transition = "none";
-        span.classList.add("revealed");
-      });
-      heroFooter.style.transition = "none";
-      heroFooter.classList.add("revealed");
+      if (loader) loader.style.display = "none";
+      if (heroTitleSpans) {
+        heroTitleSpans.forEach(span => {
+          span.style.transition = "none";
+          span.classList.add("revealed");
+        });
+      }
+      if (heroFooter) {
+        heroFooter.style.transition = "none";
+        heroFooter.classList.add("revealed");
+      }
       if (heroImg) {
         heroImg.style.transition = "none";
         heroImg.style.transform = "translate3d(0, 0, 0) scale(1.1)";
@@ -94,23 +104,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 1. Text reveals
     setTimeout(() => {
-      loaderText.classList.add("active");
-      loaderBar.style.width = "100%";
+      if (loaderText) loaderText.classList.add("active");
+      if (loaderBar) loaderBar.style.width = "100%";
     }, 100);
 
     // 2. Slide up loader and fade out text
     setTimeout(() => {
-      loader.classList.add("loaded");
-      loaderText.classList.remove("active");
+      if (loader) loader.classList.add("loaded");
+      if (loaderText) loaderText.classList.remove("active");
       document.body.classList.remove("loader-active");
     }, 2000);
 
     // 3. Reveal hero elements
     setTimeout(() => {
-      heroTitleSpans.forEach(span => span.classList.add("revealed"));
-      heroFooter.classList.add("revealed");
+      if (heroTitleSpans) {
+        heroTitleSpans.forEach(span => span.classList.add("revealed"));
+      }
+      if (heroFooter) {
+        heroFooter.classList.add("revealed");
+      }
       // Scale down background image slightly for a camera zoom-out effect
-      const heroImg = document.getElementById("hero-img");
       if (heroImg) {
         heroImg.style.transition = "transform 2s cubic-bezier(0.16, 1, 0.3, 1)";
         heroImg.style.transform = "translate3d(0, 0, 0) scale(1.1)";
@@ -120,25 +133,29 @@ document.addEventListener("DOMContentLoaded", () => {
   runIntro();
 
   // Fullscreen Navigation Menu Toggle
-  menuBtn.addEventListener("click", () => {
-    const isOpen = menuOverlay.classList.toggle("open");
-    menuBtn.classList.toggle("open");
-    menuBtnText.textContent = isOpen ? "Close" : "Menu";
-    
-    // Toggle body scrolling
-    document.body.style.overflow = isOpen ? "hidden" : "";
-  });
+  if (menuBtn && menuOverlay && menuBtnText) {
+    menuBtn.addEventListener("click", () => {
+      const isOpen = menuOverlay.classList.toggle("open");
+      menuBtn.classList.toggle("open");
+      menuBtnText.textContent = isOpen ? "Close" : "Menu";
+      
+      // Toggle body scrolling
+      document.body.style.overflow = isOpen ? "hidden" : "";
+    });
+  }
 
   // Close menu when navigation item is clicked
   const closeTriggers = document.querySelectorAll(".menu-close-trigger");
-  closeTriggers.forEach(trigger => {
-    trigger.addEventListener("click", () => {
-      menuOverlay.classList.remove("open");
-      menuBtn.classList.remove("open");
-      menuBtnText.textContent = "Menu";
-      document.body.style.overflow = "";
+  if (closeTriggers && menuOverlay && menuBtn && menuBtnText) {
+    closeTriggers.forEach(trigger => {
+      trigger.addEventListener("click", () => {
+        menuOverlay.classList.remove("open");
+        menuBtn.classList.remove("open");
+        menuBtnText.textContent = "Menu";
+        document.body.style.overflow = "";
+      });
     });
-  });
+  }
 
   // Scroll Reveal Animations using IntersectionObserver
   const revealOptions = {
@@ -195,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const closeLightbox = () => {
       lightbox.classList.remove("open");
-      if (!menuOverlay.classList.contains("open")) {
+      if (menuOverlay && !menuOverlay.classList.contains("open")) {
         document.body.style.overflow = "";
       }
     };
@@ -219,9 +236,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Parallax Scroll Effect
-  const heroImg = document.getElementById("hero-img");
-  const philosophyImg = document.querySelector(".philosophy-img img");
-
   let scrollY = window.scrollY;
 
   function updateParallax() {
