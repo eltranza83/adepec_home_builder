@@ -37,11 +37,11 @@
     <path fill-rule="evenodd" d="M50 33.5 L66.5 50 V85 H50.5 V73 H49.5 V85 H33.5 V50 Z M50 42.5 L57.5 50 V63 H42.5 V50 Z" fill="url(#gold-grad)"/>
   </g>
 
-  <!-- 2. ADEPEC Text (shifted slightly right to compensate for trailing letter-spacing) -->
-  <text x="100" y="145" dx="0.06em" class="logo-main">ADEPEC</text>
+  <!-- 2. ADEPEC Text (Centered perfectly by text-anchor; modern browsers omit trailing letter-spacing) -->
+  <text x="100" y="145" class="logo-main">ADEPEC</text>
 
-  <!-- 3. HOMES Text (shifted slightly right to compensate for trailing letter-spacing) -->
-  <text x="100" y="172" dx="0.14em" class="logo-sub">HOMES</text>
+  <!-- 3. HOMES Text (Shifted slightly left visually using dx to account for font side-bearings and curve width difference) -->
+  <text x="100" y="172" dx="-0.08em" class="logo-sub">HOMES</text>
   
   <!-- Left horizontal gold bar (extended to line up with the edge of the letter A) -->
   <line x1="24" y1="168" x2="63" y2="168" stroke="#C5A059" stroke-width="1.5"/>
