@@ -31,8 +31,8 @@
     </style>
   </defs>
 
-  <!-- 1. The Gold House Logo Symbol with wider slit (4.5px wide) -->
-  <g transform="translate(50, 15) scale(1)">
+  <!-- 1. The Gold House Logo Symbol with wider slit (translateY adjusted to 33 to perfectly match vertical spacing) -->
+  <g transform="translate(50, 33) scale(1)">
     <path d="M50 15 L80 45 V85 H71 V45 L50 24 L29 45 V85 H20 V45 Z" fill="url(#gold-grad)"/>
     <path fill-rule="evenodd" d="M50 33.5 L66.5 50 V85 H52.25 V73 H47.75 V85 H33.5 V50 Z M50 42.5 L57.5 50 V63 H42.5 V50 Z" fill="url(#gold-grad)"/>
   </g>

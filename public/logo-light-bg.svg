@@ -31,16 +31,16 @@
     </style>
   </defs>
 
-  <!-- 1. The Gold House Logo Symbol -->
-  <g transform="translate(50, 15) scale(1)">
+  <!-- 1. The Gold House Logo Symbol (translateY adjusted to 33 to perfectly match vertical spacing) -->
+  <g transform="translate(50, 33) scale(1)">
     <path d="M50 15 L80 45 V85 H71 V45 L50 24 L29 45 V85 H20 V45 Z" fill="url(#gold-grad)"/>
     <path fill-rule="evenodd" d="M50 33.5 L66.5 50 V85 H50.5 V73 H49.5 V85 H33.5 V50 Z M50 42.5 L57.5 50 V63 H42.5 V50 Z" fill="url(#gold-grad)"/>
   </g>
 
-  <!-- 2. ADEPEC Text (Centered perfectly by text-anchor; modern browsers omit trailing letter-spacing) -->
+  <!-- 2. ADEPEC Text -->
   <text x="100" y="145" class="logo-main">ADEPEC</text>
 
-  <!-- 3. HOMES Text (Centered under ADEPEC) -->
+  <!-- 3. HOMES Text -->
   <text x="100" y="172" class="logo-sub">HOMES</text>
   
   <!-- Left horizontal gold bar (shifted left by 2px to balance the gaps visually based on font metrics) -->
