@@ -43,9 +43,9 @@
   <!-- 3. HOMES Text with horizontal lines -->
   <text x="100" y="172" class="logo-sub">HOMES</text>
   
-  <!-- Left horizontal gold bar (using solid gold color for print-safe thin lines) -->
-  <line x1="32" y1="168" x2="63" y2="168" stroke="#C5A059" stroke-width="1.5"/>
+  <!-- Left horizontal gold bar (extended to line up with the edge of the letter A) -->
+  <line x1="24" y1="168" x2="63" y2="168" stroke="#C5A059" stroke-width="1.5"/>
   
-  <!-- Right horizontal gold bar (using solid gold color for print-safe thin lines) -->
-  <line x1="137" y1="168" x2="168" y2="168" stroke="#C5A059" stroke-width="1.5"/>
+  <!-- Right horizontal gold bar (extended to line up with the edge of the letter C) -->
+  <line x1="137" y1="168" x2="176" y2="168" stroke="#C5A059" stroke-width="1.5"/>
 </svg>
