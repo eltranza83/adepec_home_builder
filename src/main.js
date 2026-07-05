@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const cursorOutline = document.getElementById("custom-cursor-outline");
   const loader = document.getElementById("loader");
   const loaderText = document.getElementById("loader-text");
-  const loaderBar = document.getElementById("loader-bar");
   const heroTitleSpans = document.querySelectorAll("#hero-title span");
   const heroFooter = document.getElementById("hero-footer");
   const menuBtn = document.getElementById("menu-btn");
@@ -105,7 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // 1. Text reveals
     setTimeout(() => {
       if (loaderText) loaderText.classList.add("active");
-      if (loaderBar) loaderBar.style.width = "100%";
     }, 100);
 
     // 2. Slide up loader and fade out text

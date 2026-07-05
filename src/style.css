@@ -188,6 +188,7 @@ body.loader-active .custom-cursor-outline {
   color: #ffffff;
   text-transform: uppercase;
   line-height: 1.1;
+  margin-right: -0.15em; /* Counteract trailing letter-spacing to align right line perfectly */
 }
 
 .loader-logo-sub {
@@ -202,6 +203,7 @@ body.loader-active .custom-cursor-outline {
   text-transform: uppercase;
   margin-top: 8px;
   margin-bottom: 15px;
+  padding-right: 2px; /* Centers HOMES perfectly while keeping balanced line margins */
 }
 
 .loader-logo-sub::before,
@@ -209,33 +211,23 @@ body.loader-active .custom-cursor-outline {
   content: '';
   flex: 1;
   border-bottom: 1px solid var(--color-accent);
+  transform: scaleX(0);
+  transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .loader-logo-sub::before {
-  margin-right: 12px;
+  margin-right: 13px;
+  transform-origin: right;
 }
 
 .loader-logo-sub::after {
-  margin-left: 12px;
+  margin-left: 11px;
+  transform-origin: left;
 }
 
-.loader-bar-bg {
-  width: 200px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.15);
-  margin-top: 30px;
-  position: relative;
-  overflow: hidden;
-}
-
-.loader-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #C5A059, #F1D7A7, #B28741);
-  transition: width 2s cubic-bezier(0.16, 1, 0.3, 1);
+.loader-content.active .loader-logo-sub::before,
+.loader-content.active .loader-logo-sub::after {
+  transform: scaleX(1);
 }
 
 .loader-container.loaded {
@@ -343,6 +335,7 @@ header {
   letter-spacing: 0.12em;
   color: var(--color-text);
   text-transform: uppercase;
+  margin-right: -0.12em; /* Counteract trailing letter-spacing to align right line perfectly */
 }
 
 .logo-sub-text {
@@ -356,6 +349,7 @@ header {
   color: var(--color-text-muted);
   text-transform: uppercase;
   margin-top: 1px;
+  padding-right: 2px; /* Centers HOMES perfectly while keeping balanced line margins */
 }
 
 .logo-sub-text::before,
@@ -366,11 +360,11 @@ header {
 }
 
 .logo-sub-text::before {
-  margin-right: 6px;
+  margin-right: 7px;
 }
 
 .logo-sub-text::after {
-  margin-left: 6px;
+  margin-left: 5px;
 }
 
 .nav-toggle {
