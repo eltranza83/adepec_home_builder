@@ -1,7 +1,12 @@
+import { initTheme, initCustomCursor, initLightbox, setupHoverEffects } from "./common.js";
+
 document.addEventListener("DOMContentLoaded", () => {
-  // Elements
-  const cursor = document.getElementById("custom-cursor");
-  const cursorOutline = document.getElementById("custom-cursor-outline");
+  // 1. Initialize Common/Shared UI Features
+  initTheme();
+  initCustomCursor();
+  const openLightbox = initLightbox();
+
+  // 2. Element Selectors for Landing Page
   const loader = document.getElementById("loader");
   const loaderText = document.getElementById("loader-text");
   const heroTitleSpans = document.querySelectorAll("#hero-title span");
@@ -11,69 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuBtnText = document.getElementById("menu-btn-text");
   const heroImg = document.getElementById("hero-img");
   const philosophyImg = document.querySelector(".philosophy-img img");
-  
-  // Custom Cursor Physics & Tracking
-  let mouse = { x: 0, y: 0 };
-  let cursorPositions = { x: 0, y: 0 };
-  let outlinePositions = { x: 0, y: 0 };
-  
-  window.addEventListener("mousemove", (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-  });
 
-  // Lerp function for custom cursor easing
-  function lerp(start, end, amt) {
-    return (1 - amt) * start + amt * end;
-  }
-
-  function animateCursor() {
-    // Inner dot - fast tracking
-    if (cursor) {
-      cursorPositions.x = lerp(cursorPositions.x, mouse.x, 0.3);
-      cursorPositions.y = lerp(cursorPositions.y, mouse.y, 0.3);
-      cursor.style.left = `${cursorPositions.x}px`;
-      cursor.style.top = `${cursorPositions.y}px`;
-    }
-
-    // Outer outline - slow trailing (lerp)
-    if (cursorOutline) {
-      outlinePositions.x = lerp(outlinePositions.x, mouse.x, 0.12);
-      outlinePositions.y = lerp(outlinePositions.y, mouse.y, 0.12);
-      cursorOutline.style.left = `${outlinePositions.x}px`;
-      cursorOutline.style.top = `${outlinePositions.y}px`;
-    }
-
-    requestAnimationFrame(animateCursor);
-  }
-  requestAnimationFrame(animateCursor);
-
-  // Hover States for Custom Cursor
-  const setupHoverEffects = () => {
-    const hoverElements = document.querySelectorAll(".link-hover, a, button");
-    hoverElements.forEach(el => {
-      el.addEventListener("mouseenter", () => {
-        document.body.classList.add("hovering-link");
-      });
-      el.addEventListener("mouseleave", () => {
-        document.body.classList.remove("hovering-link");
-      });
-    });
-  };
-  setupHoverEffects();
-
-  // Theme Toggle Logic
-  const themeBtn = document.getElementById("theme-btn");
-  if (themeBtn) {
-    themeBtn.addEventListener("click", () => {
-      const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
-      const newTheme = currentTheme === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", newTheme);
-      localStorage.setItem("theme", newTheme);
-    });
-  }
-
-  // Intro Loader Sequence
+  // 3. Intro Loader Sequence
   const runIntro = () => {
     // Check if intro has already been run in this session
     if (sessionStorage.getItem("introPlayed")) {
@@ -101,19 +45,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // Add class to change cursor color on dark splash screen
     document.body.classList.add("loader-active");
 
-    // 1. Text reveals
+    // Text reveals
     setTimeout(() => {
       if (loaderText) loaderText.classList.add("active");
     }, 100);
 
-    // 2. Slide up loader and fade out text
+    // Slide up loader and fade out text
     setTimeout(() => {
       if (loader) loader.classList.add("loaded");
       if (loaderText) loaderText.classList.remove("active");
       document.body.classList.remove("loader-active");
     }, 2000);
 
-    // 3. Reveal hero elements
+    // Reveal hero elements
     setTimeout(() => {
       if (heroTitleSpans) {
         heroTitleSpans.forEach(span => span.classList.add("revealed"));
@@ -130,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   runIntro();
 
-  // Fullscreen Navigation Menu Toggle
+  // 4. Fullscreen Navigation Menu Toggle
   if (menuBtn && menuOverlay && menuBtnText) {
     menuBtn.addEventListener("click", () => {
       const isOpen = menuOverlay.classList.toggle("open");
@@ -155,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Scroll Reveal Animations using IntersectionObserver
+  // 5. Scroll Reveal Animations using IntersectionObserver
   const revealOptions = {
     threshold: 0.15,
     rootMargin: "0px 0px -50px 0px"
@@ -165,7 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("revealed");
-        // Stop observing once animated
         scrollObserver.unobserve(entry.target);
       }
     });
@@ -175,76 +118,41 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollObserver.observe(el);
   });
 
-  // Homepage Lightbox
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const lightboxCaption = document.getElementById("lightbox-caption");
-  const lightboxClose = document.getElementById("lightbox-close");
-
-  if (lightbox && lightboxImg) {
-    document.querySelectorAll(".project-img-wrapper").forEach(wrapper => {
-      wrapper.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const img = wrapper.querySelector("img");
-        if (img) {
-          const card = wrapper.closest(".project-card");
-          const titleEl = card ? card.querySelector(".project-title") : null;
-          const caption = titleEl ? titleEl.textContent : "";
-          
-          lightboxImg.src = img.src;
-          lightboxImg.alt = img.alt || caption;
-          if (lightboxCaption) {
-            let formattedCaption = caption;
-            if (caption.includes("9908")) {
-              formattedCaption = `${caption} &bull; <a href="https://maps.google.com/?q=9908+North+25th+Street,+McAllen,+Texas+78504" target="_blank" style="color: #C5A059; text-decoration: none; border-bottom: 1px solid; margin-left: 8px;" onclick="event.stopPropagation();">Open in Google Maps</a>`;
-            } else if (caption.includes("9905")) {
-              formattedCaption = `${caption} &bull; <a href="https://maps.google.com/?q=9905+North+25th+Street,+McAllen,+Texas+78504" target="_blank" style="color: #C5A059; text-decoration: none; border-bottom: 1px solid; margin-left: 8px;" onclick="event.stopPropagation();">Open in Google Maps</a>`;
-            }
-            lightboxCaption.innerHTML = formattedCaption;
-          }
-          lightbox.classList.add("open");
-          document.body.style.overflow = "hidden";
-        }
-      });
-    });
-
-    const closeLightbox = () => {
-      lightbox.classList.remove("open");
-      if (menuOverlay && !menuOverlay.classList.contains("open")) {
-        document.body.style.overflow = "";
-      }
-    };
-
-    if (lightboxClose) {
-      lightboxClose.addEventListener("click", (e) => {
-        e.stopPropagation();
-        closeLightbox();
-      });
-    }
-
-    lightbox.addEventListener("click", () => {
-      closeLightbox();
-    });
-
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && lightbox.classList.contains("open")) {
-        closeLightbox();
+  // 6. Homepage Project Cards Lightbox Binding
+  document.querySelectorAll(".project-img-wrapper").forEach(wrapper => {
+    wrapper.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const img = wrapper.querySelector("img");
+      if (img) {
+        const card = wrapper.closest(".project-card");
+        const titleEl = card ? card.querySelector(".project-title") : null;
+        const captionText = titleEl ? titleEl.textContent : "";
+        const mapUrl = card ? card.dataset.mapUrl : null;
+        
+        openLightbox(img.src, img.alt || captionText, captionText, mapUrl);
       }
     });
-  }
+  });
 
-  // Parallax Scroll Effect
+  // Prevent map links click event from bubble-triggering lightbox
+  document.querySelectorAll(".map-link").forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+  });
+
+  // 7. Parallax Scroll Effect
   let scrollY = window.scrollY;
 
   function updateParallax() {
     scrollY = window.scrollY;
 
-    // 1. Hero Image Parallax (moves slowly downwards)
+    // Hero Image Parallax (moves slowly downwards)
     if (heroImg) {
       heroImg.style.transform = `translate3d(0, ${scrollY * 0.35}px, 0) scale(1.1)`;
     }
 
-    // 2. Philosophy Image Parallax (moves inside relative to viewport)
+    // Philosophy Image Parallax (moves inside relative to viewport)
     if (philosophyImg) {
       const rect = philosophyImg.parentElement.getBoundingClientRect();
       const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
@@ -256,8 +164,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Bind to scroll events with requestAnimationFrame
-  window.addEventListener("scroll", () => {
-    requestAnimationFrame(updateParallax);
-  }, { passive: true });
+  // Bind to scroll events with requestAnimationFrame (only if not prefers-reduced-motion)
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!prefersReducedMotion) {
+    window.addEventListener("scroll", () => {
+      requestAnimationFrame(updateParallax);
+    }, { passive: true });
+  }
+
+  // 8. Contact Form Handling
+  const inquiryForm = document.getElementById("inquiry-form");
+  if (inquiryForm) {
+    inquiryForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Inquiry sent. The Adepec Homes team will contact you shortly.");
+      inquiryForm.reset();
+    });
+  }
 });

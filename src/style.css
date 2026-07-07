@@ -68,8 +68,29 @@ html, body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
-  cursor: none; /* Hide default cursor for custom cursor experience */
   transition: var(--transition-theme);
+}
+
+/* Hide default cursor only on hover-capable pointer devices */
+@media (hover: hover) and (pointer: fine) {
+  body:not(.disable-custom-cursor),
+  body:not(.disable-custom-cursor) a,
+  body:not(.disable-custom-cursor) button,
+  body:not(.disable-custom-cursor) .link-hover,
+  body:not(.disable-custom-cursor) .portfolio-item {
+    cursor: none;
+  }
+}
+
+/* Hide custom cursor elements on touch/mobile or when disabled */
+@media (hover: none), (pointer: coarse) {
+  .custom-cursor, .custom-cursor-outline {
+    display: none !important;
+  }
+}
+body.disable-custom-cursor .custom-cursor,
+body.disable-custom-cursor .custom-cursor-outline {
+  display: none !important;
 }
 
 /* Custom Scrollbar */
@@ -1213,18 +1234,6 @@ footer {
 
 /* Responsive styles */
 @media(max-width: 1024px) {
-  html {
-    cursor: default; /* Disable custom cursor on touch/smaller screens */
-  }
-  .custom-cursor, .custom-cursor-outline {
-    display: none;
-  }
-  body {
-    cursor: auto;
-  }
-  .cta-button, .project-card, .nav-toggle, .theme-toggle, .lightbox-overlay, .lightbox-close {
-    cursor: pointer;
-  }
   .hero h1 { font-size: 4rem; }
   .philosophy-grid { grid-template-columns: 1fr; gap: 50px; }
   .philosophy-text h2 { font-size: 2.8rem; }
@@ -1394,3 +1403,110 @@ footer {
   font-size: 0.9rem;
   letter-spacing: 0.1em;
 }
+
+/* Layout Tweaks for clean HTML (previously inline styles) */
+#menu-btn-text {
+  margin-left: 10px;
+}
+
+#now-available {
+  min-height: auto;
+  padding-bottom: 60px;
+}
+
+#current-projects {
+  border-top: 1px solid var(--color-border);
+  min-height: auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+#showcase {
+  border-top: 1px solid var(--color-border);
+  padding-top: 60px;
+  padding-bottom: 60px;
+  min-height: auto;
+}
+
+.showcase-header > div {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  max-width: 300px;
+}
+
+#now-available .sample-photos,
+#current-projects .sample-photos {
+  grid-template-columns: 1fr;
+  max-width: 900px;
+}
+
+#now-available .project-img-wrapper img {
+  object-position: center 25%;
+}
+
+#current-projects .project-img-wrapper img {
+  object-position: center 88%;
+}
+
+#now-available .project-title,
+#current-projects .project-title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+#showcase .cta-button {
+  margin-top: 30px;
+}
+
+.contact-form .cta-button {
+  align-self: flex-start;
+}
+
+.footer-links {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-links a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* Accessibility: prefers-reduced-motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+  
+  #hero-img,
+  .philosophy-img img {
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  .reveal-on-scroll,
+  .reveal-img-on-scroll,
+  #hero-title span,
+  .hero-footer {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+
+  .portfolio-hero h1,
+  .portfolio-hero .subtitle {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
