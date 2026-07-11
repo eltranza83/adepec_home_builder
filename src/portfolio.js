@@ -24,6 +24,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 6. Setup cursor hover bindings on newly generated elements
   setupHoverEffects();
+
+  // 7. Handle hash scroll on initial load (since content is dynamically rendered)
+  if (window.location.hash) {
+    setTimeout(() => {
+      const targetId = window.location.hash.substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 300);
+  }
 });
 
 /**
@@ -74,7 +85,7 @@ function renderPortfolio(container) {
             </button>
             <div class="portfolio-carousel-track">
               ${home.carouselImages.map(img => `
-              <div class="portfolio-item reveal-on-scroll" data-caption="${img.caption}">
+              <div class="portfolio-item" data-caption="${img.caption}">
                 <div class="img-wrap">
                   <img src="${img.src}" alt="${img.alt}" loading="lazy">
                 </div>
