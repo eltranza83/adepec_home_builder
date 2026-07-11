@@ -258,6 +258,13 @@
       .back-link { font-size: 0.75rem; letter-spacing: 0.1em; }
       .lightbox-close { top: 20px; right: 20px; font-size: 0.8rem; }
       .lightbox-caption { bottom: 25px; font-size: 0.8rem; width: 90%; text-align: center; }
+      .portfolio-grid .portfolio-item .item-label {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding-top: 14px;
+        padding-bottom: 12px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -283,6 +290,7 @@
       display: flex;
       align-items: center;
       width: 100%;
+      min-width: 0;
       margin-top: 20px;
       /* No overflow:hidden here — arrows must not be clipped */
     }
