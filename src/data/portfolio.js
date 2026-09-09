@@ -112,7 +112,7 @@ export const portfolioData = [
   {
     id: "upcoming-northwood-trails",
     title: "Northwood Trails III",
-    tagline: "Upcoming Enclave",
+    tagline: "Upcoming Community",
     description: "Located in prestigious North McAllen. Four exclusive homesites acquired by Adepec Homes with groundbreaking commencing Q4 2026. Pre-construction priority reservations and custom architectural commissions are now open.",
     hasSpecs: true,
     mapUrl: "https://maps.google.com/?q=Northwood+Trails,+McAllen,+TX",
@@ -130,13 +130,13 @@ export const portfolioData = [
       slab: "4 EXCLUSIVE HOMESITES",
       living: "Custom Architectural Layouts",
       garage: "Tailored to Commission",
-      lotSize: "Northwood Trails III Enclave",
+      lotSize: "Northwood Trails III Community",
       rooms: "Pre-Construction Custom Options",
       addressText: "Northwood Trails III, North McAllen"
     },
     features: [
       {
-        tagline: "Enclave Highlights",
+        tagline: "Community Highlights",
         title: "Community & Vision",
         items: [
           "<strong>Prime North McAllen Location:</strong> Situated in the growing, prestigious Northwood Trails III community.",
