@@ -1573,6 +1573,143 @@ footer {
   padding-bottom: 60px;
 }
 
+#upcoming-enclave {
+  border-top: 1px solid var(--color-border);
+  min-height: auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+/* Upcoming Enclave Showcase Card */
+.enclave-card {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 48px;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.enclave-card:hover {
+  border-color: var(--color-border-accent);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 0 12px rgba(var(--color-accent-rgb), 0.06);
+}
+
+.enclave-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-accent) 50%, transparent 100%);
+}
+
+.enclave-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.enclave-badges {
+  position: static;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.enclave-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+  color: var(--color-text);
+}
+
+.enclave-desc {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  max-width: 850px;
+}
+
+.enclave-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 24px 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.enclave-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metric-label {
+  font-family: var(--font-cinzel);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.metric-value {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--color-accent);
+}
+
+.enclave-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.enclave-map-link {
+  font-family: var(--font-cinzel);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  padding: 14px 20px;
+}
+
+@media (max-width: 768px) {
+  .enclave-card {
+    padding: 25px 20px;
+  }
+  .enclave-title {
+    font-size: 1.9rem;
+  }
+  .enclave-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .enclave-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .enclave-actions .cta-button,
+  .enclave-actions .enclave-map-link {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
 #showcase {
   border-top: 1px solid var(--color-border);
   padding-top: 60px;

@@ -223,4 +223,20 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 600);
     });
   }
+
+  // 9. Pre-fill inquiry form when clicking enclave inquiry buttons
+  document.querySelectorAll(".enclave-inquire-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const siteInput = document.getElementById("site");
+      const messageInput = document.getElementById("message");
+      if (siteInput) {
+        siteInput.value = "Northwood Trails III, North McAllen";
+        siteInput.dispatchEvent(new Event("input", { bubbles: true }));
+      }
+      if (messageInput && !messageInput.value) {
+        messageInput.value = "I am interested in reserving an exclusive homesite in Northwood Trails III.";
+        messageInput.dispatchEvent(new Event("input", { bubbles: true }));
+      }
+    });
+  });
 });
