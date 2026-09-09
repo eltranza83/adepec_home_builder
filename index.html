@@ -89,7 +89,7 @@
 
   <!-- Header -->
   <header>
-    <a href="#" class="logo link-hover">
+    <a href="#hero" class="logo link-hover">
       <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="header-gold" x1="0%" y1="100%" x2="100%" y2="0%">
@@ -314,10 +314,11 @@
             <label for="site" class="form-label">Project Location / Site Status</label>
           </div>
           <div class="form-group">
-            <input type="text" id="message" class="form-input" required>
+            <textarea id="message" class="form-input form-textarea" rows="3" required></textarea>
             <label for="message" class="form-label">Tell us about your vision</label>
           </div>
           <button type="submit" class="cta-button link-hover">Send Inquiry</button>
+          <div class="form-status" id="form-status" aria-live="polite"></div>
         </form>
       </div>
     </section>

@@ -174,11 +174,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 8. Contact Form Handling
   const inquiryForm = document.getElementById("inquiry-form");
+  const formStatus = document.getElementById("form-status");
   if (inquiryForm) {
     inquiryForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      alert("Inquiry sent. The Adepec Homes team will contact you shortly.");
-      inquiryForm.reset();
+      
+      const submitBtn = inquiryForm.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Transmitting...";
+      }
+
+      setTimeout(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Send Inquiry";
+        }
+        
+        if (formStatus) {
+          formStatus.innerHTML = `
+            <div class="form-status-content success">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <div>
+                <strong>Inquiry Received</strong>
+                <p>Thank you. An architectural advisor from Adepec Homes will contact you within 24 hours.</p>
+              </div>
+            </div>
+          `;
+          formStatus.style.display = "block";
+        }
+
+        inquiryForm.reset();
+
+        // Smoothly hide notification after 8 seconds
+        setTimeout(() => {
+          if (formStatus) {
+            formStatus.style.opacity = "0";
+            setTimeout(() => {
+              formStatus.style.display = "none";
+              formStatus.style.opacity = "1";
+              formStatus.innerHTML = "";
+            }, 500);
+          }
+        }, 8000);
+      }, 600);
     });
   }
 });
