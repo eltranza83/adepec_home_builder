@@ -877,6 +877,21 @@ section {
   width: 100%;
 }
 
+/* Smart dynamic centering: when only 1 home exists in a section, center it with Northwood Trails width */
+.sample-photos:has(> .project-card:only-child) {
+  grid-template-columns: 1fr;
+  max-width: 1060px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sample-photos > .project-card:only-child {
+  grid-column: 1 / -1;
+  max-width: 1060px;
+  margin: 0 auto;
+  width: 100%;
+}
+
 .project-card {
   display: flex;
   flex-direction: column;
