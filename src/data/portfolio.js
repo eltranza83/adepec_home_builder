@@ -110,44 +110,6 @@ export const portfolioData = [
     ]
   },
   {
-    id: "upcoming-northwood-trails",
-    title: "Northwood Trails III",
-    tagline: "Upcoming Community",
-    description: "Located in prestigious North McAllen. Four exclusive homesites acquired by Adepec Homes with groundbreaking commencing Q4 2026. Pre-construction priority reservations and custom architectural commissions are now open.",
-    hasSpecs: true,
-    mapUrl: "https://maps.google.com/?q=Northwood+Trails,+McAllen,+TX",
-    elevationImage: {
-      src: "/assets/houses/9905-n-25th-st/elevation.webp",
-      alt: "Northwood Trails III — Architectural Vision",
-      caption: "Northwood Trails III — Architectural Vision (North McAllen, TX)",
-      label: "Architectural Vision",
-      sublabel: "4 Lots Secured — Breaking Ground Q4 2026",
-      badge: "Pre-Construction",
-      isRendering: true,
-      style: "object-position: center 88%;"
-    },
-    specs: {
-      slab: "4 EXCLUSIVE HOMESITES",
-      living: "Custom Architectural Layouts",
-      garage: "Tailored to Commission",
-      lotSize: "Northwood Trails III Community",
-      rooms: "Pre-Construction Custom Options",
-      addressText: "Northwood Trails III, North McAllen"
-    },
-    features: [
-      {
-        tagline: "Community Highlights",
-        title: "Community & Vision",
-        items: [
-          "<strong>Prime North McAllen Location:</strong> Situated in the growing, prestigious Northwood Trails III community.",
-          "<strong>Limited Opportunity:</strong> Only 4 homesites available for Adepec Homes custom builds.",
-          "<strong>Timeline:</strong> Breaking ground Q4 2026.",
-          "<strong>Tailored Customization:</strong> Pre-construction reservation allows early collaboration on finishes, stone accents, and luxury amenities."
-        ]
-      }
-    ]
-  },
-  {
     id: "elegant-residence",
     title: "Elegant Residence",
     tagline: "Residence I (Sold)",
