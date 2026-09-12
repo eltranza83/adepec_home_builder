@@ -3,36 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Adepec Homes — McAllen, TX</title>
+  <title>Signature Residences | Adepec Homes — South Texas</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <meta name="description" content="Explore Adepec Homes' portfolio of premium architectural residences in McAllen, Texas — including completed homes and current builds at Falcon's Cove.">
+  <meta name="description" content="Explore Adepec Homes' curated portfolio of bespoke architectural residences across South Texas — including move-in ready homes and active builds at Falcon's Cove.">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.adepechomes.com/portfolio.html">
 
-  <!-- Open Graph (Facebook, iMessage, LinkedIn, WhatsApp previews) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Adepec Homes">
   <meta property="og:url" content="https://www.adepechomes.com/portfolio.html">
-  <meta property="og:title" content="Portfolio | Adepec Homes — McAllen, TX">
-  <meta property="og:description" content="Explore Adepec Homes' portfolio of premium architectural residences in McAllen, Texas — including completed homes and current builds at Falcon's Cove.">
-  <meta property="og:image" content="https://www.adepechomes.com/assets/houses/elegant-residence/exterior.jpeg">
+  <meta property="og:title" content="Signature Residences | Adepec Homes — South Texas">
+  <meta property="og:description" content="Explore Adepec Homes' curated portfolio of bespoke architectural residences across South Texas — including move-in ready homes and active builds at Falcon's Cove.">
+  <meta property="og:image" content="https://www.adepechomes.com/assets/houses/9908-n-25th-st/elevation.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="675">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Portfolio | Adepec Homes — McAllen, TX">
-  <meta name="twitter:description" content="Explore Adepec Homes' portfolio of premium architectural residences in McAllen, Texas — including completed homes and current builds at Falcon's Cove.">
-  <meta name="twitter:image" content="https://www.adepechomes.com/assets/houses/elegant-residence/exterior.jpeg">
-  <script>
-    (function() {
-      const savedTheme = localStorage.getItem('theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    })();
-  </script>
-  <link rel="stylesheet" href="./src/style.css">
+  <meta name="twitter:title" content="Signature Residences | Adepec Homes — South Texas">
+  <meta name="twitter:description" content="Explore Adepec Homes' curated portfolio of bespoke architectural residences across South Texas — including move-in ready homes and active builds at Falcon's Cove.">
+  <meta name="twitter:image" content="https://www.adepechomes.com/assets/houses/9908-n-25th-st/elevation.webp">
+
+  <link rel="stylesheet" href="./src/gallery.css">
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -40,7 +35,7 @@
     "@context": "https://schema.org",
     "@type": "ImageGallery",
     "name": "Adepec Homes Portfolio",
-    "description": "A curated collection of premium architectural residences built by Adepec Homes in McAllen, Texas.",
+    "description": "A curated collection of bespoke architectural residences built by Adepec Homes across South Texas.",
     "url": "https://www.adepechomes.com/portfolio.html",
     "mainEntity": {
       "@type": "ItemList",
@@ -49,28 +44,28 @@
           "@type": "ListItem",
           "position": 1,
           "name": "9908 North 25th Street",
-          "description": "Available premium residence at Falcon's Cove, McAllen TX 78504. 3,179.5 sq ft slab, 2,544.2 sq ft living space, 4 bedrooms, 3 full baths, 2 half baths.",
+          "description": "Move-In Ready architectural residence at Falcon's Cove, McAllen TX 78504.",
           "url": "https://www.adepechomes.com/portfolio.html#now-available-9908"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "9905 North 25th Street",
-          "description": "Under construction at Falcon's Cove, McAllen TX 78504. 3,179.5 sq ft slab, 2,544.2 sq ft living space, 4 bedrooms, 3 full baths, 2 half baths.",
+          "description": "Under construction architectural residence at Falcon's Cove, McAllen TX 78504.",
           "url": "https://www.adepechomes.com/portfolio.html#current-projects-9905"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Elegant Residence",
-          "description": "Sold. A clean stucco and white stone sanctuary featuring bespoke entry details, double-height ceilings, and marble-look polished floors throughout.",
+          "description": "Sold. A clean stucco and white stone sanctuary featuring double-height ceilings.",
           "url": "https://www.adepechomes.com/portfolio.html#elegant-residence"
         },
         {
           "@type": "ListItem",
           "position": 4,
           "name": "Modern Retreat",
-          "description": "Sold. Elevated modern interiors with designer pendant lighting, floating vanities, and a geometric glass-enclosed wet shower sanctuary.",
+          "description": "Sold. Elevated modern interiors with geometric glass wet shower sanctuary.",
           "url": "https://www.adepechomes.com/portfolio.html#modern-retreat"
         }
       ]
@@ -79,10 +74,6 @@
   </script>
 </head>
 <body>
-
-  <!-- Custom Cursor -->
-  <div class="custom-cursor" id="custom-cursor"></div>
-  <div class="custom-cursor-outline" id="custom-cursor-outline"></div>
 
   <!-- Header -->
   <header>
@@ -103,44 +94,59 @@
         <span class="logo-sub-text">HOMES</span>
       </div>
     </a>
+
     <div class="header-controls">
-      <button class="theme-toggle link-hover" id="theme-btn" aria-label="Toggle Theme">
-        <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
-        </svg>
-        <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-        </svg>
+      <button class="nav-toggle link-hover" id="menu-btn" aria-label="Toggle Menu">
+        <span></span>
+        <div id="menu-btn-text">Menu</div>
       </button>
-      <a href="index.html" class="back-link link-hover">
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/>
-        </svg>
-        <span>Back to Home</span>
-      </a>
     </div>
   </header>
 
-  <!-- Portfolio Hero -->
-  <section class="portfolio-hero">
-    <div class="portfolio-hero-content">
-      <span class="section-tag">Our Portfolio</span>
-      <h1>Signature Residences</h1>
-      <p class="subtitle">A curated collection of our completed homes — each one a testament to modern craftsmanship and architectural precision.</p>
+  <!-- Fullscreen Navigation Overlay -->
+  <div class="menu-overlay" id="menu-overlay">
+    <div class="menu-grid">
+      <ul class="menu-links">
+        <li><a href="index.html#residences" class="link-hover menu-close-trigger">Residences</a></li>
+        <li><a href="index.html#approach" class="link-hover menu-close-trigger">The Approach</a></li>
+        <li><a href="index.html#upcoming-enclave" class="link-hover menu-close-trigger">Land Enclaves</a></li>
+        <li><a href="portfolio.html" class="link-hover" style="color: var(--color-accent);">Portfolio</a></li>
+        <li><a href="index.html#gallery-contact" class="link-hover menu-close-trigger">Inquire</a></li>
+      </ul>
+      <div class="menu-info">
+        <div>
+          <h4>Inquiries</h4>
+          <p><a href="mailto:info@adepechomes.com" class="link-hover">info@adepechomes.com</a><br>956-821-2514</p>
+        </div>
+        <div>
+          <h4>Location</h4>
+          <p>McAllen, Texas<br>Falcon's Cove &middot; Northwood Trails</p>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
 
+  <main>
+    <!-- Portfolio Hero (Deep Obsidian Tone) -->
+    <section class="portfolio-hero">
+      <div class="portfolio-hero-content">
+        <span class="section-tag">Signature Works</span>
+        <h1>Crafted to <em>Inspire.</em></h1>
+        <p class="subtitle">A curated monograph of our move-in ready residences, active builds, and signature works across South Texas—each shaped by master craftsmanship and built to endure.</p>
+      </div>
+    </section>
 
-  <!-- Dynamic Portfolio Container -->
-  <div id="portfolio-container"></div>
+    <!-- Dynamic Portfolio Render Container -->
+    <div id="portfolio-container"></div>
+  </main>
 
   <!-- Footer -->
   <footer>
     <div>&copy; 2019–2026 Adepec Homes. All rights reserved.</div>
     <div class="footer-links">
       <a href="index.html" class="link-hover">Home</a>
-      <a href="#" class="link-hover">Privacy Policy</a>
+      <a href="index.html#gallery-contact" class="link-hover">Inquire</a>
+      <a href="#" class="link-hover" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to Top ↑</a>
     </div>
   </footer>
 
@@ -159,4 +165,3 @@
   <script type="module" src="./src/portfolio.js"></script>
 </body>
 </html>
-

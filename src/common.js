@@ -1,23 +1,11 @@
 // Shared logic for Theme, Custom Cursor, and Lightbox
 
 /**
- * Initializes Theme Toggle
+ * Single Unified Theme (Dark Luxury Noir & Warm Limestone Gallery)
  */
 export function initTheme() {
-  const themeBtn = document.getElementById("theme-btn");
-  
-  // Set initial theme
-  const savedTheme = localStorage.getItem("theme") || "dark";
-  document.documentElement.setAttribute("data-theme", savedTheme);
-
-  if (themeBtn) {
-    themeBtn.addEventListener("click", () => {
-      const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
-      const newTheme = currentTheme === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", newTheme);
-      localStorage.setItem("theme", newTheme);
-    });
-  }
+  localStorage.removeItem("theme");
+  document.documentElement.setAttribute("data-theme", "dark");
 }
 
 /**
@@ -27,57 +15,8 @@ export function initCustomCursor() {
   const cursor = document.getElementById("custom-cursor");
   const cursorOutline = document.getElementById("custom-cursor-outline");
 
-  if (!cursor && !cursorOutline) return;
-
-  // Accessibility Check: Disables custom cursor physics/rendering for touch devices & prefers-reduced-motion
-  const isTouchDevice = window.matchMedia("(pointer: coarse)").matches || window.matchMedia("(hover: none)").matches;
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (isTouchDevice || prefersReducedMotion) {
-    if (cursor) cursor.style.display = "none";
-    if (cursorOutline) cursorOutline.style.display = "none";
-    document.body.classList.add("disable-custom-cursor");
-    return;
-  }
-
-  let mouse = { x: -100, y: -100 }; // Keep cursor off-screen initially
-  let cursorPositions = { x: -100, y: -100 };
-  let outlinePositions = { x: -100, y: -100 };
-  let animationFrameId = null;
-
-  window.addEventListener("mousemove", (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-  });
-
-  function lerp(start, end, amt) {
-    return (1 - amt) * start + amt * end;
-  }
-
-  function animateCursor() {
-    // Inner dot - fast tracking
-    if (cursor) {
-      cursorPositions.x = lerp(cursorPositions.x, mouse.x, 0.3);
-      cursorPositions.y = lerp(cursorPositions.y, mouse.y, 0.3);
-      cursor.style.left = `${cursorPositions.x}px`;
-      cursor.style.top = `${cursorPositions.y}px`;
-    }
-
-    // Outer outline - slow trailing (lerp)
-    if (cursorOutline) {
-      outlinePositions.x = lerp(outlinePositions.x, mouse.x, 0.12);
-      outlinePositions.y = lerp(outlinePositions.y, mouse.y, 0.12);
-      cursorOutline.style.left = `${outlinePositions.x}px`;
-      cursorOutline.style.top = `${outlinePositions.y}px`;
-    }
-
-    animationFrameId = requestAnimationFrame(animateCursor);
-  }
-  
-  animateCursor();
-
-  // Hover States for Interactive Elements
-  setupHoverEffects();
+  if (cursor) cursor.remove();
+  if (cursorOutline) cursorOutline.remove();
 }
 
 /**
@@ -172,3 +111,32 @@ export function initLightbox() {
     document.body.style.overflow = "hidden";
   };
 }
+
+/**
+ * Initializes Fullscreen Navigation Overlay & Hamburger Toggle
+ */
+export function initNavMenu() {
+  const menuBtn = document.getElementById("menu-btn");
+  const menuOverlay = document.getElementById("menu-overlay");
+  const menuBtnText = document.getElementById("menu-btn-text");
+
+  if (menuBtn && menuOverlay && menuBtnText) {
+    menuBtn.addEventListener("click", () => {
+      const isOpen = menuOverlay.classList.toggle("open");
+      menuBtn.classList.toggle("open");
+      menuBtnText.textContent = isOpen ? "Close" : "Menu";
+      document.body.style.overflow = isOpen ? "hidden" : "";
+    });
+
+    const closeTriggers = document.querySelectorAll(".menu-close-trigger");
+    closeTriggers.forEach(trigger => {
+      trigger.addEventListener("click", () => {
+        menuOverlay.classList.remove("open");
+        menuBtn.classList.remove("open");
+        menuBtnText.textContent = "Menu";
+        document.body.style.overflow = "";
+      });
+    });
+  }
+}
+

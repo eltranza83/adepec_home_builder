@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2. Element Selectors for Landing Page
   const loader = document.getElementById("loader");
   const loaderText = document.getElementById("loader-text");
+  const heroTag = document.querySelector(".hero-tag");
   const heroTitleSpans = document.querySelectorAll("#hero-title span");
   const heroFooter = document.getElementById("hero-footer");
   const menuBtn = document.getElementById("menu-btn");
@@ -22,6 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Check if intro has already been run in this session
     if (sessionStorage.getItem("introPlayed")) {
       if (loader) loader.style.display = "none";
+      if (heroTag) {
+        heroTag.style.transition = "none";
+        heroTag.classList.add("revealed");
+      }
       if (heroTitleSpans) {
         heroTitleSpans.forEach(span => {
           span.style.transition = "none";
@@ -59,6 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Reveal hero elements
     setTimeout(() => {
+      if (heroTag) {
+        heroTag.classList.add("revealed");
+      }
       if (heroTitleSpans) {
         heroTitleSpans.forEach(span => span.classList.add("revealed"));
       }

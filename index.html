@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adepec Homes | Premium Architectural Homes in McAllen, TX</title>
+  <title>Adepec Homes | Premium Architectural Residences in South Texas</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <meta name="description" content="Adepec Homes builds and sells premium architectural homes in McAllen, Texas. Discover our available and under-construction residences at Falcon's Cove.">
+  <meta name="description" content="Adepec Homes crafts premier move-in ready and custom architectural residences across South Texas and North McAllen's most sought-after enclaves.">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.adepechomes.com/">
@@ -14,25 +14,20 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Adepec Homes">
   <meta property="og:url" content="https://www.adepechomes.com/">
-  <meta property="og:title" content="Adepec Homes | Premium Architectural Homes in McAllen, TX">
-  <meta property="og:description" content="Adepec Homes builds and sells premium architectural homes in McAllen, Texas. Discover our available and under-construction residences at Falcon's Cove.">
-  <meta property="og:image" content="https://www.adepechomes.com/assets/houses/9908-n-25th-st/elevation.jpg">
+  <meta property="og:title" content="Adepec Homes | Premium Architectural Residences in South Texas">
+  <meta property="og:description" content="Adepec Homes crafts premier move-in ready and custom architectural residences across South Texas and North McAllen's most sought-after enclaves.">
+  <meta property="og:image" content="https://www.adepechomes.com/assets/houses/9908-n-25th-st/elevation.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="675">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Adepec Homes | Premium Architectural Homes in McAllen, TX">
-  <meta name="twitter:description" content="Adepec Homes builds and sells premium architectural homes in McAllen, Texas. Discover our available and under-construction residences at Falcon's Cove.">
-  <meta name="twitter:image" content="https://www.adepechomes.com/assets/houses/9908-n-25th-st/elevation.jpg">
-  <script>
-    (function() {
-      const savedTheme = localStorage.getItem('theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    })();
-  </script>
-  <link rel="stylesheet" href="./src/style.css">
+  <meta name="twitter:title" content="Adepec Homes | Premium Architectural Residences in South Texas">
+  <meta name="twitter:description" content="Adepec Homes crafts premier move-in ready and custom architectural residences across South Texas and North McAllen's most sought-after enclaves.">
+  <meta name="twitter:image" content="https://www.adepechomes.com/assets/houses/9908-n-25th-st/elevation.webp">
+
+  <link rel="stylesheet" href="./src/gallery.css">
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -42,7 +37,7 @@
     "name": "Adepec Homes",
     "url": "https://www.adepechomes.com",
     "logo": "https://www.adepechomes.com/favicon.svg",
-    "description": "Adepec Homes builds and sells premium architectural homes in McAllen, Texas. Discover our available and under-construction residences at Falcon's Cove.",
+    "description": "Adepec Homes crafts premier move-in ready and custom architectural residences across South Texas and North McAllen's most sought-after enclaves.",
     "telephone": "+1-956-821-2514",
     "email": "info@adepechomes.com",
     "address": {
@@ -52,40 +47,27 @@
       "postalCode": "78504",
       "addressCountry": "US"
     },
-    "areaServed": {
-      "@type": "Place",
-      "name": "McAllen, Texas"
-    },
+    "areaServed": [
+      {
+        "@type": "State",
+        "name": "Texas"
+      },
+      {
+        "@type": "Place",
+        "name": "South Texas"
+      },
+      {
+        "@type": "Place",
+        "name": "McAllen, Texas"
+      }
+    ],
     "sameAs": [],
     "foundingDate": "2019",
-    "knowsAbout": ["Custom Home Building", "Architectural Homes", "Premium Residences", "New Construction"]
+    "knowsAbout": ["Custom Home Building", "Architectural Homes", "Premium Residences", "New Construction", "Bespoke Residences"]
   }
   </script>
 </head>
 <body>
-
-  <!-- Custom Cursor -->
-  <div class="custom-cursor" id="custom-cursor"></div>
-  <div class="custom-cursor-outline" id="custom-cursor-outline"></div>
-
-  <!-- Intro Loader -->
-  <div class="loader-container" id="loader">
-    <div class="loader-content" id="loader-text">
-      <svg class="loader-logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="loader-gold" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#C5A059" />
-            <stop offset="50%" stop-color="#F1D7A7" />
-            <stop offset="100%" stop-color="#B28741" />
-          </linearGradient>
-        </defs>
-        <path d="M50 15 L80 45 V85 H71 V45 L50 24 L29 45 V85 H20 V45 Z" fill="url(#loader-gold)" />
-        <path fill-rule="evenodd" d="M50 33.5 L66.5 50 V85 H50.5 V73 H49.5 V85 H33.5 V50 Z M50 42.5 L57.5 50 V63 H42.5 V50 Z" fill="url(#loader-gold)" />
-      </svg>
-      <div class="loader-logo-main">ADEPEC</div>
-      <div class="loader-logo-sub">HOMES</div>
-    </div>
-  </div>
 
   <!-- Header -->
   <header>
@@ -106,16 +88,8 @@
         <span class="logo-sub-text">HOMES</span>
       </div>
     </a>
+
     <div class="header-controls">
-      <button class="theme-toggle link-hover" id="theme-btn" aria-label="Toggle Theme">
-        <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
-        </svg>
-        <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-        </svg>
-      </button>
       <button class="nav-toggle link-hover" id="menu-btn" aria-label="Toggle Menu">
         <span></span>
         <div id="menu-btn-text">Menu</div>
@@ -127,14 +101,11 @@
   <div class="menu-overlay" id="menu-overlay">
     <div class="menu-grid">
       <ul class="menu-links">
-        <li><a href="#hero" class="link-hover menu-close-trigger">Home</a></li>
-        <li><a href="#philosophy" class="link-hover menu-close-trigger">Philosophy</a></li>
-        <li><a href="#now-available" class="link-hover menu-close-trigger">Now Available</a></li>
-        <li><a href="#current-projects" class="link-hover menu-close-trigger">Current Projects</a></li>
-        <li><a href="#upcoming-enclave" class="link-hover menu-close-trigger">Upcoming Community</a></li>
-        <li><a href="#showcase" class="link-hover menu-close-trigger">Showcase</a></li>
+        <li><a href="#residences" class="link-hover menu-close-trigger">Residences</a></li>
+        <li><a href="#approach" class="link-hover menu-close-trigger">The Approach</a></li>
+        <li><a href="#upcoming-enclave" class="link-hover menu-close-trigger">Land Enclaves</a></li>
         <li><a href="portfolio.html" class="link-hover">Portfolio</a></li>
-        <li><a href="#contact" class="link-hover menu-close-trigger">Inquire</a></li>
+        <li><a href="#gallery-contact" class="link-hover menu-close-trigger">Inquire</a></li>
       </ul>
       <div class="menu-info">
         <div>
@@ -142,32 +113,32 @@
           <p><a href="mailto:info@adepechomes.com" class="link-hover">info@adepechomes.com</a><br>956-821-2514</p>
         </div>
         <div>
-          <h4>Follow</h4>
-          <p>
-            <a href="#" class="link-hover">Instagram</a>
-          </p>
+          <h4>Location</h4>
+          <p>McAllen, Texas<br>Falcon's Cove &middot; Northwood Trails</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Main Content Wrapper (for parallax / scroll containers) -->
   <main>
-
     <!-- Hero Section -->
     <section class="hero" id="hero">
       <div class="hero-background">
         <img src="/assets/houses/9908-n-25th-st/elevation.webp" alt="9908 North 25th Street Front Elevation" id="hero-img">
       </div>
       <div class="hero-content">
+        <span class="hero-tag section-tag">Architectural Residences</span>
         <h1 id="hero-title">
-          <span>Where Form</span><br>
-          <span>Follows <em>Feeling.</em></span>
+          <span>Designed to Inspire.</span><br>
+          <span>Built to <em class="gold-accent">Endure.</em></span>
         </h1>
         <div class="hero-footer" id="hero-footer">
-          <p class="hero-desc">We design and build architectural homes that serve as a canvas for life. A harmonious blend of concrete, light, and natural landscape.</p>
-          <a href="portfolio.html" class="cta-button link-hover">
-            Explore Portfolio
+          <p class="hero-desc">
+            <strong class="hero-lead">Adepec Homes crafts premier move-in ready and custom residences across South Texas’ most sought-after enclaves.</strong>
+            For us, building is an art fueled by deep passion, pride, and an obsession with detail. From the initial concept to the final finishing touch, every home is a personal pursuit of excellence—shaped by <span class="hero-gold-text">master craftsmanship</span>, <span class="hero-white-text">uncompromising quality</span>, and spaces built to endure for generations.
+          </p>
+          <a href="#residences" class="cta-button link-hover">
+            Explore Available Homes
             <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/>
             </svg>
@@ -177,149 +148,158 @@
       <div class="scroll-indicator">Scroll</div>
     </section>
 
-    <!-- Philosophy Section -->
-    <section class="philosophy" id="philosophy">
-      <div class="philosophy-grid">
-        <div class="philosophy-text reveal-on-scroll">
-          <span class="section-tag">Our Philosophy</span>
-          <h2>Precision Meets <em>Passion</em></h2>
-          <p>At Adepec Homes, we craft exceptional new homes with an unwavering commitment to quality. From the finest materials to precise craftsmanship, every detail is thoughtfully designed and executed.</p>
-          <p>Our passion is building homes that stand out for their beauty, durability, and lasting value. Discover the difference with Adepec Homes—where precision meets passion.</p>
-        </div>
-        <div class="philosophy-img reveal-img-on-scroll">
-          <img src="/assets/houses/modern-retreat/entry.webp" alt="Adepec Homes — Modern Retreat Grand Entryway" loading="lazy">
-        </div>
-      </div>
-    </section>
-
-    <!-- Now Available Section -->
-    <section class="showcase" id="now-available">
-      <span class="section-tag">Now Available</span>
+    <!-- SECTION 1: RESIDENCES (WARM LIMESTONE GALLERY BACKGROUND) -->
+    <section class="showcase" id="residences">
       <div class="showcase-header">
-        <h2>Newly Completed</h2>
         <div>
-          Ready for Move-In
+          <span class="section-tag">Featured Residences</span>
+          <h2>Find Your Next <em>Home.</em></h2>
+        </div>
+        <div>
+          Move-in ready & active builds
         </div>
       </div>
+
       <div class="sample-photos">
         <!-- 9908 North 25th Street -->
-        <div class="project-card reveal-on-scroll" data-map-url="https://maps.google.com/?q=9908+North+25th+Street,+McAllen,+Texas+78504">
+        <div class="project-card reveal-on-scroll">
           <div class="project-img-wrapper link-hover">
             <img src="/assets/houses/9908-n-25th-st/elevation.webp" alt="9908 North 25th Street — Front Elevation" loading="lazy" />
-            <div class="badge-container">
-              <span class="status-badge">Available</span>
-              <a href="https://maps.google.com/?q=9908+North+25th+Street,+McAllen,+Texas+78504" target="_blank" class="map-link link-hover">
-                <svg class="map-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                <span>View Map</span>
-              </a>
-            </div>
           </div>
           <div class="project-details">
+            <div class="card-meta-top">
+              <span class="card-status-label"><span class="status-dot available-dot">●</span> Move-In Ready &middot; Falcon's Cove</span>
+              <span class="card-specs-pill">3,179 SQ FT · 4 BEDS · 3.5 BATHS</span>
+            </div>
             <h3 class="project-title">9908 North 25th Street</h3>
-            <a href="portfolio.html#now-available-9908" class="view-specs-btn link-hover">VIEW FULL SPECS</a>
+            <p class="card-details-text">Newly completed luxury residence featuring bespoke Cantera stone, gourmet Butler's kitchen, and custom spray foam envelope.</p>
+            <div class="card-actions">
+              <a href="portfolio.html#now-available-9908" class="view-specs-btn link-hover">VIEW FULL SPECS</a>
+              <a href="https://maps.google.com/?q=9908+North+25th+Street,+McAllen,+Texas+78504" target="_blank" rel="noopener noreferrer" class="card-map-link link-hover">
+                <svg class="map-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span>Map</span>
+              </a>
+              <a href="#gallery-contact" class="link-hover prop-inquire-btn" data-interest="9908 North 25th Street (Available)" style="font-family: var(--font-cinzel); font-size: 0.72rem; font-weight: 700; color: #926f29; text-decoration: underline; text-underline-offset: 4px;">Inquire →</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Current Projects Section -->
-    <section class="showcase" id="current-projects">
-      <span class="section-tag">Active Builds</span>
-      <div class="showcase-header">
-        <h2>Ongoing Developments</h2>
-        <div>
-          New Homes
-        </div>
-      </div>
-      <div class="sample-photos">
         <!-- 9905 North 25th Street -->
-        <div class="project-card reveal-on-scroll" data-map-url="https://maps.google.com/?q=9905+North+25th+Street,+McAllen,+Texas+78504">
+        <div class="project-card reveal-on-scroll">
           <div class="project-img-wrapper link-hover">
             <img src="/assets/houses/9905-n-25th-st/elevation.webp" alt="9905 North 25th Street — Front Elevation" loading="lazy" />
-            <div class="badge-container">
-              <span class="status-badge">Under Construction</span>
-              <a href="https://maps.google.com/?q=9905+North+25th+Street,+McAllen,+Texas+78504" target="_blank" class="map-link link-hover">
-                <svg class="map-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                <span>View Map</span>
-              </a>
-            </div>
-            <span class="rendering-badge">Concept Rendering</span>
           </div>
           <div class="project-details">
+            <div class="card-meta-top">
+              <span class="card-status-label"><span class="status-dot construction-dot">●</span> Under Construction (Q4 2026) &middot; Falcon's Cove</span>
+              <span class="card-specs-pill">3,179 SQ FT · 4 BEDS · 3.5 BATHS</span>
+            </div>
             <h3 class="project-title">9905 North 25th Street</h3>
-            <a href="portfolio.html#current-projects-9905" class="view-specs-btn link-hover">VIEW FULL SPECS</a>
+            <p class="card-details-text">Under active construction. Premium porcelain floors, dual-zone climate system, and private perimeter gating.</p>
+            <div class="card-actions">
+              <a href="portfolio.html#current-projects-9905" class="view-specs-btn link-hover">VIEW FULL SPECS</a>
+              <a href="https://maps.google.com/?q=9905+North+25th+Street,+McAllen,+Texas+78504" target="_blank" rel="noopener noreferrer" class="card-map-link link-hover">
+                <svg class="map-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span>Map</span>
+              </a>
+              <a href="#gallery-contact" class="link-hover prop-inquire-btn" data-interest="9905 North 25th Street (Under Construction)" style="font-family: var(--font-cinzel); font-size: 0.72rem; font-weight: 700; color: #926f29; text-decoration: underline; text-underline-offset: 4px;">Inquire →</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Upcoming Community Section -->
-    <section class="showcase" id="upcoming-enclave">
-      <span class="section-tag">Upcoming Community</span>
-      <div class="showcase-header">
-        <h2>Northwood Trails III &mdash; <em>North McAllen</em></h2>
-        <div>
-          4 Exclusive Homesites
+    <!-- SECTION 2: THE ADEPEC APPROACH (STAGGERED INTERIOR SPREAD) -->
+    <section class="approach-section" id="approach">
+      <div class="approach-grid">
+        <div class="approach-copy reveal-on-scroll">
+          <span class="section-tag">The Adepec Approach</span>
+          <h2>Spaces Made for <em>Everyday Luxury.</em></h2>
+          <p>From the tactile grain of hand-selected Cantera stone to porcelain slab showers and soaring double-height living areas, every Adepec residence is designed for the rhythm of modern South Texas life.</p>
+          <p>We combine architectural sophistication with uncompromising engineering—spray foam thermal envelopes and dual high-efficiency climate systems.</p>
+          <a href="portfolio.html" class="cta-button link-hover">
+            Explore Signature Works
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/>
+            </svg>
+          </a>
+        </div>
+        <div class="approach-staggered-images reveal-on-scroll">
+          <div class="approach-photo-card">
+            <div class="approach-photo-frame">
+              <img src="/assets/houses/9908-n-25th-st/openarea1.webp" alt="Adepec Homes Grand Open Living Concept" loading="lazy">
+            </div>
+            <div class="approach-photo-details">
+              <h4 class="approach-photo-title">Grand Open Living Concept</h4>
+              <span class="approach-photo-subtitle">Double-Height Ceilings &middot; Bespoke Cantera Envelopes</span>
+            </div>
+          </div>
+          <div class="approach-photo-card">
+            <div class="approach-photo-frame">
+              <img src="/assets/houses/9908-n-25th-st/masterBath.webp" alt="Adepec Homes Master Spa & Porcelain Shower" loading="lazy">
+            </div>
+            <div class="approach-photo-details">
+              <h4 class="approach-photo-title">Master Spa &amp; Shower</h4>
+              <span class="approach-photo-subtitle">Porcelain Slab Walk-In &middot; Dual Vanities</span>
+            </div>
+          </div>
         </div>
       </div>
-      
-      <div class="enclave-card reveal-on-scroll">
-        <div class="enclave-content">
-          <div class="enclave-header">
-            <div class="badge-container enclave-badges">
-              <span class="status-badge">4 Lots Secured</span>
-              <span class="status-badge">Breaking Ground Q4 2026</span>
-              <span class="status-badge">Custom Pre-Construction</span>
-            </div>
-            <h3 class="enclave-title">Northwood Trails III</h3>
-            <p class="enclave-subtitle">Four Exclusive Custom Homesites in North McAllen</p>
-            <p class="enclave-desc">
-              Adepec Homes has acquired four exclusive homesites in the prestigious Northwood Trails III subdivision. This upcoming community brings our hallmark architectural craftsmanship, soaring ceilings, and bespoke luxury finishes to one of North McAllen's most desirable new residential settings.
-            </p>
-          </div>
+    </section>
 
-          <div class="enclave-metrics-grid">
-            <div class="enclave-metric">
-              <span class="metric-label">Homesites</span>
-              <span class="metric-value">4 Lots</span>
-            </div>
-            <div class="enclave-metric">
-              <span class="metric-label">Location</span>
-              <span class="metric-value">North McAllen, TX</span>
-            </div>
-            <div class="enclave-metric">
-              <span class="metric-label">Timeline</span>
-              <span class="metric-value">Q4 2026</span>
-            </div>
-            <div class="enclave-metric">
-              <span class="metric-label">Opportunity</span>
-              <span class="metric-value">Pre-Construction</span>
-            </div>
-          </div>
-
-          <div class="enclave-actions">
-            <a href="#contact" class="cta-button link-hover enclave-inquire-btn" data-subdivision="Northwood Trails III">
+    <!-- SECTION 3: UPCOMING COMMUNITY (NORTHWOOD TRAILS III) - CLEAN ARCHITECTURAL EDITORIAL -->
+    <section class="enclave-editorial-section" id="upcoming-enclave">
+      <div class="enclave-editorial-container reveal-on-scroll">
+        <div class="enclave-editorial-left">
+          <span class="section-tag">Upcoming Land Enclave</span>
+          <h2 class="enclave-editorial-heading">Northwood Trails III &mdash; <em>North McAllen</em></h2>
+          <p class="enclave-editorial-text">
+            Adepec Homes has secured four exclusive custom homesites in the prestigious Northwood Trails III subdivision. Each private parcel is primed for custom architectural design, bespoke masonry envelopes, and soaring double-height living spaces.
+          </p>
+          <div class="enclave-editorial-actions">
+            <a href="#gallery-contact" class="cta-button link-hover prop-inquire-btn" data-interest="Northwood Trails III (Homesites)">
               Inquire About Homesites
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/>
               </svg>
             </a>
-            <a href="https://maps.google.com/?q=Northwood+Trails,+McAllen,+TX" target="_blank" rel="noopener noreferrer" class="enclave-secondary-btn link-hover">
+            <a href="https://maps.google.com/?q=Northwood+Trails,+McAllen,+TX" target="_blank" rel="noopener noreferrer" class="enclave-map-inline link-hover">
               <svg class="map-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              <span>View Subdivision Location</span>
+              <span>Subdivision Map &rarr;</span>
             </a>
+          </div>
+        </div>
+
+        <div class="enclave-editorial-right">
+          <div class="enclave-spec-row">
+            <span class="enclave-spec-label">Homesites</span>
+            <span class="enclave-spec-val">4 Exclusive Lots</span>
+          </div>
+          <div class="enclave-spec-row">
+            <span class="enclave-spec-label">Location</span>
+            <span class="enclave-spec-val">North McAllen, TX</span>
+          </div>
+          <div class="enclave-spec-row">
+            <span class="enclave-spec-label">Timeline</span>
+            <span class="enclave-spec-val">Breaking Ground Q4 2026</span>
+          </div>
+          <div class="enclave-spec-row">
+            <span class="enclave-spec-label">Opportunity</span>
+            <span class="enclave-spec-val">Custom Pre-Construction</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Showcase Section -->
+    <!-- SECTION 4: FEATURED WORKS -->
     <section class="showcase" id="showcase">
-      <span class="section-tag">Featured Works</span>
       <div class="showcase-header">
-        <h2>Our Crafted <em>Legacy</em></h2>
         <div>
-          Explore signature homes
+          <span class="section-tag">Featured Works</span>
+          <h2>Our Crafted <em>Legacy</em></h2>
+        </div>
+        <div>
+          Signature completed homes
         </div>
       </div>
       <div class="sample-photos">
@@ -344,19 +324,28 @@
           </div>
         </div>
       </div>
-      <a href="portfolio.html" class="cta-button link-hover">View Full Portfolio</a>
+      <div class="showcase-cta-wrap">
+        <a href="portfolio.html" class="cta-button link-hover">
+          View Full Portfolio
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/>
+          </svg>
+        </a>
+      </div>
     </section>
 
-    <!-- Contact / Inquiries Section -->
-    <section class="contact" id="contact">
+    <!-- SECTION 5: CONTACT SECTION WITH SMART DROPDOWN & WARM CONTRAST -->
+    <section class="contact" id="gallery-contact">
       <div class="contact-grid">
         <div class="contact-info reveal-on-scroll">
           <span class="section-tag">Begin Your Journey</span>
-          <h2>Let's build a masterpiece.</h2>
+          <h2>Let’s build a masterpiece.</h2>
           <div class="contact-details">
-            <p>Interested in acquiring one of our featured builds or starting a custom commission? Drop us a note.</p>
+            <p>Interested in acquiring 9908 North 25th St, reserving 9905, or securing a homesite in Northwood Trails III? Contact our architectural team.</p>
             <p>
-              <strong>Inquiries:</strong> <a href="mailto:info@adepechomes.com" class="link-hover">info@adepechomes.com</a>
+              <strong>Direct Inquiries:</strong><br>
+              <a href="mailto:info@adepechomes.com" class="link-hover">info@adepechomes.com</a><br>
+              <a href="tel:9568212514" class="link-hover">956-821-2514</a>
             </p>
           </div>
         </div>
@@ -370,44 +359,47 @@
             <input type="email" id="email" class="form-input" required>
             <label for="email" class="form-label">Email Address</label>
           </div>
-          <div class="form-group">
-            <input type="text" id="site" class="form-input" required>
-            <label for="site" class="form-label">Project Location / Site Status</label>
+          <div class="form-select-group">
+            <label for="interest-select">What can we help with?</label>
+            <select id="interest-select" class="form-select">
+              <option value="9908 North 25th Street (Available)">9908 North 25th Street (Move-In Ready)</option>
+              <option value="9905 North 25th Street (Under Construction)">9905 North 25th Street (Under Construction)</option>
+              <option value="Northwood Trails III (Homesites)">Northwood Trails III (Exclusive Homesites)</option>
+              <option value="Custom Architectural Build">Custom Architectural Build</option>
+              <option value="General Inquiry">General Inquiry</option>
+            </select>
           </div>
           <div class="form-group">
             <textarea id="message" class="form-input form-textarea" rows="3" required></textarea>
-            <label for="message" class="form-label">Tell us about your vision</label>
+            <label for="message" class="form-label">Tell us about your timeline or vision</label>
           </div>
           <button type="submit" class="cta-button link-hover">Send Inquiry</button>
           <div class="form-status" id="form-status" aria-live="polite"></div>
         </form>
       </div>
     </section>
-
   </main>
 
-  <!-- Footer -->
   <footer>
     <div>&copy; 2019–2026 Adepec Homes. All rights reserved.</div>
     <div class="footer-links">
-      <a href="#" class="link-hover">Privacy Policy</a>
-      <a href="#" class="link-hover">Terms of Service</a>
+      <a href="portfolio.html" class="link-hover">Signature Portfolio</a>
+      <a href="#hero" class="link-hover">Back to Top ↑</a>
     </div>
   </footer>
 
-
-  <!-- Lightbox Overlay -->
-  <div class="lightbox-overlay" id="lightbox">
-    <button class="lightbox-close link-hover" id="lightbox-close">
-      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M11.8536 3.14645C12.0488 3.34171 12.0488 3.65829 11.8536 3.85355L8.85355 6.85355C8.65829 7.04882 8.65829 7.3654 8.85355 7.56066L11.8536 10.5607C12.0488 10.7559 12.0488 11.0725 11.8536 11.2678C11.6583 11.463 11.3417 11.463 11.1464 11.2678L8.14645 8.26777C7.81831 7.93963 7.2858 7.93963 6.95766 8.26777L3.95766 11.2678C3.7624 11.463 3.44582 11.463 3.25056 11.2678C3.0553 11.0725 3.0553 10.7559 3.25056 10.5607L6.25056 7.56066C6.5787 7.23252 6.5787 6.69999 6.25056 6.37185L3.25056 3.37185C3.0553 3.17659 3.0553 2.86001 3.25056 2.66475C3.44582 2.46949 3.7624 2.46949 3.95766 2.66475L6.95766 5.66475C7.2858 5.99289 7.81831 5.99289 8.14645 5.66475L11.1464 2.66475C11.3417 2.46949 11.6583 2.46949 11.8536 2.66475Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/>
-      </svg>
-      Close
-    </button>
-    <img id="lightbox-img" src="" alt="">
-    <div class="lightbox-caption" id="lightbox-caption"></div>
-  </div>
-
   <script type="module" src="./src/main.js"></script>
+  <script>
+    // Handle smart pre-fill when clicking property inquire buttons
+    document.querySelectorAll('.prop-inquire-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const interest = btn.getAttribute('data-interest');
+        const select = document.getElementById('interest-select');
+        if (select && interest) {
+          select.value = interest;
+        }
+      });
+    });
+  </script>
 </body>
 </html>
