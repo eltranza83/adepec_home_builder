@@ -674,30 +674,16 @@ section.contact {
   display: inline-block;
 }
 
-.enclave-badge-timeline {
-  display: inline-flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(200, 182, 154, 0.3);
-  padding: 6px 14px;
-  border-radius: 2px;
-  font-family: var(--font-cinzel);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #C8B69A;
-  white-space: nowrap;
-}
-
 .enclave-opt2-section {
-  padding: 100px clamp(20px, 5vw, 60px);
+  padding: 85px clamp(20px, 5vw, 60px);
   background: #0B0C0E;
   border-top: 1px solid rgba(200, 182, 154, 0.28);
   border-bottom: 1px solid rgba(200, 182, 154, 0.28);
   position: relative;
   overflow: hidden;
   width: 100%;
+  min-height: auto !important;
+  display: block !important;
 }
 
 .enclave-opt2-section::before {
@@ -733,16 +719,9 @@ section.contact {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   flex-wrap: wrap;
   gap: 14px;
-}
-
-.enclave-opt2-badges {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
 }
 
 .enclave-opt2-content {
@@ -755,13 +734,16 @@ section.contact {
   font-weight: 300;
   line-height: 1.15;
   color: #ffffff;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
-.enclave-opt2-title em {
+.enclave-title-sub {
+  display: inline-block;
   font-style: italic;
   color: #E8DEC8;
   font-weight: 300;
+  font-size: 0.9em;
+  margin-left: 12px;
 }
 
 .enclave-opt2-subtitle {
@@ -782,20 +764,70 @@ section.contact {
 
 @media (max-width: 768px) {
   .enclave-opt2-section {
-    padding: 70px 20px;
+    padding: 48px 24px !important;
+    min-height: auto !important;
   }
   .enclave-opt2-topbar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 20px;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-bottom: 18px !important;
+    width: 100% !important;
+  }
+  .enclave-badge-beacon {
+    font-size: 0.65rem !important;
+    padding: 5px 10px !important;
+    letter-spacing: 0.1em !important;
+    white-space: nowrap !important;
+  }
+  .beacon-pulse {
+    width: 6px !important;
+    height: 6px !important;
+  }
+  .enclave-opt2-topbar .section-tag {
+    font-size: 0.64rem !important;
+    letter-spacing: 0.18em !important;
+    white-space: nowrap !important;
   }
   .enclave-opt2-title {
-    font-size: clamp(2rem, 6.5vw, 2.4rem);
+    font-size: 2.15rem !important;
+    line-height: 1.15 !important;
+    margin-bottom: 6px !important;
+  }
+  .enclave-title-sub {
+    display: block !important;
+    font-size: 1.7rem !important;
+    margin-left: 0 !important;
+    margin-top: 3px !important;
+  }
+  .enclave-opt2-subtitle {
+    font-size: 0.76rem !important;
+    letter-spacing: 0.1em !important;
+    margin-bottom: 14px !important;
+    line-height: 1.4 !important;
   }
   .enclave-opt2-desc {
-    font-size: 0.96rem;
-    line-height: 1.75;
+    font-size: 0.94rem !important;
+    line-height: 1.7 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .enclave-opt2-section {
+    padding: 42px 18px !important;
+  }
+  .enclave-opt2-topbar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+  .enclave-opt2-title {
+    font-size: 1.9rem !important;
+  }
+  .enclave-title-sub {
+    font-size: 1.5rem !important;
   }
 }
 
