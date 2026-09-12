@@ -637,170 +637,165 @@ section.contact {
 }
 
 /* ==========================================================================
-   UPCOMING ENCLAVE: CLEAN ARCHITECTURAL EDITORIAL SPREAD (OPTION A)
+   SECTION 3: UPCOMING LAND ENCLAVE - FULL-BLEED ARCHITECTURAL HORIZON
    ========================================================================== */
-.enclave-editorial-section {
-  padding: 110px 50px;
-  border-top: 1px solid rgba(var(--color-accent-rgb), 0.2);
-  border-bottom: 1px solid rgba(var(--color-accent-rgb), 0.2);
-  background: rgba(14, 16, 18, 0.6);
+
+/* Shared Pulse Animation */
+@keyframes enclaveBeaconPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.35); opacity: 1; box-shadow: 0 0 14px #E8DEC8; }
+  100% { transform: scale(0.95); opacity: 0.8; }
 }
 
-.enclave-editorial-container {
-  display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: 80px;
+.enclave-badge-beacon {
+  display: inline-flex;
   align-items: center;
-  max-width: 1400px;
-  margin: 0 auto;
+  gap: 10px;
+  background: rgba(200, 182, 154, 0.1);
+  border: 1px solid rgba(200, 182, 154, 0.35);
+  padding: 6px 14px;
+  border-radius: 2px;
+  font-family: var(--font-cinzel);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #E8DEC8;
+  white-space: nowrap;
+}
+
+.beacon-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #C8B69A;
+  box-shadow: 0 0 10px #C8B69A;
+  animation: enclaveBeaconPulse 2s infinite;
+  display: inline-block;
+}
+
+.enclave-badge-timeline {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(200, 182, 154, 0.3);
+  padding: 6px 14px;
+  border-radius: 2px;
+  font-family: var(--font-cinzel);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #C8B69A;
+  white-space: nowrap;
+}
+
+.enclave-opt2-section {
+  padding: 100px clamp(20px, 5vw, 60px);
+  background: #0B0C0E;
+  border-top: 1px solid rgba(200, 182, 154, 0.28);
+  border-bottom: 1px solid rgba(200, 182, 154, 0.28);
+  position: relative;
+  overflow: hidden;
   width: 100%;
 }
 
-.enclave-editorial-left .section-tag {
-  color: var(--color-accent);
-  margin-bottom: 20px;
+.enclave-opt2-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(200, 182, 154, 0.35) 15%, #E8DEC8 50%, rgba(200, 182, 154, 0.35) 85%, transparent 100%);
+  box-shadow: 0 0 18px rgba(232, 222, 200, 0.6);
+  z-index: 5;
 }
 
-.enclave-editorial-heading {
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 3.8vw, 3.8rem);
-  font-weight: 300;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  margin-bottom: 24px;
-  color: #ffffff;
+.enclave-opt2-ambient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(200, 182, 154, 0.12) 0%, transparent 65%);
+  pointer-events: none;
 }
 
-.enclave-editorial-heading em {
-  font-style: italic;
-  font-weight: 300;
-  color: #E8DEC8;
+.enclave-opt2-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
 }
 
-.enclave-editorial-text {
-  font-size: 1.1rem;
-  line-height: 1.85;
-  color: var(--color-text-muted);
-  max-width: 620px;
-  margin-bottom: 36px;
+.enclave-opt2-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 14px;
 }
 
-.enclave-editorial-actions {
+.enclave-opt2-badges {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
-.enclave-editorial-actions .cta-button,
-.cta-button.prop-inquire-btn {
-  color: #D9C8B0 !important;
-  text-decoration: none !important;
-  border: 1px solid rgba(217, 200, 176, 0.35) !important;
-  background: rgba(217, 200, 176, 0.05) !important;
-  letter-spacing: 0.18em !important;
+.enclave-opt2-content {
+  max-width: 900px;
 }
 
-.enclave-editorial-actions .cta-button:hover,
-.cta-button.prop-inquire-btn:hover {
-  color: #0c0d0e !important;
-  background: #C8B69A !important;
-  border-color: #C8B69A !important;
-  text-decoration: none !important;
-  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.4), 0 0 24px rgba(200, 182, 154, 0.3) !important;
-}
-
-.enclave-editorial-actions .cta-button:hover svg,
-.cta-button.prop-inquire-btn:hover svg {
-  fill: #0c0d0e !important;
-}
-
-.enclave-map-inline {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  font-family: var(--font-cinzel);
-  font-size: 0.74rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-  text-decoration: none;
-  transition: color 0.3s ease;
-  cursor: pointer;
-}
-
-.enclave-map-inline:hover {
-  color: #E8DEC8;
-}
-
-.enclave-map-inline .map-icon {
-  width: 14px;
-  height: 14px;
-  fill: currentColor;
-}
-
-.enclave-editorial-right {
-  display: flex;
-  flex-direction: column;
-  border-left: 1px solid rgba(var(--color-accent-rgb), 0.25);
-  padding-left: 50px;
-}
-
-.enclave-spec-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.enclave-spec-row:first-child {
-  padding-top: 0;
-}
-
-.enclave-spec-row:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.enclave-spec-label {
-  font-family: var(--font-cinzel);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
-.enclave-spec-val {
+.enclave-opt2-title {
   font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 400;
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  font-weight: 300;
+  line-height: 1.15;
   color: #ffffff;
-  letter-spacing: 0.02em;
+  margin-bottom: 12px;
 }
 
-@media (max-width: 960px) {
-  .enclave-editorial-section {
-    padding: 90px 35px;
-  }
-  .enclave-editorial-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .enclave-editorial-right {
-    border-left: none;
-    border-top: 1px solid rgba(var(--color-accent-rgb), 0.25);
-    padding-left: 0;
-    padding-top: 30px;
-  }
+.enclave-opt2-title em {
+  font-style: italic;
+  color: #E8DEC8;
+  font-weight: 300;
+}
+
+.enclave-opt2-subtitle {
+  font-family: var(--font-cinzel);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: #C8B69A;
+  margin-bottom: 18px;
+}
+
+.enclave-opt2-desc {
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: rgba(247, 247, 248, 0.82);
+  margin: 0;
 }
 
 @media (max-width: 768px) {
-  .enclave-editorial-section {
-    padding: 80px 25px;
+  .enclave-opt2-section {
+    padding: 70px 20px;
+  }
+  .enclave-opt2-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .enclave-opt2-title {
+    font-size: clamp(2rem, 6.5vw, 2.4rem);
+  }
+  .enclave-opt2-desc {
+    font-size: 0.96rem;
+    line-height: 1.75;
   }
 }
 
@@ -1655,6 +1650,10 @@ section.contact {
     top: 25px;
   }
 }
+
+
+
+
 
 
 

@@ -369,11 +369,11 @@ header {
 .menu-links a {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 3.6vw, 3.4rem);
-  font-weight: 300;
-  line-height: 1.15;
+  font-weight: 400;
+  line-height: 1.2;
   letter-spacing: -0.01em;
   text-decoration: none;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   display: inline-block;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s;
   transform: translateY(100%);
@@ -392,8 +392,9 @@ header {
 .menu-overlay.open .menu-links li:nth-child(6) a { transition-delay: 0.40s; }
 .menu-overlay.open .menu-links li:nth-child(7) a { transition-delay: 0.45s; }
 
-.menu-links a:hover {
-  color: var(--color-text);
+.menu-links a:hover,
+.menu-links a:active {
+  color: #E8DEC8;
   transform: translateX(18px);
 }
 
@@ -1320,8 +1321,8 @@ footer {
   .sample-photos { grid-template-columns: 1fr; gap: 30px; }
   .contact-grid { grid-template-columns: 1fr; gap: 60px; }
   .contact-info h2 { font-size: 3rem; }
-  .menu-grid { grid-template-columns: 1fr; gap: 50px; }
-  .menu-links a { font-size: 3rem; }
+  .menu-grid { grid-template-columns: 1fr; gap: 50px; align-items: flex-start; }
+  .menu-links a { font-size: 2.8rem; }
 }
 
 @media(max-width: 768px) {
@@ -1391,11 +1392,14 @@ footer {
   .contact-info h2 { font-size: 2.2rem; }
 
   footer { padding: 30px 25px; flex-direction: column; gap: 20px; text-align: center; }
-  .menu-overlay { display: block; overflow-y: auto; padding: 120px 25px 60px; }
-  .menu-grid { display: flex; flex-direction: column; gap: 50px; }
-  .menu-links a { font-size: 2.5rem; }
-  .menu-info { justify-content: flex-start; gap: 30px; margin-top: 20px; padding-left: 0; border-left: none; border-top: 1px solid var(--color-border); padding-top: 30px; font-size: 1.15rem; }
-  .menu-info h4 { font-size: 0.9rem; }
+  .menu-overlay { display: block; overflow-y: auto; padding: 110px 25px 60px; }
+  .menu-grid { display: flex; flex-direction: column; gap: 36px; align-items: flex-start; width: 100%; margin: 0; }
+  .menu-links { width: 100%; align-items: flex-start; text-align: left; gap: 16px; }
+  .menu-links li { width: 100%; text-align: left; }
+  .menu-links a { font-size: 2.3rem; color: var(--color-text); font-weight: 400; line-height: 1.25; }
+  .menu-info { justify-content: flex-start; align-items: flex-start; gap: 26px; margin-top: 10px; padding-left: 0; border-left: none; border-top: 1px solid var(--color-border); padding-top: 26px; font-size: 1.05rem; width: 100%; }
+  .menu-info h4 { font-size: 0.82rem; letter-spacing: 0.22em; }
+  .menu-info p { color: rgba(247, 247, 248, 0.72); font-size: 0.95rem; line-height: 1.6; }
   .loader-text { font-size: 1.5rem; letter-spacing: 0.08em; padding: 0 20px; }
   .build-specs-card { padding: 20px; }
   .build-specs-card h4 { font-size: 1.3rem; margin-bottom: 15px; }
@@ -1411,7 +1415,12 @@ footer {
   .logo-icon { width: 30px; height: 30px; transform: translateY(-1.5px); }
   .logo-main-text { font-size: 0.9rem; }
   .logo-sub-text { font-size: 0.5rem; }
-  .menu-links a { font-size: 2rem; }
+  .menu-overlay { padding: 105px 25px 45px; }
+  .menu-grid { gap: 30px; }
+  .menu-links { gap: 14px; }
+  .menu-links a { font-size: 2.1rem; }
+  .menu-info { gap: 22px; padding-top: 22px; font-size: 0.95rem; }
+  .menu-info h4 { font-size: 0.78rem; letter-spacing: 0.2em; }
   .build-specs-card { padding: 15px; }
   .build-specs-card h4 { font-size: 1.15rem; margin-bottom: 12px; }
   .specs-table td { font-size: 0.8rem; padding: 8px 0; }
@@ -1433,16 +1442,24 @@ footer {
   .menu-overlay {
     display: block !important;
     overflow-y: auto !important;
-    padding: 100px 25px 40px !important;
+    padding: 85px 25px 35px !important;
     height: 100vh !important;
   }
   .menu-grid {
     display: flex !important;
     flex-direction: column !important;
-    gap: 40px !important;
+    gap: 24px !important;
+    align-items: flex-start !important;
+  }
+  .menu-links {
+    gap: 10px !important;
   }
   .menu-links a {
-    font-size: 2rem !important;
+    font-size: 1.65rem !important;
+  }
+  .menu-info {
+    gap: 16px !important;
+    padding-top: 16px !important;
   }
 }
 
@@ -2225,4 +2242,5 @@ footer {
     transform: none !important;
   }
 }
+
 
