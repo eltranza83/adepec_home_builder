@@ -1731,10 +1731,14 @@ footer {
   min-height: auto;
 }
 
-.showcase-header > div {
+.showcase-header > div:first-child {
+  max-width: none;
+}
+
+.showcase-header > div:last-child {
   color: var(--color-text-muted);
   font-size: 0.95rem;
-  max-width: 300px;
+  max-width: 320px;
 }
 
 #now-available .sample-photos,
