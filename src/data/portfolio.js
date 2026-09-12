@@ -7,7 +7,7 @@ export const portfolioData = [
     hasSpecs: true,
     mapUrl: "https://maps.google.com/?q=9908+North+25th+Street,+McAllen,+Texas+78504",
     elevationImage: {
-      src: "/assets/houses/9908-n-25th-st/elevation.webp",
+      src: "./assets/houses/9908-n-25th-st/elevation.webp",
       alt: "9908 North 25th Street — Front Elevation",
       caption: "9908 North 25th Street — Front Elevation",
       label: "Front Elevation",
@@ -16,16 +16,16 @@ export const portfolioData = [
       style: "object-position: center 25%;"
     },
     carouselImages: [
-      { src: "/assets/houses/9908-n-25th-st/openarea1.webp", alt: "Open Living Area", caption: "9908 North 25th Street — Open Living Area", label: "Open Living Area", sublabel: "Interior" },
-      { src: "/assets/houses/9908-n-25th-st/masterBath.webp", alt: "Master Bathroom", caption: "9908 North 25th Street — Master Bathroom", label: "Master Bathroom", sublabel: "Interior" },
-      { src: "/assets/houses/9908-n-25th-st/kitchen.webp", alt: "Gourmet Kitchen", caption: "9908 North 25th Street — Gourmet Kitchen", label: "Gourmet Kitchen", sublabel: "Interior" },
-      { src: "/assets/houses/9908-n-25th-st/bedroom1.webp", alt: "Bedroom 1", caption: "9908 North 25th Street — Bedroom 1", label: "Bedroom 1", sublabel: "Interior" },
-      { src: "/assets/houses/9908-n-25th-st/fromdining.webp", alt: "Dining Area Vista", caption: "9908 North 25th Street — Dining Area Vista", label: "Dining Area Vista", sublabel: "Interior" },
-      { src: "/assets/houses/9908-n-25th-st/backyard.webp", alt: "Backyard Landscape", caption: "9908 North 25th Street — Backyard Landscape", label: "Backyard Landscape", sublabel: "Exterior" },
-      { src: "/assets/houses/9908-n-25th-st/laundry.webp", alt: "Laundry Room", caption: "9908 North 25th Street — Laundry Room", label: "Laundry Room", sublabel: "Interior" },
-      { src: "/assets/houses/9908-n-25th-st/masterCloset.webp", alt: "Master Closet", caption: "9908 North 25th Street — Master Closet", label: "Master Closet", sublabel: "Interior" },
-      { src: "/assets/houses/9908-n-25th-st/miniMasterRR.webp", alt: "Mini Master Restroom", caption: "9908 North 25th Street — Mini Master Restroom", label: "Mini Master Restroom", sublabel: "Interior" },
-      { src: "/assets/houses/9908-n-25th-st/sharedRR.webp", alt: "Shared Restroom", caption: "9908 North 25th Street — Shared Restroom", label: "Shared Restroom", sublabel: "Interior" }
+      { src: "./assets/houses/9908-n-25th-st/openarea1.webp", alt: "Open Living Area", caption: "9908 North 25th Street — Open Living Area", label: "Open Living Area", sublabel: "Interior" },
+      { src: "./assets/houses/9908-n-25th-st/masterBath.webp", alt: "Master Bathroom", caption: "9908 North 25th Street — Master Bathroom", label: "Master Bathroom", sublabel: "Interior" },
+      { src: "./assets/houses/9908-n-25th-st/kitchen.webp", alt: "Gourmet Kitchen", caption: "9908 North 25th Street — Gourmet Kitchen", label: "Gourmet Kitchen", sublabel: "Interior" },
+      { src: "./assets/houses/9908-n-25th-st/bedroom1.webp", alt: "Bedroom 1", caption: "9908 North 25th Street — Bedroom 1", label: "Bedroom 1", sublabel: "Interior" },
+      { src: "./assets/houses/9908-n-25th-st/fromdining.webp", alt: "Dining Area Vista", caption: "9908 North 25th Street — Dining Area Vista", label: "Dining Area Vista", sublabel: "Interior" },
+      { src: "./assets/houses/9908-n-25th-st/backyard.webp", alt: "Backyard Landscape", caption: "9908 North 25th Street — Backyard Landscape", label: "Backyard Landscape", sublabel: "Exterior" },
+      { src: "./assets/houses/9908-n-25th-st/laundry.webp", alt: "Laundry Room", caption: "9908 North 25th Street — Laundry Room", label: "Laundry Room", sublabel: "Interior" },
+      { src: "./assets/houses/9908-n-25th-st/masterCloset.webp", alt: "Master Closet", caption: "9908 North 25th Street — Master Closet", label: "Master Closet", sublabel: "Interior" },
+      { src: "./assets/houses/9908-n-25th-st/miniMasterRR.webp", alt: "Mini Master Restroom", caption: "9908 North 25th Street — Mini Master Restroom", label: "Mini Master Restroom", sublabel: "Interior" },
+      { src: "./assets/houses/9908-n-25th-st/sharedRR.webp", alt: "Shared Restroom", caption: "9908 North 25th Street — Shared Restroom", label: "Shared Restroom", sublabel: "Interior" }
     ],
     specs: {
       slab: "3,179.5 SQ. FT.",
@@ -67,7 +67,7 @@ export const portfolioData = [
     hasSpecs: true,
     mapUrl: "https://maps.google.com/?q=9905+North+25th+Street,+McAllen,+Texas+78504",
     elevationImage: {
-      src: "/assets/houses/9905-n-25th-st/elevation.webp",
+      src: "./assets/houses/9905-n-25th-st/elevation.webp",
       alt: "9905 North 25th Street — Front Elevation",
       caption: "9905 North 25th Street — Front Elevation",
       label: "Front Elevation",
@@ -117,7 +117,7 @@ export const portfolioData = [
     hasSpecs: false,
     gridImages: [
       {
-        src: "/assets/houses/elegant-residence/exterior.webp",
+        src: "./assets/houses/elegant-residence/exterior.webp",
         alt: "Elegant Residence — Front Facade",
         caption: "Elegant Residence — Front Facade",
         label: "Front Facade",
@@ -125,21 +125,21 @@ export const portfolioData = [
         badge: "Sold"
       },
       {
-        src: "/assets/houses/elegant-residence/kitchen.webp",
+        src: "./assets/houses/elegant-residence/kitchen.webp",
         alt: "Elegant Residence — Gourmet Kitchen",
         caption: "Elegant Residence — Gourmet Kitchen",
         label: "Gourmet Kitchen",
         sublabel: "Interior"
       },
       {
-        src: "/assets/houses/elegant-residence/bathroom.webp",
+        src: "./assets/houses/elegant-residence/bathroom.webp",
         alt: "Elegant Residence — Spa Bathroom",
         caption: "Elegant Residence — Spa Bathroom",
         label: "Spa Bathroom",
         sublabel: "Interior"
       },
       {
-        src: "/assets/houses/elegant-residence/ceiling.webp",
+        src: "./assets/houses/elegant-residence/ceiling.webp",
         alt: "Elegant Residence — Coffered Ceiling Detail",
         caption: "Elegant Residence — Coffered Ceiling Detail",
         label: "Coffered Ceiling Detail",
@@ -155,7 +155,7 @@ export const portfolioData = [
     hasSpecs: false,
     gridImages: [
       {
-        src: "/assets/houses/modern-retreat/exterior.webp",
+        src: "./assets/houses/modern-retreat/exterior.webp",
         alt: "Modern Retreat — Modern Facade",
         caption: "Modern Retreat — Modern Facade",
         label: "Modern Facade",
@@ -163,21 +163,21 @@ export const portfolioData = [
         badge: "Sold"
       },
       {
-        src: "/assets/houses/modern-retreat/living.webp",
+        src: "./assets/houses/modern-retreat/living.webp",
         alt: "Modern Retreat — Open Floor Concept",
         caption: "Modern Retreat — Open Floor Concept",
         label: "Open Floor Concept",
         sublabel: "Interior"
       },
       {
-        src: "/assets/houses/modern-retreat/bathroom.webp",
+        src: "./assets/houses/modern-retreat/bathroom.webp",
         alt: "Modern Retreat — Glass Shower Suite",
         caption: "Modern Retreat — Glass Shower Suite",
         label: "Glass Shower Suite",
         sublabel: "Interior"
       },
       {
-        src: "/assets/houses/modern-retreat/entry.webp",
+        src: "./assets/houses/modern-retreat/entry.webp",
         alt: "Modern Retreat — Grand Entryway",
         caption: "Modern Retreat — Grand Entryway",
         label: "Grand Entryway",
