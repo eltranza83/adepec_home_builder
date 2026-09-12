@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 2. Element Selectors for Landing Page
   const loader = document.getElementById("loader");
-  const loaderText = document.getElementById("loader-text");
+  const loaderContent = document.getElementById("loader-content");
   const heroTag = document.querySelector(".hero-tag");
   const heroTitleSpans = document.querySelectorAll("#hero-title span");
   const heroFooter = document.getElementById("hero-footer");
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroImg = document.getElementById("hero-img");
   const philosophyImg = document.querySelector(".philosophy-img img");
 
-  // 3. Intro Loader Sequence
+  // 3. Intro Loader Sequence (Option 1: Refined Logo Curtain)
   const runIntro = () => {
     // Check if intro has already been run in this session
     if (sessionStorage.getItem("introPlayed")) {
@@ -50,19 +50,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // Add class to change cursor color on dark splash screen
     document.body.classList.add("loader-active");
 
-    // Text reveals
+    // 1. Logo & expanding lines reveal
     setTimeout(() => {
-      if (loaderText) loaderText.classList.add("active");
-    }, 100);
+      if (loaderContent) loaderContent.classList.add("active");
+    }, 80);
 
-    // Slide up loader and fade out text
+    // 2. Slide up curtain into the ceiling
     setTimeout(() => {
       if (loader) loader.classList.add("loaded");
-      if (loaderText) loaderText.classList.remove("active");
       document.body.classList.remove("loader-active");
-    }, 2000);
+    }, 1450);
 
-    // Reveal hero elements
+    // 3. Reveal hero elements in smooth choreography
     setTimeout(() => {
       if (heroTag) {
         heroTag.classList.add("revealed");
@@ -73,12 +72,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (heroFooter) {
         heroFooter.classList.add("revealed");
       }
-      // Scale down background image slightly for a camera zoom-out effect
       if (heroImg) {
-        heroImg.style.transition = "transform 2s cubic-bezier(0.16, 1, 0.3, 1)";
+        heroImg.style.transition = "transform 1.8s cubic-bezier(0.16, 1, 0.3, 1)";
         heroImg.style.transform = "translate3d(0, 0, 0) scale(1.1)";
       }
-    }, 3000);
+    }, 1800);
   };
   runIntro();
 

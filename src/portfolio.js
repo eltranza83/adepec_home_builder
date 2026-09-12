@@ -1,4 +1,4 @@
-﻿import { initTheme, initCustomCursor, initLightbox, setupHoverEffects, initNavMenu } from "./common.js";
+import { initTheme, initCustomCursor, initLightbox, setupHoverEffects, initNavMenu } from "./common.js";
 import { portfolioData } from "./data/portfolio.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,7 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderPortfolio(container);
 
-  // 3. Initialize Lightbox clicks for all interactive images
+  // 3. Initialize Carousel Navigation Arrows (One-by-one card scroll)
+  initPortfolioCarousels();
+
+  // 4. Initialize Lightbox clicks for all interactive images
   initPortfolioLightbox(openLightbox);
 
   // 4. Initialize Scroll Reveals
@@ -61,6 +64,8 @@ function renderPortfolio(container) {
       <!-- Main Elevation Presentation Card (Clean, Unobstructed Architectural View) -->
       <div class="portfolio-elevation-card reveal-on-scroll">
         <div class="portfolio-img-frame link-hover portfolio-lightbox-trigger"
+             data-home-id="${home.id}"
+             data-img-index="0"
              data-img="${home.elevationImage.src}"
              data-alt="${home.elevationImage.alt}"
              data-caption="${home.elevationImage.caption}"
@@ -90,9 +95,14 @@ function renderPortfolio(container) {
       <!-- Carousel Row of Interior Details (If carousel exists) -->
       ${home.carouselImages ? `
       <div class="portfolio-carousel-wrapper reveal-on-scroll">
+        <button class="carousel-arrow prev link-hover" aria-label="Previous photo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
         <div class="portfolio-carousel-track">
-          ${home.carouselImages.map(img => `
+          ${home.carouselImages.map((img, idx) => `
           <div class="portfolio-carousel-card portfolio-lightbox-trigger"
+               data-home-id="${home.id}"
+               data-img-index="${idx + 1}"
                data-img="${img.src}"
                data-alt="${img.alt}"
                data-caption="${img.caption}">
@@ -106,6 +116,9 @@ function renderPortfolio(container) {
           </div>
           `).join('')}
         </div>
+        <button class="carousel-arrow next link-hover" aria-label="Next photo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
       </div>
       ` : ''}
 
@@ -172,8 +185,10 @@ function renderPortfolio(container) {
         </div>
 
         <div class="sold-grid">
-          ${home.gridImages.map(img => `
+          ${home.gridImages.map((img, idx) => `
           <div class="sold-photo-card portfolio-lightbox-trigger"
+               data-home-id="${home.id}"
+               data-img-index="${idx}"
                data-img="${img.src}"
                data-alt="${img.alt}"
                data-caption="${img.caption}">
@@ -213,23 +228,97 @@ function renderPortfolio(container) {
   container.innerHTML = htmlContent;
 }
 
+// Global home image collections for lightbox multi-image browsing
+const homeGalleries = {};
+
+portfolioData.forEach(home => {
+  const images = [];
+  if (home.elevationImage) {
+    images.push({
+      src: home.elevationImage.src,
+      alt: home.elevationImage.alt,
+      caption: home.elevationImage.caption,
+      mapUrl: home.mapUrl || null
+    });
+  }
+  if (home.carouselImages) {
+    home.carouselImages.forEach(img => {
+      images.push({
+        src: img.src,
+        alt: img.alt,
+        caption: img.caption,
+        mapUrl: null
+      });
+    });
+  }
+  if (home.gridImages) {
+    home.gridImages.forEach(img => {
+      images.push({
+        src: img.src,
+        alt: img.alt,
+        caption: img.caption,
+        mapUrl: null
+      });
+    });
+  }
+  homeGalleries[home.id] = images;
+});
+
+/**
+ * Initializes carousel navigation arrows to scroll one photo at a time
+ */
+function initPortfolioCarousels() {
+  document.querySelectorAll(".portfolio-carousel-wrapper").forEach(wrapper => {
+    const track = wrapper.querySelector(".portfolio-carousel-track");
+    const prevBtn = wrapper.querySelector(".carousel-arrow.prev");
+    const nextBtn = wrapper.querySelector(".carousel-arrow.next");
+
+    if (!track || !prevBtn || !nextBtn) return;
+
+    const getScrollStep = () => {
+      const firstCard = track.querySelector(".portfolio-carousel-card");
+      if (!firstCard) return 320;
+      const cardWidth = firstCard.getBoundingClientRect().width;
+      return cardWidth + 20; // 1 card width + 20px gap
+    };
+
+    nextBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      track.scrollBy({ left: getScrollStep(), behavior: "smooth" });
+    });
+
+    prevBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      track.scrollBy({ left: -getScrollStep(), behavior: "smooth" });
+    });
+  });
+}
+
 /**
  * Attaches Lightbox events to triggers and prevents click bubbling on links
  */
 function initPortfolioLightbox(openLightbox) {
   document.querySelectorAll(".portfolio-lightbox-trigger").forEach(trigger => {
     trigger.addEventListener("click", () => {
-      const imgSrc = trigger.getAttribute("data-img") || (trigger.querySelector("img") ? trigger.querySelector("img").src : "");
-      const imgAlt = trigger.getAttribute("data-alt") || "";
-      const caption = trigger.getAttribute("data-caption") || "";
-      const mapUrl = trigger.getAttribute("data-map-url") || null;
-      if (imgSrc) {
-        openLightbox(imgSrc, imgAlt, caption, mapUrl);
+      const homeId = trigger.getAttribute("data-home-id");
+      const imgIndex = parseInt(trigger.getAttribute("data-img-index") || "0", 10);
+      const gallery = homeGalleries[homeId];
+
+      if (gallery && gallery.length > 0) {
+        openLightbox(gallery, imgIndex);
+      } else {
+        const imgSrc = trigger.getAttribute("data-img") || (trigger.querySelector("img") ? trigger.querySelector("img").src : "");
+        const imgAlt = trigger.getAttribute("data-alt") || "";
+        const caption = trigger.getAttribute("data-caption") || "";
+        const mapUrl = trigger.getAttribute("data-map-url") || null;
+        if (imgSrc) {
+          openLightbox(imgSrc, imgAlt, caption, mapUrl);
+        }
       }
     });
   });
 
-  document.querySelectorAll(".card-map-link, .specs-map-link, .portfolio-inquire-link, .cta-button").forEach(link => {
+  document.querySelectorAll(".card-map-link, .specs-map-link, .portfolio-inquire-link, .cta-button, .carousel-arrow").forEach(link => {
     link.addEventListener("click", (e) => {
       e.stopPropagation();
     });

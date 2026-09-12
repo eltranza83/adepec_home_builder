@@ -18,6 +18,13 @@ header {
 }
 
 
+/* Hero Headline: Replace metallic mustard with luminous champagne sand */
+.hero h1 em,
+.hero h1 .gold-accent {
+  color: #E8DEC8 !important;
+  text-shadow: 0 0 24px rgba(232, 222, 200, 0.25) !important;
+}
+
 /* ==========================================================================
    ULTRAWIDE FULL-BLEED FIX: SECTIONS SPAN 100% OF DISPLAY
    ========================================================================== */
@@ -210,11 +217,34 @@ section.contact {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
+  gap: 16px;
   width: 100%;
   padding-top: 14px;
   border-top: 1px solid #eeeae2;
+}
+
+.card-action-subrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.prop-inquire-btn {
+  font-family: var(--font-cinzel);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #926f29;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  letter-spacing: 0.08em;
+  transition: color 0.3s ease;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.prop-inquire-btn:hover {
+  color: #141619;
 }
 
 #residences .view-specs-btn {
@@ -392,7 +422,7 @@ section.contact {
   font-family: var(--font-sans);
   font-size: 0.78rem;
   letter-spacing: 0.03em;
-  color: var(--color-accent);
+  color: #C8B69A;
 }
 
 /* ==========================================================================
@@ -489,9 +519,9 @@ section.contact {
 
 #gallery-contact .cta-button:hover {
   background: #23272d;
-  border-color: #926f29;
-  color: #d4af37;
-  box-shadow: 0 4px 20px rgba(146, 111, 41, 0.2);
+  border-color: #C8B69A;
+  color: #C8B69A;
+  box-shadow: 0 4px 20px rgba(200, 182, 154, 0.25);
 }
 
 @media (max-width: 900px) {
@@ -509,18 +539,95 @@ section.contact {
 
 @media (max-width: 600px) {
   #residences .project-details {
-    padding: 20px 18px 22px;
+    padding: 22px 20px 24px;
+  }
+  #residences .card-meta-top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin-bottom: 6px;
   }
   #residences .project-title {
     font-size: 1.75rem;
   }
   #residences .card-actions {
-    gap: 10px;
-    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding-top: 16px;
+  }
+  #residences .view-specs-btn {
+    width: 100%;
+    min-height: 48px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-align: center;
+    justify-content: center;
+  }
+  #residences .card-action-subrow {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 4px 0;
   }
   #residences .card-actions .card-map-link {
-    margin-left: auto;
+    margin-left: 0;
+    padding: 6px 0;
+    font-size: 0.76rem;
   }
+  #residences .prop-inquire-btn {
+    font-size: 0.76rem;
+    padding: 6px 0;
+  }
+
+  /* Section 4 mobile fixes */
+  #showcase .project-details {
+    padding: 22px 20px 24px;
+    gap: 10px;
+  }
+  #showcase .card-meta-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin-bottom: 4px;
+  }
+  #showcase .card-status-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+  }
+  #showcase .card-specs-pill {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+  }
+  #showcase .project-title {
+    font-size: 1.65rem;
+    margin: 2px 0 4px;
+  }
+  #showcase .card-details-text {
+    font-size: 0.90rem;
+    line-height: 1.6;
+  }
+  #showcase .card-actions {
+    margin-top: 14px;
+    width: 100%;
+  }
+  #showcase .view-specs-btn {
+    width: 100%;
+    min-height: 48px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-align: center;
+    justify-content: center;
+    background: rgba(217, 200, 176, 0.08);
+  }
+
   .approach-staggered-images {
     grid-template-columns: 1fr;
   }
@@ -567,7 +674,7 @@ section.contact {
 .enclave-editorial-heading em {
   font-style: italic;
   font-weight: 300;
-  color: var(--color-accent);
+  color: #E8DEC8;
 }
 
 .enclave-editorial-text {
@@ -583,6 +690,29 @@ section.contact {
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
+}
+
+.enclave-editorial-actions .cta-button,
+.cta-button.prop-inquire-btn {
+  color: #D9C8B0 !important;
+  text-decoration: none !important;
+  border: 1px solid rgba(217, 200, 176, 0.35) !important;
+  background: rgba(217, 200, 176, 0.05) !important;
+  letter-spacing: 0.18em !important;
+}
+
+.enclave-editorial-actions .cta-button:hover,
+.cta-button.prop-inquire-btn:hover {
+  color: #0c0d0e !important;
+  background: #C8B69A !important;
+  border-color: #C8B69A !important;
+  text-decoration: none !important;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.4), 0 0 24px rgba(200, 182, 154, 0.3) !important;
+}
+
+.enclave-editorial-actions .cta-button:hover svg,
+.cta-button.prop-inquire-btn:hover svg {
+  fill: #0c0d0e !important;
 }
 
 .enclave-map-inline {
@@ -602,7 +732,7 @@ section.contact {
 }
 
 .enclave-map-inline:hover {
-  color: var(--color-accent);
+  color: #E8DEC8;
 }
 
 .enclave-map-inline .map-icon {
@@ -726,7 +856,7 @@ section.contact {
 .portfolio-hero h1 em {
   font-family: var(--font-display) !important;
   font-style: italic !important;
-  color: #C5A059 !important;
+  color: #E8DEC8 !important;
   font-weight: 400 !important;
 }
 
@@ -879,7 +1009,49 @@ section.contact {
 .portfolio-carousel-wrapper {
   position: relative;
   margin-bottom: 35px;
-  overflow: hidden;
+}
+
+.portfolio-carousel-wrapper .carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(14, 16, 19, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(217, 200, 176, 0.45);
+  color: #D9C8B0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 25;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-carousel-wrapper .carousel-arrow:hover {
+  background: #C8B69A;
+  color: #0e1013;
+  border-color: #C8B69A;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.6), 0 0 20px rgba(200, 182, 154, 0.35);
+}
+
+.portfolio-carousel-wrapper .carousel-arrow.prev {
+  left: 14px;
+}
+
+.portfolio-carousel-wrapper .carousel-arrow.next {
+  right: 14px;
+}
+
+@media (max-width: 600px) {
+  .portfolio-carousel-wrapper .carousel-arrow {
+    display: none;
+  }
 }
 
 .portfolio-carousel-track {
@@ -1048,7 +1220,7 @@ section.contact {
 .sold-showcase-section h2 em {
   font-family: var(--font-display);
   font-style: italic;
-  color: #C5A059;
+  color: #E8DEC8;
 }
 
 .sold-showcase-section p.sold-intro {
@@ -1195,7 +1367,7 @@ section.contact {
 .portfolio-bottom-cta h2 em {
   font-family: var(--font-display);
   font-style: italic;
-  color: #C5A059;
+  color: #E8DEC8;
 }
 
 .portfolio-bottom-cta p {
@@ -1290,7 +1462,7 @@ section.contact {
   font-family: var(--font-cinzel);
   font-size: 0.68rem;
   letter-spacing: 0.14em;
-  color: #C5A059;
+  color: #C8B69A;
   text-transform: uppercase;
 }
 
@@ -1322,8 +1494,8 @@ section.contact {
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.14em;
-  color: #C5A059;
-  border: 1px solid rgba(197, 160, 89, 0.4);
+  color: #D9C8B0;
+  border: 1px solid rgba(217, 200, 176, 0.35);
   padding: 10px 18px;
   border-radius: 2px;
   text-transform: uppercase;
@@ -1335,9 +1507,9 @@ section.contact {
 }
 
 #showcase .view-specs-btn:hover {
-  background: #C5A059;
+  background: #C8B69A;
   color: #0c0d0e;
-  border-color: #C5A059;
+  border-color: #C8B69A;
 }
 
 /* ==========================================================================
@@ -1380,7 +1552,7 @@ section.contact {
 #showcase .showcase-header h2 em {
   font-family: var(--font-display) !important;
   font-style: italic !important;
-  color: #C5A059 !important;
+  color: #E8DEC8 !important;
 }
 
 #showcase .showcase-header > div:last-child {
@@ -1401,6 +1573,86 @@ section.contact {
   .showcase-header h2 {
     font-size: 2.1rem !important;
     line-height: 1.2 !important;
+  }
+}
+
+/* ==========================================================================
+   LIGHTBOX LUXURY MULTI-PHOTO NAVIGATION & COUNTER
+   ========================================================================== */
+.lightbox-nav-btn {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(14, 16, 19, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(217, 200, 176, 0.45);
+  color: #D9C8B0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5002;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+}
+
+.lightbox-nav-btn:hover {
+  background: #C8B69A;
+  color: #0e1013;
+  border-color: #C8B69A;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.85), 0 0 24px rgba(200, 182, 154, 0.5);
+}
+
+.lightbox-nav-btn.prev {
+  left: 35px;
+}
+
+.lightbox-nav-btn.next {
+  right: 35px;
+}
+
+.lightbox-counter {
+  position: fixed;
+  top: 32px;
+  left: 50px;
+  color: #D9C8B0;
+  font-family: var(--font-cinzel);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  z-index: 5001;
+  background: rgba(14, 16, 19, 0.7);
+  padding: 6px 14px;
+  border-radius: 2px;
+  border: 1px solid rgba(217, 200, 176, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+@media (max-width: 768px) {
+  .lightbox-nav-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .lightbox-nav-btn.prev {
+    left: 12px;
+  }
+  .lightbox-nav-btn.next {
+    right: 12px;
+  }
+  .lightbox-counter {
+    left: 20px;
+    top: 25px;
+    font-size: 0.72rem;
+    padding: 4px 10px;
+  }
+  .lightbox-close {
+    right: 20px;
+    top: 25px;
   }
 }
 

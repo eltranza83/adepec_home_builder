@@ -69,6 +69,25 @@
 </head>
 <body>
 
+  <!-- Intro Loader Curtain -->
+  <div class="loader-container" id="loader">
+    <div class="loader-content" id="loader-content">
+      <svg class="loader-logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="loader-gold" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#C8B69A" />
+            <stop offset="50%" stop-color="#E8DEC8" />
+            <stop offset="100%" stop-color="#A8967D" />
+          </linearGradient>
+        </defs>
+        <path d="M50 15 L80 45 V85 H71 V45 L50 24 L29 45 V85 H20 V45 Z" fill="url(#loader-gold)" />
+        <path fill-rule="evenodd" d="M50 33.5 L66.5 50 V85 H50.5 V73 H49.5 V85 H33.5 V50 Z M50 42.5 L57.5 50 V63 H42.5 V50 Z" fill="url(#loader-gold)" />
+      </svg>
+      <div class="loader-logo-main">ADEPEC</div>
+      <div class="loader-logo-sub">HOMES</div>
+    </div>
+  </div>
+
   <!-- Header -->
   <header>
     <a href="#hero" class="logo link-hover">
@@ -134,8 +153,8 @@
         </h1>
         <div class="hero-footer" id="hero-footer">
           <p class="hero-desc">
-            <strong class="hero-lead">Adepec Homes crafts premier move-in ready and custom residences across South Texas’ most sought-after enclaves.</strong>
-            For us, building is an art fueled by deep passion, pride, and an obsession with detail. From the initial concept to the final finishing touch, every home is a personal pursuit of excellence—shaped by <span class="hero-gold-text">master craftsmanship</span>, <span class="hero-white-text">uncompromising quality</span>, and spaces built to endure for generations.
+            <span class="hero-lead"><strong class="hero-white-text">Adepec Homes</strong> crafts premier move-in ready and custom residences across South Texas’ most sought-after enclaves.</span>
+            For us, building is an art fueled by deep passion, pride, and an obsession with detail. From the initial concept to the final finishing touch, every home is a personal pursuit of excellence—shaped by <span class="hero-white-text">master craftsmanship</span>, <span class="hero-white-text">uncompromising quality</span>, and spaces built to <span class="hero-white-text">endure for generations</span>.
           </p>
           <a href="#residences" class="cta-button link-hover">
             Explore Available Homes
@@ -175,11 +194,13 @@
             <p class="card-details-text">Newly completed luxury residence featuring bespoke Cantera stone, gourmet Butler's kitchen, and custom spray foam envelope.</p>
             <div class="card-actions">
               <a href="portfolio.html#now-available-9908" class="view-specs-btn link-hover">VIEW FULL SPECS</a>
-              <a href="https://maps.google.com/?q=9908+North+25th+Street,+McAllen,+Texas+78504" target="_blank" rel="noopener noreferrer" class="card-map-link link-hover">
-                <svg class="map-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                <span>Map</span>
-              </a>
-              <a href="#gallery-contact" class="link-hover prop-inquire-btn" data-interest="9908 North 25th Street (Available)" style="font-family: var(--font-cinzel); font-size: 0.72rem; font-weight: 700; color: #926f29; text-decoration: underline; text-underline-offset: 4px;">Inquire →</a>
+              <div class="card-action-subrow">
+                <a href="https://maps.google.com/?q=9908+North+25th+Street,+McAllen,+Texas+78504" target="_blank" rel="noopener noreferrer" class="card-map-link link-hover">
+                  <svg class="map-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  <span>Map</span>
+                </a>
+                <a href="#gallery-contact" class="link-hover prop-inquire-btn" data-interest="9908 North 25th Street (Available)">Inquire →</a>
+              </div>
             </div>
           </div>
         </div>
@@ -198,11 +219,13 @@
             <p class="card-details-text">Under active construction. Premium porcelain floors, dual-zone climate system, and private perimeter gating.</p>
             <div class="card-actions">
               <a href="portfolio.html#current-projects-9905" class="view-specs-btn link-hover">VIEW FULL SPECS</a>
-              <a href="https://maps.google.com/?q=9905+North+25th+Street,+McAllen,+Texas+78504" target="_blank" rel="noopener noreferrer" class="card-map-link link-hover">
-                <svg class="map-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                <span>Map</span>
-              </a>
-              <a href="#gallery-contact" class="link-hover prop-inquire-btn" data-interest="9905 North 25th Street (Under Construction)" style="font-family: var(--font-cinzel); font-size: 0.72rem; font-weight: 700; color: #926f29; text-decoration: underline; text-underline-offset: 4px;">Inquire →</a>
+              <div class="card-action-subrow">
+                <a href="https://maps.google.com/?q=9905+North+25th+Street,+McAllen,+Texas+78504" target="_blank" rel="noopener noreferrer" class="card-map-link link-hover">
+                  <svg class="map-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  <span>Map</span>
+                </a>
+                <a href="#gallery-contact" class="link-hover prop-inquire-btn" data-interest="9905 North 25th Street (Under Construction)">Inquire →</a>
+              </div>
             </div>
           </div>
         </div>
@@ -311,7 +334,7 @@
           <div class="project-details">
             <div class="card-meta-top">
               <span class="card-status-label"><span class="status-dot sold-dot">●</span> Sold &middot; Private Residence</span>
-              <span class="card-specs-pill">CUSTOM ARCHITECTURAL BUILD</span>
+              <span class="card-specs-pill">Custom Build</span>
             </div>
             <h3 class="project-title">Elegant Residence</h3>
             <p class="card-details-text">A clean stucco and white stone sanctuary featuring bespoke entry details, double-height ceilings, and polished surfaces throughout.</p>
@@ -329,7 +352,7 @@
           <div class="project-details">
             <div class="card-meta-top">
               <span class="card-status-label"><span class="status-dot sold-dot">●</span> Sold &middot; Private Residence</span>
-              <span class="card-specs-pill">CUSTOM ARCHITECTURAL BUILD</span>
+              <span class="card-specs-pill">Custom Build</span>
             </div>
             <h3 class="project-title">Modern Retreat</h3>
             <p class="card-details-text">Elevated modern interiors with designer pendant lighting, floating vanities, and a geometric glass-enclosed wet shower sanctuary.</p>
