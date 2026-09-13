@@ -79,7 +79,7 @@ function renderPortfolio(container) {
         <div class="portfolio-elevation-details">
           <div class="card-meta-top">
             <span class="card-status-label"><span class="status-dot ${statusDotClass}">●</span> ${statusText}</span>
-            <span class="card-specs-pill">${home.specs.slab} · 4 BEDS · 3.5 BATHS</span>
+            <span class="card-specs-pill">${home.specs.slab} · ${home.specs.rooms.replaceAll(", ", " · ")}</span>
           </div>
           <div class="portfolio-elevation-actions">
             ${home.mapUrl ? `

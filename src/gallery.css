@@ -198,10 +198,12 @@ section.contact {
 }
 
 .card-specs-pill {
-  font-family: var(--font-cinzel);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  color: #6a6c70;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.025em;
+  color: #53565b;
   text-transform: uppercase;
 }
 
@@ -1699,3 +1701,67 @@ section.contact {
 
 
 
+
+/* Direct desktop navigation, with the full menu available at every size. */
+.desktop-nav {
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  .header-controls {
+    gap: 36px;
+  }
+
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .desktop-nav a {
+    padding: 10px 0;
+    color: #f7f7f8;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .desktop-nav a:hover,
+  .desktop-nav a:focus-visible {
+    color: #E8DEC8;
+    border-bottom-color: #E8DEC8;
+  }
+
+  .desktop-nav a:focus-visible {
+    outline: 2px solid #E8DEC8;
+    outline-offset: 5px;
+  }
+}
+/* Primary action on the homepage hero. */
+.hero .cta-button {
+  background: rgba(217, 200, 165, 0.08);
+  border-color: rgba(217, 200, 165, 0.55);
+  color: #E8DEC8;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  min-height: 56px;
+  box-shadow: none;
+}
+
+.hero .cta-button:hover,
+.hero .cta-button:focus-visible {
+  background: #E8DEC8;
+  border-color: #E8DEC8;
+  color: #141619;
+}
+
+.hero .cta-button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 5px;
+}
