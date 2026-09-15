@@ -611,6 +611,10 @@ section {
   font-weight: 600;
 }
 
+.mobile-brand-intro {
+  display: none;
+}
+
 
 .cta-button {
   display: inline-flex;
@@ -1380,6 +1384,24 @@ footer {
   }
   .hero-desc {
     max-width: 100%;
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+  .hero-story {
+    display: none;
+  }
+  .mobile-brand-intro {
+    display: block;
+    min-height: auto;
+    padding: 44px 25px;
+    background: #121418;
+    border-top: 1px solid rgba(232, 222, 200, 0.12);
+    border-bottom: 1px solid rgba(232, 222, 200, 0.12);
+  }
+  .mobile-brand-intro p {
+    max-width: 620px;
+    margin: 0 auto;
+    color: #c6c8cc;
     font-size: 0.98rem;
     line-height: 1.8;
   }
