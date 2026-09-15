@@ -504,7 +504,8 @@ section {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
+  /* Match the content grid used by the sections below the hero. */
+  max-width: 1400px;
   width: 100%;
   margin: 0 auto;
 }
