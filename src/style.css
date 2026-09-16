@@ -1370,9 +1370,10 @@ footer {
   }
   header { padding: 0 25px; }
   .header-inner { padding: 20px 0; }
-  .logo-icon { width: 34px; height: 34px; transform: translateY(-2px); }
-  .logo-main-text { font-size: 1.05rem; }
-  .logo-sub-text { width: 135px; font-size: 0.55rem; }
+  .logo { transform: scale(0.85); transform-origin: left center; }
+  .logo-icon { width: 40px; height: 40px; transform: translateY(-2.5px); }
+  .logo-main-text { font-size: 1.2rem; }
+  .logo-sub-text { width: 150px; font-size: 0.6rem; }
   .nav-toggle { font-size: 0.8rem; gap: 8px; }
   .nav-toggle span { width: 16px; }
   section { padding: 80px 25px; min-height: auto; }
@@ -1451,9 +1452,6 @@ footer {
   .showcase-header h2 { font-size: 1.8rem; }
   .philosophy-text h2 { font-size: 1.8rem; }
   .contact-info h2 { font-size: 1.8rem; }
-  .logo-icon { width: 30px; height: 30px; transform: translateY(-1.5px); }
-  .logo-main-text { font-size: 0.9rem; }
-  .logo-sub-text { width: 120px; font-size: 0.5rem; }
   .menu-overlay { padding: 105px 25px 45px; }
   .menu-grid { gap: 30px; }
   .menu-links { gap: 14px; }
