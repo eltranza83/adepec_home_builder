@@ -1372,7 +1372,7 @@ footer {
   .header-inner { padding: 20px 0; }
   .logo-icon { width: 34px; height: 34px; transform: translateY(-2px); }
   .logo-main-text { font-size: 1.05rem; }
-  .logo-sub-text { font-size: 0.55rem; }
+  .logo-sub-text { width: 110px; font-size: 0.55rem; }
   .nav-toggle { font-size: 0.8rem; gap: 8px; }
   .nav-toggle span { width: 16px; }
   section { padding: 80px 25px; min-height: auto; }
@@ -1453,7 +1453,7 @@ footer {
   .contact-info h2 { font-size: 1.8rem; }
   .logo-icon { width: 30px; height: 30px; transform: translateY(-1.5px); }
   .logo-main-text { font-size: 0.9rem; }
-  .logo-sub-text { font-size: 0.5rem; }
+  .logo-sub-text { width: 90px; font-size: 0.5rem; }
   .menu-overlay { padding: 105px 25px 45px; }
   .menu-grid { gap: 30px; }
   .menu-links { gap: 14px; }
