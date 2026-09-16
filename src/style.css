@@ -1371,10 +1371,11 @@ footer {
   .nav-toggle span { width: 16px; }
   section { padding: 80px 25px; min-height: auto; }
   .hero {
-    padding: 130px 25px 60px;
+    padding: 190px 25px 60px;
     height: auto;
     min-height: 100vh;
     overflow: visible;
+    justify-content: flex-start;
   }
   .scroll-indicator {
     display: none !important;
