@@ -415,11 +415,13 @@
   </main>
 
   <footer>
-    <div>&copy; 2026 Adepec Homes LLC. All rights reserved.</div>
+    <div>&copy; <span id="copyright-year">2026</span> Adepec Homes LLC. All rights reserved.</div>
   </footer>
 
   <script type="module" src="./src/main.js"></script>
   <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
     // Handle smart pre-fill when clicking property inquire buttons
     document.querySelectorAll('.prop-inquire-btn').forEach(btn => {
       btn.addEventListener('click', () => {
