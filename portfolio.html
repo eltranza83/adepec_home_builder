@@ -77,34 +77,36 @@
 
   <!-- Header -->
   <header>
-    <a href="index.html" class="logo link-hover">
-      <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="header-gold" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#C8B69A" />
-            <stop offset="50%" stop-color="#E8DEC8" />
-            <stop offset="100%" stop-color="#A8967D" />
-          </linearGradient>
-        </defs>
-        <path d="M50 15 L80 45 V85 H71 V45 L50 24 L29 45 V85 H20 V45 Z" fill="url(#header-gold)" />
-        <path fill-rule="evenodd" d="M50 33.5 L66.5 50 V85 H50.5 V73 H49.5 V85 H33.5 V50 Z M50 42.5 L57.5 50 V63 H42.5 V50 Z" fill="url(#header-gold)" />
-      </svg>
-      <div class="logo-text-group">
-        <span class="logo-main-text">ADEPEC</span>
-        <span class="logo-sub-text">HOMES</span>
-      </div>
-    </a>
+    <div class="header-inner">
+      <a href="index.html" class="logo link-hover">
+        <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="header-gold" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#C8B69A" />
+              <stop offset="50%" stop-color="#E8DEC8" />
+              <stop offset="100%" stop-color="#A8967D" />
+            </linearGradient>
+          </defs>
+          <path d="M50 15 L80 45 V85 H71 V45 L50 24 L29 45 V85 H20 V45 Z" fill="url(#header-gold)" />
+          <path fill-rule="evenodd" d="M50 33.5 L66.5 50 V85 H50.5 V73 H49.5 V85 H33.5 V50 Z M50 42.5 L57.5 50 V63 H42.5 V50 Z" fill="url(#header-gold)" />
+        </svg>
+        <div class="logo-text-group">
+          <span class="logo-main-text">ADEPEC</span>
+          <span class="logo-sub-text">HOMES</span>
+        </div>
+      </a>
 
-    <div class="header-controls">
-      <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="index.html#residences">Available Homes</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="index.html#gallery-contact">Contact</a>
-      </nav>
-      <button class="nav-toggle link-hover" id="menu-btn" aria-label="Toggle Menu">
-        <span></span>
-        <div id="menu-btn-text">Menu</div>
-      </button>
+      <div class="header-controls">
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="index.html#residences">Available Homes</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="index.html#gallery-contact">Contact</a>
+        </nav>
+        <button class="nav-toggle link-hover" id="menu-btn" aria-label="Toggle Menu">
+          <span></span>
+          <div id="menu-btn-text">Menu</div>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -147,12 +149,7 @@
 
   <!-- Footer -->
   <footer>
-    <div>&copy; 2019–2026 Adepec Homes. All rights reserved.</div>
-    <div class="footer-links">
-      <a href="index.html" class="link-hover">Home</a>
-      <a href="index.html#gallery-contact" class="link-hover">Inquire</a>
-      <a href="#" class="link-hover" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to Top ↑</a>
-    </div>
+    <div>&copy; <span id="copyright-year">2026</span> Adepec Homes LLC. All rights reserved.</div>
   </footer>
 
   <!-- Lightbox Overlay -->
@@ -175,5 +172,8 @@
   </div>
 
   <script type="module" src="./src/portfolio.js"></script>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
