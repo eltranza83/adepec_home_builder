@@ -10,6 +10,7 @@
     "check-assets": "node check_assets.js"
   },
   "devDependencies": {
+    "sharp": "^0.35.5",
     "vite": "^8.1.2"
   }
 }
