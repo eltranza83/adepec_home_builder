@@ -1834,8 +1834,9 @@ footer {
   object-position: center 25%;
 }
 
-#current-projects .project-img-wrapper img {
-  object-position: center 88%;
+#current-projects .project-img-wrapper img,
+#now-available-9905 .project-img-wrapper img {
+  object-position: center 25%;
 }
 
 #now-available .project-title,

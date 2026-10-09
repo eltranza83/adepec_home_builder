@@ -60,10 +60,10 @@ export const portfolioData = [
     ]
   },
   {
-    id: "current-projects-9905",
+    id: "now-available-9905",
     title: "9905 North 25th Street",
-    tagline: "Under Construction",
-    description: "Located at the exclusive Falcon's Cove subdivision. An upcoming premium architectural residence currently under construction in McAllen, Texas, 78504.",
+    tagline: "Now Available",
+    description: "Located at the exclusive Falcon's Cove subdivision. A newly completed premium architectural residence ready for move-in in McAllen, Texas, 78504.",
     hasSpecs: true,
     mapUrl: "https://maps.google.com/?q=9905+North+25th+Street,+McAllen,+Texas+78504",
     elevationImage: {
@@ -71,12 +71,29 @@ export const portfolioData = [
       alt: "9905 North 25th Street — Front Elevation",
       caption: "9905 North 25th Street — Front Elevation",
       label: "Front Elevation",
-      sublabel: "Upcoming Build — Click to Expand",
-      badge: "Under Construction",
-      isRendering: true,
-      style: "object-position: center 88%;"
+      sublabel: "Newly Completed — Click to Expand",
+      badge: "Available",
+      style: "object-position: center 25%;"
     },
-    // No carousel for 9905
+    carouselImages: [
+      { src: "./assets/houses/9905-n-25th-st/openarea1.webp", alt: "Open Living & Kitchen", caption: "9905 North 25th Street — Open Living & Kitchen", label: "Open Living Area", sublabel: "Interior" },
+      { src: "./assets/houses/9905-n-25th-st/kitchen.webp", alt: "Gourmet Kitchen Island", caption: "9905 North 25th Street — Gourmet Kitchen Island", label: "Gourmet Kitchen", sublabel: "Interior" },
+      { src: "./assets/houses/9905-n-25th-st/dining.webp", alt: "Dining Area Vista", caption: "9905 North 25th Street — Dining Area Vista", label: "Dining Area Vista", sublabel: "Interior" },
+      { src: "./assets/houses/9905-n-25th-st/rangehood.webp", alt: "Kitchen Cabinetry & Range", caption: "9905 North 25th Street — Kitchen Cabinetry & Range", label: "Custom Cabinetry", sublabel: "Interior" },
+      { src: "./assets/houses/9905-n-25th-st/pantry.webp", alt: "Butler's Pantry", caption: "9905 North 25th Street — Butler's Pantry", label: "Butler's Pantry", sublabel: "Interior" },
+      { src: "./assets/houses/9905-n-25th-st/masterBedroom.webp", alt: "Primary Bedroom Suite", caption: "9905 North 25th Street — Primary Bedroom Suite", label: "Primary Suite", sublabel: "Interior" },
+      { src: "./assets/houses/9905-n-25th-st/masterBathVanity.webp", alt: "Primary Bath Vanity", caption: "9905 North 25th Street — Primary Bath Vanity", label: "Primary Vanity", sublabel: "Interior" },
+      { src: "./assets/houses/9905-n-25th-st/masterBath.webp", alt: "Primary Bath Shower & Tub", caption: "9905 North 25th Street — Primary Bath Shower & Tub", label: "Primary Bathroom", sublabel: "Interior" },
+      { src: "./assets/houses/9905-n-25th-st/masterCloset.webp", alt: "Custom Walk-in Closet", caption: "9905 North 25th Street — Custom Walk-in Closet", label: "Walk-in Closet", sublabel: "Interior" },
+      { src: "./assets/houses/9905-n-25th-st/bedroom2.webp", alt: "Secondary Bedroom Suite", caption: "9905 North 25th Street — Secondary Bedroom Suite", label: "Bedroom Suite 2", sublabel: "Interior" },
+      { src: "./assets/houses/9905-n-25th-st/ensuiteBath.webp", alt: "Ensuite Bathroom", caption: "9905 North 25th Street — Ensuite Bathroom", label: "Ensuite Bathroom", sublabel: "Interior" },
+      { src: "./assets/houses/9905-n-25th-st/bedroom3.webp", alt: "Guest Bedroom 3", caption: "9905 North 25th Street — Guest Bedroom 3", label: "Bedroom 3", sublabel: "Interior" },
+      { src: "./assets/houses/9905-n-25th-st/hallwayBath.webp", alt: "Hallway Full Bathroom", caption: "9905 North 25th Street — Hallway Full Bathroom", label: "Hallway Bathroom", sublabel: "Interior" },
+      { src: "./assets/houses/9905-n-25th-st/bedroom4.webp", alt: "Bedroom 4 / Private Study", caption: "9905 North 25th Street — Bedroom 4 / Private Study", label: "Bedroom 4 / Study", sublabel: "Interior" },
+      { src: "./assets/houses/9905-n-25th-st/laundry.webp", alt: "Dedicated Laundry Suite", caption: "9905 North 25th Street — Dedicated Laundry Suite", label: "Laundry Room", sublabel: "Interior" },
+      { src: "./assets/houses/9905-n-25th-st/powderRoom.webp", alt: "Guest Powder Room", caption: "9905 North 25th Street — Guest Powder Room", label: "Powder Room", sublabel: "Interior" },
+      { src: "./assets/houses/9905-n-25th-st/backyard.webp", alt: "Covered Patio & Backyard", caption: "9905 North 25th Street — Covered Patio & Backyard", label: "Patio & Backyard", sublabel: "Exterior" }
+    ],
     specs: {
       slab: "3,179.5 SQ. FT.",
       living: "2,544.2 SQ. FT.",

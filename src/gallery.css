@@ -133,14 +133,14 @@ section.contact {
 
 #residences .project-card img[src*="9905"],
 .project-card img[src*="9905-n-25th-st"] {
-  object-position: center 92% !important;
-  transform: scale(1.22);
-  transform-origin: center 80%;
+  object-position: center 0% !important;
+  transform: scale(1.10);
+  transform-origin: center top;
 }
 
 #residences .project-card:hover img[src*="9905"],
 .project-card:hover img[src*="9905-n-25th-st"] {
-  transform: scale(1.26);
+  transform: scale(1.14);
 }
 
 #residences .project-details {

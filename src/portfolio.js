@@ -29,7 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // 6. Handle hash scroll on initial load
   if (window.location.hash) {
     setTimeout(() => {
-      const targetId = window.location.hash.substring(1);
+      let targetId = window.location.hash.substring(1);
+      if (targetId === "current-projects-9905" && !document.getElementById(targetId)) {
+        targetId = "now-available-9905";
+      }
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -49,7 +52,7 @@ function renderPortfolio(container) {
 
   // 1. Active Residences (Warm Limestone Gallery Canvas)
   activeHomes.forEach(home => {
-    const isAvailable = home.id === "now-available-9908";
+    const isAvailable = home.id.includes("now-available") || home.tagline === "Now Available";
     const statusDotClass = isAvailable ? "available-dot" : "construction-dot";
     const statusText = isAvailable ? "Move-In Ready · Falcon's Cove" : "Under Construction (Q4 2026) · Falcon's Cove";
 
