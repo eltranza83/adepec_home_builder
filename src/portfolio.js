@@ -174,7 +174,7 @@ function renderPortfolio(container) {
       <div class="reveal-on-scroll">
         <span class="section-tag">Our Crafted Legacy</span>
         <h2>Signature <em>Completed Homes</em></h2>
-        <p class="sold-intro">A curated archive of past residences built to endure—each an individual architectural statement of proportion, light, and enduring finishes.</p>
+        <p class="sold-intro">A showcase of past homes we’ve built—each designed with timeless style, natural light, and lasting finishes.</p>
       </div>
 
       ${soldHomes.map(home => `
@@ -217,7 +217,7 @@ function renderPortfolio(container) {
     <div class="portfolio-bottom-cta-inner">
       <span class="section-tag">Begin Your Journey</span>
       <h2>Ready to Build Your <em>Masterpiece?</em></h2>
-      <p>Whether acquiring our move-in ready residences at Falcon’s Cove, reserving upcoming parcels in Northwood Trails III, or designing a bespoke custom home, our architectural team is at your disposal.</p>
+      <p>Whether acquiring our move-in ready homes at Falcon’s Cove, reserving upcoming lots in Northwood Trails III, or building a custom home from the ground up, our team is ready to help.</p>
       <a href="index.html#gallery-contact" class="cta-button link-hover">
         Inquire With Our Architectural Team
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">

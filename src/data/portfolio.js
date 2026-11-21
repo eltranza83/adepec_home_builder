@@ -43,7 +43,7 @@ export const portfolioData = [
           "<strong>Premium Finishes:</strong> Porcelain tile flooring throughout the entire home and showers, paired with custom quartz countertops.",
           "<strong>Exterior Styling:</strong> Built with a stucco exterior and natural Cantera stone accents.",
           "<strong>Climate Systems:</strong> Driven by two separate air conditioning units (7.5 tons total).",
-          "<strong>Insulation:</strong> Energy-saving spray foam insulation applied on both the rafters and exterior walls for optimal thermal performance."
+          "<strong>Insulation:</strong> Energy-saving spray foam insulation applied on both the rafters and exterior walls to keep the home cool and lower electric bills."
         ]
       },
       {
@@ -110,7 +110,7 @@ export const portfolioData = [
           "<strong>Premium Finishes:</strong> Porcelain tile flooring throughout the entire home and showers, paired with custom quartz countertops.",
           "<strong>Exterior Styling:</strong> Built with a stucco exterior and natural Cantera stone accents.",
           "<strong>Climate Systems:</strong> Driven by two separate air conditioning units (7.5 tons total).",
-          "<strong>Insulation:</strong> Energy-saving spray foam insulation applied on both the rafters and exterior walls for optimal thermal performance."
+          "<strong>Insulation:</strong> Energy-saving spray foam insulation applied on both the rafters and exterior walls to keep the home cool and lower electric bills."
         ]
       },
       {
@@ -130,7 +130,7 @@ export const portfolioData = [
     id: "elegant-residence",
     title: "Elegant Residence",
     tagline: "Residence I (Sold)",
-    description: "A clean stucco and white stone sanctuary featuring bespoke entry details, double-height ceilings, and marble-look polished floors throughout.",
+    description: "A clean stucco and white stone home featuring custom entry details, high ceilings, and marble-look polished floors throughout.",
     hasSpecs: false,
     gridImages: [
       {
@@ -168,7 +168,7 @@ export const portfolioData = [
     id: "modern-retreat",
     title: "Modern Retreat",
     tagline: "Residence II (Sold)",
-    description: "Elevated modern interiors with designer pendant lighting, floating vanities, and a geometric glass-enclosed wet shower sanctuary.",
+    description: "Modern interiors with designer pendant lighting, floating vanities, and a custom glass walk-in shower.",
     hasSpecs: false,
     gridImages: [
       {
