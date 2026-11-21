@@ -28,6 +28,10 @@ export const portfolioData = [
       { src: "./assets/houses/9908-n-25th-st/sharedRR.webp", alt: "Shared Restroom", caption: "9908 North 25th Street — Shared Restroom", label: "Shared Restroom", sublabel: "Interior" }
     ],
     specs: {
+      price: "$489,000",
+      beds: "4 Beds",
+      baths: "3 + 2 Baths",
+      livingShort: "2,544 Sq Ft Living",
       slab: "3,179.5 SQ. FT.",
       living: "2,544.2 SQ. FT.",
       garage: "415.1 SQ. FT. (2-Car Niche)",
@@ -95,6 +99,10 @@ export const portfolioData = [
       { src: "./assets/houses/9905-n-25th-st/backyard.webp", alt: "Covered Patio & Backyard", caption: "9905 North 25th Street — Covered Patio & Backyard", label: "Patio & Backyard", sublabel: "Exterior" }
     ],
     specs: {
+      price: "$489,000",
+      beds: "4 Beds",
+      baths: "3 + 2 Baths",
+      livingShort: "2,544 Sq Ft Living",
       slab: "3,179.5 SQ. FT.",
       living: "2,544.2 SQ. FT.",
       garage: "415.1 SQ. FT. (2-Car Niche)",

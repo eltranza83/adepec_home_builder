@@ -82,7 +82,38 @@ function renderPortfolio(container) {
         <div class="portfolio-elevation-details">
           <div class="card-meta-top">
             <span class="card-status-label"><span class="status-dot ${statusDotClass}">●</span> ${statusText}</span>
-            <span class="card-specs-pill">${home.specs.slab} · ${home.specs.rooms.replaceAll(", ", " · ")}</span>
+            ${home.specs.price ? `<span class="card-price">${home.specs.price}</span>` : ''}
+          </div>
+          <div class="card-specs-bar" aria-label="Property specifications">
+            <span class="spec-item">
+              <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/>
+                <path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/>
+                <path d="M12 4v6"/>
+                <path d="M2 18h20"/>
+              </svg>
+              ${home.specs.beds}
+            </span>
+            <span class="spec-item">
+              <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/>
+                <line x1="10" x2="8" y1="5" y2="7"/>
+                <line x1="2" x2="22" y1="12" y2="12"/>
+                <line x1="7" x2="7" y1="19" y2="21"/>
+                <line x1="17" x2="17" y1="19" y2="21"/>
+              </svg>
+              ${home.specs.baths}
+            </span>
+            <span class="spec-item">
+              <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/>
+                <path d="m14.5 12.5 2-2"/>
+                <path d="m11.5 9.5 2-2"/>
+                <path d="m8.5 6.5 2-2"/>
+                <path d="m17.5 15.5 2-2"/>
+              </svg>
+              ${home.specs.livingShort}
+            </span>
           </div>
           <div class="portfolio-elevation-actions">
             ${home.mapUrl ? `

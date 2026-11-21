@@ -1340,11 +1340,13 @@ footer {
   .sample-photos { grid-template-columns: 1fr; gap: 30px; }
   .contact-grid { grid-template-columns: 1fr; gap: 60px; }
   .contact-info h2 { font-size: 3rem; }
-  .menu-grid { grid-template-columns: 1fr; gap: 50px; align-items: flex-start; }
-  .menu-links a { font-size: 2.8rem; }
+  .menu-grid { gap: 48px; }
+  .menu-links a { font-size: 3rem; }
 }
 
 @media(max-width: 768px) {
+  .menu-grid { grid-template-columns: 1fr; gap: 36px; align-items: flex-start; }
+  .menu-links a { font-size: 2.3rem; }
   .badge-container {
     top: 10px;
     right: 10px;

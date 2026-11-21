@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = "Send Inquiry";
+          submitBtn.textContent = "Send message";
         }
         
         if (formStatus) {
