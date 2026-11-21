@@ -53,13 +53,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // 1. Logo & expanding lines reveal
     setTimeout(() => {
       if (loaderContent) loaderContent.classList.add("active");
-    }, 80);
+    }, 50);
 
-    // 2. Slide up curtain into the ceiling
+    // 2. Slide up curtain into the ceiling (~1s snappy intro)
     setTimeout(() => {
       if (loader) loader.classList.add("loaded");
       document.body.classList.remove("loader-active");
-    }, 1450);
+    }, 850);
 
     // 3. Reveal hero elements in smooth choreography
     setTimeout(() => {
@@ -73,10 +73,10 @@ document.addEventListener("DOMContentLoaded", () => {
         heroFooter.classList.add("revealed");
       }
       if (heroImg) {
-        heroImg.style.transition = "transform 1.8s cubic-bezier(0.16, 1, 0.3, 1)";
+        heroImg.style.transition = "transform 1.4s cubic-bezier(0.16, 1, 0.3, 1)";
         heroImg.style.transform = "translate3d(0, 0, 0) scale(1.1)";
       }
-    }, 1800);
+    }, 1000);
   };
   runIntro();
 
@@ -124,23 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollObserver.observe(el);
   });
 
-  // 6. Homepage Project Cards Lightbox Binding
-  document.querySelectorAll(".project-img-wrapper").forEach(wrapper => {
-    wrapper.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const img = wrapper.querySelector("img");
-      if (img) {
-        const card = wrapper.closest(".project-card");
-        const titleEl = card ? card.querySelector(".project-title") : null;
-        const captionText = titleEl ? titleEl.textContent : "";
-        const mapUrl = card ? card.dataset.mapUrl : null;
-        
-        openLightbox(img.src, img.alt || captionText, captionText, mapUrl);
-      }
-    });
-  });
-
-  // Prevent map links click event from bubble-triggering lightbox
+  // 6. Prevent map links click event from bubbling
   document.querySelectorAll(".map-link").forEach(link => {
     link.addEventListener("click", (e) => {
       e.stopPropagation();

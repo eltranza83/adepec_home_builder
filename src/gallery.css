@@ -113,6 +113,11 @@ section.contact {
   border-color: #c5a059;
 }
 
+#residences .project-img-wrapper,
+#showcase .project-img-wrapper {
+  display: block;
+}
+
 #residences .project-img-wrapper {
   border: none;
   border-radius: 0;
