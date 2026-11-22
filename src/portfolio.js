@@ -121,7 +121,7 @@ function renderPortfolio(container) {
               <svg class="map-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5-2.5 2.5z"/></svg>
               <span>View Map</span>
             </a>` : ''}
-            <a href="index.html#gallery-contact" class="portfolio-inquire-link link-hover">Inquire About This Home &rarr;</a>
+            <a href="index.html?interest=${encodeURIComponent(`${home.title} (Available)`)}#gallery-contact" class="portfolio-inquire-link link-hover">Inquire About This Home &rarr;</a>
           </div>
         </div>
       </div>
@@ -246,11 +246,11 @@ function renderPortfolio(container) {
   htmlContent += `
   <section class="portfolio-bottom-cta reveal-on-scroll">
     <div class="portfolio-bottom-cta-inner">
-      <span class="section-tag">Begin Your Journey</span>
-      <h2>Ready to Build Your <em>Masterpiece?</em></h2>
-      <p>Whether acquiring our move-in ready homes at Falcon’s Cove, reserving upcoming lots in Northwood Trails III, or building a custom home from the ground up, our team is ready to help.</p>
-      <a href="index.html#gallery-contact" class="cta-button link-hover">
-        Inquire With Our Architectural Team
+      <span class="section-tag">Let's Talk</span>
+      <h2>See a home in person.</h2>
+      <p>Tell us which home you'd like to see or what you'd like to build. Prefer to talk? Call or text&nbsp;us.</p>
+      <a href="index.html#gallery-contact" class="cta-button link-hover" style="white-space: nowrap;">
+        Schedule a Tour
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/>
         </svg>

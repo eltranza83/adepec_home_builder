@@ -1756,7 +1756,8 @@ section.contact {
 .portfolio-bottom-cta {
   background: #0c0d0e;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 110px clamp(24px, 5vw, 80px);
+  padding: 64px clamp(24px, 5vw, 80px);
+  min-height: auto;
   text-align: center;
   box-sizing: border-box;
 }
@@ -1768,14 +1769,15 @@ section.contact {
 
 .portfolio-bottom-cta .section-tag {
   color: #C5A059;
+  margin-bottom: 12px;
 }
 
 .portfolio-bottom-cta h2 {
-  font-family: var(--font-cinzel);
-  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 3.8vw, 3.4rem);
   font-weight: 400;
   color: #ffffff;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   letter-spacing: -0.01em;
 }
 
@@ -1787,9 +1789,9 @@ section.contact {
 
 .portfolio-bottom-cta p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 1.05rem;
-  line-height: 1.8;
-  margin-bottom: 35px;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  margin-bottom: 26px;
 }
 
 .portfolio-bottom-cta .cta-button {

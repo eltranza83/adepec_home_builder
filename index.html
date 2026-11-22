@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adepec Homes | Custom Home Builders in South Texas</title>
+  <title>Adepec Homes | Move-In Ready &amp; Custom Luxury Homes in McAllen, TX</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="description" content="Adepec Homes builds move-in ready and custom luxury homes across South Texas and North McAllen's most sought-after neighborhoods.">
 
@@ -14,7 +14,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Adepec Homes">
   <meta property="og:url" content="https://www.adepechomes.com/">
-  <meta property="og:title" content="Adepec Homes | Custom Home Builders in South Texas">
+  <meta property="og:title" content="Adepec Homes | Move-In Ready &amp; Custom Luxury Homes in McAllen, TX">
   <meta property="og:description" content="Adepec Homes builds move-in ready and custom luxury homes across South Texas and North McAllen's most sought-after neighborhoods.">
   <meta property="og:image" content="https://www.adepechomes.com/assets/houses/9908-n-25th-st/elevation.webp">
   <meta property="og:image:width" content="1200">
@@ -23,7 +23,7 @@
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Adepec Homes | Custom Home Builders in South Texas">
+  <meta name="twitter:title" content="Adepec Homes | Move-In Ready &amp; Custom Luxury Homes in McAllen, TX">
   <meta name="twitter:description" content="Adepec Homes builds move-in ready and custom luxury homes across South Texas and North McAllen's most sought-after neighborhoods.">
   <meta name="twitter:image" content="https://www.adepechomes.com/assets/houses/9908-n-25th-st/elevation.webp">
 
@@ -37,7 +37,7 @@
     "name": "Adepec Homes",
     "url": "https://www.adepechomes.com",
     "logo": "https://www.adepechomes.com/favicon.svg",
-    "description": "Adepec Homes crafts premier move-in ready and custom architectural residences across South Texas and North McAllen's most sought-after enclaves.",
+    "description": "Adepec Homes builds move-in ready and custom luxury homes across South Texas and North McAllen's most sought-after neighborhoods.",
     "telephone": "+1-956-821-2514",
     "email": "info@adepechomes.com",
     "address": {
@@ -62,8 +62,7 @@
       }
     ],
     "sameAs": [],
-    "foundingDate": "2019",
-    "knowsAbout": ["Custom Home Building", "Architectural Homes", "Premium Residences", "New Construction", "Bespoke Residences"]
+    "knowsAbout": ["Move-In Ready Luxury Homes", "New Construction", "Custom Home Building", "Architectural Homes", "McAllen Real Estate"]
   }
   </script>
 </head>
@@ -544,7 +543,7 @@
           <ul class="footer-nav-list">
             <li><a href="#residences" class="link-hover">Available Homes</a></li>
             <li><a href="#upcoming-enclave" class="link-hover">Northwood Trails III</a></li>
-            <li><a href="portfolio.html" class="link-hover">Our Work</a></li>
+            <li><a href="portfolio.html" class="link-hover">Portfolio</a></li>
             <li><a href="#gallery-contact" class="link-hover">Contact</a></li>
           </ul>
         </div>
@@ -560,6 +559,15 @@
   <script type="module" src="./src/main.js"></script>
   <script>
     document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+    // Auto-select dropdown when arriving from portfolio page (?interest=...)
+    const urlInterest = new URLSearchParams(window.location.search).get('interest');
+    if (urlInterest) {
+      const select = document.getElementById('interest-select');
+      if (select) {
+        select.value = urlInterest;
+      }
+    }
 
     // Handle smart pre-fill when clicking property inquire buttons
     document.querySelectorAll('.prop-inquire-btn').forEach(btn => {
