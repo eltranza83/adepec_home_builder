@@ -31,7 +31,6 @@ header {
 section,
 section.showcase,
 section.approach-section,
-section.philosophy,
 section.contact {
   width: 100% !important;
   max-width: 100% !important;
@@ -45,8 +44,7 @@ section.contact {
 .showcase-header,
 .sample-photos,
 .approach-grid,
-.contact-grid,
-.philosophy-grid {
+.contact-grid {
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -166,15 +164,6 @@ section.contact {
   width: 100%;
 }
 
-.card-subdivision {
-  font-family: var(--font-cinzel);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #926f29;
-}
-
 .card-status-label {
   font-family: var(--font-cinzel);
   font-size: 0.72rem;
@@ -290,48 +279,6 @@ section.contact {
   gap: 16px;
   width: 100%;
   padding-top: 8px;
-}
-
-.card-cta-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-sans);
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: #141619;
-  text-decoration: none;
-  letter-spacing: 0.01em;
-  transition: color 0.25s ease;
-}
-
-.card-cta-link .cta-arrow {
-  display: inline-block;
-  font-size: 1.05rem;
-  line-height: 1;
-  transition: transform 0.25s ease;
-}
-
-.card-cta-link:hover {
-  color: #926f29;
-}
-
-.card-cta-link:hover .cta-arrow {
-  transform: translateX(4px);
-}
-
-.card-cta-link--dark {
-  color: #f3efe6;
-}
-
-.card-cta-link--dark:hover {
-  color: #C8B69A;
-}
-
-.card-action-subrow {
-  display: flex;
-  align-items: center;
-  gap: 16px;
 }
 
 .prop-inquire-btn {
@@ -805,13 +752,6 @@ section.contact {
     text-align: center;
     justify-content: center;
   }
-  #residences .card-action-subrow {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2px 4px 0;
-  }
   #residences .card-actions .card-map-link {
     margin-left: 0;
     padding: 6px 0;
@@ -864,13 +804,6 @@ section.contact {
     text-align: center;
     justify-content: center;
     background: rgba(217, 200, 176, 0.08);
-  }
-
-  .approach-staggered-images {
-    grid-template-columns: 1fr;
-  }
-  .approach-photo-card:first-child {
-    margin-top: 0;
   }
 }
 
@@ -1155,15 +1088,6 @@ section.contact {
     padding: 48px 24px !important;
     min-height: auto !important;
   }
-  .enclave-opt2-topbar {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    gap: 10px !important;
-    margin-bottom: 18px !important;
-    width: 100% !important;
-  }
   .enclave-badge-beacon {
     font-size: 0.65rem !important;
     padding: 5px 10px !important;
@@ -1174,27 +1098,10 @@ section.contact {
     width: 6px !important;
     height: 6px !important;
   }
-  .enclave-opt2-topbar .section-tag {
-    font-size: 0.64rem !important;
-    letter-spacing: 0.18em !important;
-    white-space: nowrap !important;
-  }
   .enclave-opt2-title {
     font-size: 2.15rem !important;
     line-height: 1.15 !important;
     margin-bottom: 6px !important;
-  }
-  .enclave-title-sub {
-    display: block !important;
-    font-size: 1.7rem !important;
-    margin-left: 0 !important;
-    margin-top: 3px !important;
-  }
-  .enclave-opt2-subtitle {
-    font-size: 0.76rem !important;
-    letter-spacing: 0.1em !important;
-    margin-bottom: 14px !important;
-    line-height: 1.4 !important;
   }
   .enclave-opt2-desc {
     font-size: 0.94rem !important;
@@ -1206,16 +1113,8 @@ section.contact {
   .enclave-opt2-section {
     padding: 42px 18px !important;
   }
-  .enclave-opt2-topbar {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 8px !important;
-  }
   .enclave-opt2-title {
     font-size: 1.9rem !important;
-  }
-  .enclave-title-sub {
-    font-size: 1.5rem !important;
   }
 }
 

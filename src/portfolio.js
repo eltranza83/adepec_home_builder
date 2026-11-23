@@ -1,10 +1,9 @@
-import { initTheme, initCustomCursor, initLightbox, setupHoverEffects, initNavMenu } from "./common.js";
+import { initTheme, initLightbox, initNavMenu } from "./common.js";
 import { portfolioData } from "./data/portfolio.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Initialize Common/Shared UI Features
   initTheme();
-  initCustomCursor();
   initNavMenu();
   const openLightbox = initLightbox();
 
@@ -20,11 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 4. Initialize Lightbox clicks for all interactive images
   initPortfolioLightbox(openLightbox);
 
-  // 4. Initialize Scroll Reveals
+  // 5. Initialize Scroll Reveals
   initScrollObserver();
-
-  // 5. Setup cursor hover bindings on newly generated elements
-  setupHoverEffects();
 
   // 6. Handle hash scroll on initial load
   if (window.location.hash) {

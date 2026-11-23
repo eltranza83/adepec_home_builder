@@ -1,4 +1,4 @@
-// Shared logic for Theme, Custom Cursor, and Lightbox
+// Shared logic for Theme, Navigation Menu, and Lightbox
 
 /**
  * Single Unified Theme (Dark Luxury Noir & Warm Limestone Gallery)
@@ -6,36 +6,6 @@
 export function initTheme() {
   localStorage.removeItem("theme");
   document.documentElement.setAttribute("data-theme", "dark");
-}
-
-/**
- * Initializes Premium Custom Cursor (handles touch/mobile & reduced-motion fallback)
- */
-export function initCustomCursor() {
-  const cursor = document.getElementById("custom-cursor");
-  const cursorOutline = document.getElementById("custom-cursor-outline");
-
-  if (cursor) cursor.remove();
-  if (cursorOutline) cursorOutline.remove();
-}
-
-/**
- * Re-runs hover bindings on dynamic elements (needed after JS rendering)
- */
-export function setupHoverEffects() {
-  const hoverElements = document.querySelectorAll(".link-hover, a, button, .portfolio-item");
-  hoverElements.forEach(el => {
-    // Avoid double binding
-    if (el.dataset.hoverBound) return;
-    el.dataset.hoverBound = "true";
-
-    el.addEventListener("mouseenter", () => {
-      document.body.classList.add("hovering-link");
-    });
-    el.addEventListener("mouseleave", () => {
-      document.body.classList.remove("hovering-link");
-    });
-  });
 }
 
 /**
@@ -77,12 +47,10 @@ export function initLightbox() {
         const mapLink = document.createElement("a");
         mapLink.href = item.mapUrl;
         mapLink.target = "_blank";
+        mapLink.rel = "noopener noreferrer";
         mapLink.textContent = "Open in Google Maps";
         mapLink.className = "map-link link-hover";
         mapLink.addEventListener("click", (e) => e.stopPropagation());
-
-        mapLink.addEventListener("mouseenter", () => document.body.classList.add("hovering-link"));
-        mapLink.addEventListener("mouseleave", () => document.body.classList.remove("hovering-link"));
 
         lightboxCaption.appendChild(bulletNode);
         lightboxCaption.appendChild(mapLink);
@@ -128,7 +96,6 @@ export function initLightbox() {
     if (!menuOverlay || !menuOverlay.classList.contains("open")) {
       document.body.style.overflow = "";
     }
-    document.body.classList.remove("hovering-link");
   };
 
   if (lightboxClose) {

@@ -1,10 +1,9 @@
-import { initTheme, initCustomCursor, initLightbox, setupHoverEffects } from "./common.js";
+import { initTheme, initNavMenu } from "./common.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Initialize Common/Shared UI Features
   initTheme();
-  initCustomCursor();
-  const openLightbox = initLightbox();
+  initNavMenu();
 
   // 2. Element Selectors for Landing Page
   const loader = document.getElementById("loader");
@@ -12,11 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroTag = document.querySelector(".hero-tag");
   const heroTitleSpans = document.querySelectorAll("#hero-title span");
   const heroFooter = document.getElementById("hero-footer");
-  const menuBtn = document.getElementById("menu-btn");
-  const menuOverlay = document.getElementById("menu-overlay");
-  const menuBtnText = document.getElementById("menu-btn-text");
   const heroImg = document.getElementById("hero-img");
-  const philosophyImg = document.querySelector(".philosophy-img img");
 
   // 3. Intro Loader Sequence (Option 1: Refined Logo Curtain)
   const runIntro = () => {
@@ -47,9 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Set item in sessionStorage
     sessionStorage.setItem("introPlayed", "true");
 
-    // Add class to change cursor color on dark splash screen
-    document.body.classList.add("loader-active");
-
     // 1. Logo & expanding lines reveal
     setTimeout(() => {
       if (loaderContent) loaderContent.classList.add("active");
@@ -58,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // 2. Slide up curtain into the ceiling (~1s snappy intro)
     setTimeout(() => {
       if (loader) loader.classList.add("loaded");
-      document.body.classList.remove("loader-active");
     }, 850);
 
     // 3. Reveal hero elements in smooth choreography
@@ -80,32 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   runIntro();
 
-  // 4. Fullscreen Navigation Menu Toggle
-  if (menuBtn && menuOverlay && menuBtnText) {
-    menuBtn.addEventListener("click", () => {
-      const isOpen = menuOverlay.classList.toggle("open");
-      menuBtn.classList.toggle("open");
-      menuBtnText.textContent = isOpen ? "Close" : "Menu";
-      
-      // Toggle body scrolling
-      document.body.style.overflow = isOpen ? "hidden" : "";
-    });
-  }
-
-  // Close menu when navigation item is clicked
-  const closeTriggers = document.querySelectorAll(".menu-close-trigger");
-  if (closeTriggers && menuOverlay && menuBtn && menuBtnText) {
-    closeTriggers.forEach(trigger => {
-      trigger.addEventListener("click", () => {
-        menuOverlay.classList.remove("open");
-        menuBtn.classList.remove("open");
-        menuBtnText.textContent = "Menu";
-        document.body.style.overflow = "";
-      });
-    });
-  }
-
-  // 5. Scroll Reveal Animations using IntersectionObserver
+  // 4. Scroll Reveal Animations using IntersectionObserver
   const revealOptions = {
     threshold: 0.15,
     rootMargin: "0px 0px -50px 0px"
@@ -124,45 +90,29 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollObserver.observe(el);
   });
 
-  // 6. Prevent map links click event from bubbling
+  // 5. Prevent map links click event from bubbling
   document.querySelectorAll(".map-link").forEach(link => {
     link.addEventListener("click", (e) => {
       e.stopPropagation();
     });
   });
 
-  // 7. Parallax Scroll Effect
-  let scrollY = window.scrollY;
-
+  // 6. Hero Parallax Scroll Effect
   function updateParallax() {
-    scrollY = window.scrollY;
-
-    // Hero Image Parallax (moves slowly downwards)
     if (heroImg) {
-      heroImg.style.transform = `translate3d(0, ${scrollY * 0.35}px, 0) scale(1.1)`;
-    }
-
-    // Philosophy Image Parallax (moves inside relative to viewport)
-    if (philosophyImg) {
-      const rect = philosophyImg.parentElement.getBoundingClientRect();
-      const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
-      
-      if (isInViewport) {
-        const offset = (window.innerHeight - rect.top) * 0.12;
-        philosophyImg.style.transform = `translate3d(0, ${-offset}px, 0) scale(1.05)`;
-      }
+      heroImg.style.transform = `translate3d(0, ${window.scrollY * 0.35}px, 0) scale(1.1)`;
     }
   }
 
   // Bind to scroll events with requestAnimationFrame (only if not prefers-reduced-motion)
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!prefersReducedMotion) {
+  if (!prefersReducedMotion && heroImg) {
     window.addEventListener("scroll", () => {
       requestAnimationFrame(updateParallax);
     }, { passive: true });
   }
 
-  // 8. Contact Form Handling
+  // 7. Contact Form Handling
   const inquiryForm = document.getElementById("inquiry-form");
   const formStatus = document.getElementById("form-status");
   if (inquiryForm) {
@@ -213,20 +163,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 600);
     });
   }
-
-  // 9. Pre-fill inquiry form when clicking enclave inquiry buttons
-  document.querySelectorAll(".enclave-inquire-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const siteInput = document.getElementById("site");
-      const messageInput = document.getElementById("message");
-      if (siteInput) {
-        siteInput.value = "Northwood Trails III, North McAllen";
-        siteInput.dispatchEvent(new Event("input", { bubbles: true }));
-      }
-      if (messageInput && !messageInput.value) {
-        messageInput.value = "I am interested in reserving an exclusive homesite in Northwood Trails III.";
-        messageInput.dispatchEvent(new Event("input", { bubbles: true }));
-      }
-    });
-  });
 });
