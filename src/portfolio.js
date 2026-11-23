@@ -7,22 +7,19 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavMenu();
   const openLightbox = initLightbox();
 
-  // 2. Render Portfolio Sections
+  // 2. Render Portfolio Sections (Sticky Jump Bar + Bento Mosaic + Contact Sheet + Sold Legacy)
   const container = document.getElementById("portfolio-container");
   if (!container) return;
 
   renderPortfolio(container);
 
-  // 3. Initialize Carousel Navigation Arrows (One-by-one card scroll)
-  initPortfolioCarousels();
-
-  // 4. Initialize Lightbox clicks for all interactive images
+  // 3. Initialize Jump Bar Scroll-Spy, Contact Sheet Dialogs, Lightbox, and Scroll Reveals
+  initJumpBarScrollSpy();
+  initGallerySheets(openLightbox);
   initPortfolioLightbox(openLightbox);
-
-  // 5. Initialize Scroll Reveals
   initScrollObserver();
 
-  // 6. Handle hash scroll on initial load
+  // 4. Handle hash scroll on initial load
   if (window.location.hash) {
     setTimeout(() => {
       let targetId = window.location.hash.substring(1);
@@ -38,19 +35,64 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
- * Generates the clean architectural layout for the portfolio sections
+ * Picks 4 best highlight interior/exterior images for the Bento Mosaic right-hand tiles
+ */
+function pickBentoHighlights(carouselImages) {
+  if (!carouselImages || !carouselImages.length) return [];
+  const preferredKeywords = ["open living", "kitchen", "master bath", "primary bath", "backyard", "patio"];
+  const picked = [];
+  const usedIndices = new Set();
+
+  for (const kw of preferredKeywords) {
+    if (picked.length >= 4) break;
+    const idx = carouselImages.findIndex(
+      (img, i) => !usedIndices.has(i) && `${img.label} ${img.alt}`.toLowerCase().includes(kw)
+    );
+    if (idx !== -1) {
+      usedIndices.add(idx);
+      picked.push({ img: carouselImages[idx], galleryIndex: idx + 1 });
+    }
+  }
+
+  for (let i = 0; i < carouselImages.length && picked.length < 4; i++) {
+    if (!usedIndices.has(i)) {
+      usedIndices.add(i);
+      picked.push({ img: carouselImages[i], galleryIndex: i + 1 });
+    }
+  }
+  return picked;
+}
+
+/**
+ * Generates the architectural Bento Mosaic portfolio layout
  */
 function renderPortfolio(container) {
   const activeHomes = portfolioData.filter(home => home.hasSpecs);
   const soldHomes = portfolioData.filter(home => !home.hasSpecs);
 
-  let htmlContent = "";
+  let htmlContent = `
+    <nav class="portfolio-jump-bar" aria-label="Jump to residence">
+      <div class="portfolio-jump-bar-inner">
+        <div class="portfolio-jump-links">
+          ${activeHomes.map((home, idx) => {
+            const totalPhotos = 1 + (home.carouselImages ? home.carouselImages.length : 0);
+            const shortLabel = home.specs?.addressText || home.title;
+            return `<a href="#${home.id}" class="jump-pill${idx === 0 ? " active" : ""}" data-jump-target="${home.id}">${shortLabel} <span class="jump-pill-count">(${totalPhotos} photos)</span></a>`;
+          }).join("")}
+          <a href="#crafted-legacy" class="jump-pill" data-jump-target="crafted-legacy">Sold Legacy</a>
+        </div>
+        <a href="index.html#gallery-contact" class="jump-bar-cta">Schedule a Tour &rarr;</a>
+      </div>
+    </nav>
+  `;
 
   // 1. Active Residences (Warm Limestone Gallery Canvas)
   activeHomes.forEach(home => {
     const isAvailable = home.id.includes("now-available") || home.tagline === "Now Available";
     const statusDotClass = isAvailable ? "available-dot" : "construction-dot";
     const statusText = isAvailable ? "Move-In Ready · Falcon's Cove" : "Under Construction (Q4 2026) · Falcon's Cove";
+    const totalPhotos = 1 + (home.carouselImages ? home.carouselImages.length : 0);
+    const highlights = pickBentoHighlights(home.carouselImages);
 
     htmlContent += `
     <section class="portfolio-home-section" id="${home.id}">
@@ -60,25 +102,54 @@ function renderPortfolio(container) {
         <p>${home.description}</p>
       </div>
 
-      <!-- Main Elevation Presentation Card (Clean, Unobstructed Architectural View) -->
-      <div class="portfolio-elevation-card reveal-on-scroll">
-        <div class="portfolio-img-frame link-hover portfolio-lightbox-trigger"
-             data-home-id="${home.id}"
-             data-img-index="0"
-             data-img="${home.elevationImage.src}"
-             data-alt="${home.elevationImage.alt}"
-             data-caption="${home.elevationImage.caption}"
-             data-map-url="${home.mapUrl || ''}">
-          <img src="${home.elevationImage.src}" alt="${home.elevationImage.alt}" style="${home.elevationImage.style || ''}">
-          <div class="portfolio-zoom-hint">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-            <span>Click to Enlarge</span>
+      <!-- Luxury Bento Photo Mosaic Card -->
+      <div class="bento-gallery-card reveal-on-scroll">
+        <div class="bento-grid">
+          <div class="bento-hero-tile portfolio-lightbox-trigger"
+               data-home-id="${home.id}"
+               data-img-index="0"
+               data-img="${home.elevationImage.src}"
+               data-alt="${home.elevationImage.alt}"
+               data-caption="${home.elevationImage.caption}"
+               data-map-url="${home.mapUrl || ""}">
+            <img src="${home.elevationImage.src}" alt="${home.elevationImage.alt}" style="${home.elevationImage.style || ""}">
+            <span class="bento-tile-label">Front Elevation</span>
+          </div>
+
+          <div class="bento-sub-grid">
+            ${highlights.map((item, idx) => {
+              const isLast = idx === highlights.length - 1;
+              if (isLast) {
+                return `
+                <div class="bento-sub-tile">
+                  <img src="${item.img.src}" alt="${item.img.alt}" loading="lazy">
+                  <button type="button" class="bento-more-overlay" data-open-sheet="${home.id}">
+                    <span class="bento-more-count">+${totalPhotos - 4}</span>
+                    <span class="bento-more-text">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                      View All ${totalPhotos} Photos
+                    </span>
+                  </button>
+                </div>`;
+              }
+              return `
+              <div class="bento-sub-tile portfolio-lightbox-trigger"
+                   data-home-id="${home.id}"
+                   data-img-index="${item.galleryIndex}"
+                   data-img="${item.img.src}"
+                   data-alt="${item.img.alt}"
+                   data-caption="${item.img.caption}">
+                <img src="${item.img.src}" alt="${item.img.alt}" loading="lazy">
+                <span class="bento-tile-label">${item.img.label}</span>
+              </div>`;
+            }).join("")}
           </div>
         </div>
+
         <div class="portfolio-elevation-details">
           <div class="card-meta-top">
             <span class="card-status-label"><span class="status-dot ${statusDotClass}">●</span> ${statusText}</span>
-            ${home.specs.price ? `<span class="card-price">${home.specs.price}</span>` : ''}
+            ${home.specs.price ? `<span class="card-price">${home.specs.price}</span>` : ""}
           </div>
           <div class="card-specs-bar" aria-label="Property specifications">
             <span class="spec-item">
@@ -114,47 +185,16 @@ function renderPortfolio(container) {
           <div class="portfolio-elevation-actions">
             ${home.mapUrl ? `
             <a href="${home.mapUrl}" target="_blank" rel="noopener noreferrer" class="card-map-link link-hover">
-              <svg class="map-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5-2.5 2.5z"/></svg>
-              <span>View Map</span>
-            </a>` : ''}
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              View on Google Maps
+            </a>` : ""}
             <a href="index.html?interest=${encodeURIComponent(`${home.title} (Available)`)}#gallery-contact" class="portfolio-inquire-link link-hover">Inquire About This Home &rarr;</a>
           </div>
         </div>
       </div>
 
-      <!-- Carousel Row of Interior Details (If carousel exists) -->
-      ${home.carouselImages ? `
-      <div class="portfolio-carousel-wrapper reveal-on-scroll">
-        <button class="carousel-arrow prev link-hover" aria-label="Previous photo">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <div class="portfolio-carousel-track">
-          ${home.carouselImages.map((img, idx) => `
-          <div class="portfolio-carousel-card portfolio-lightbox-trigger"
-               data-home-id="${home.id}"
-               data-img-index="${idx + 1}"
-               data-img="${img.src}"
-               data-alt="${img.alt}"
-               data-caption="${img.caption}">
-            <div class="carousel-frame link-hover">
-              <img src="${img.src}" alt="${img.alt}" loading="lazy">
-            </div>
-            <div class="carousel-details">
-              <h4>${img.label}</h4>
-              <span>${img.sublabel}</span>
-            </div>
-          </div>
-          `).join('')}
-        </div>
-        <button class="carousel-arrow next link-hover" aria-label="Next photo">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-      </div>
-      ` : ''}
-
       <!-- Specifications & Features Grid -->
       <div class="portfolio-specs-grid">
-        <!-- Specs Card -->
         ${home.specs ? `
         <div class="build-specs-card reveal-on-scroll">
           <span class="section-tag">Specifications</span>
@@ -171,26 +211,59 @@ function renderPortfolio(container) {
               <td>
                 <a href="${home.mapUrl}" target="_blank" rel="noopener noreferrer" class="specs-map-link link-hover">
                   ${home.specs.addressText}
-                  <svg class="map-icon" style="margin-left: 2px;" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5-2.5 2.5z"/></svg>
+                  <svg class="map-icon" style="margin-left: 2px;" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                 </a>
               </td>
-            </tr>` : ''}
+            </tr>` : ""}
           </table>
         </div>
-        ` : ''}
+        ` : ""}
 
-        <!-- Features Cards -->
         ${home.features ? home.features.map(feat => `
         <div class="build-specs-card reveal-on-scroll">
           <span class="section-tag">${feat.tagline}</span>
           <h4>${feat.title}</h4>
           <ul class="features-list" style="margin-top: 0;">
-            ${feat.items.map(item => `<li>${item}</li>`).join('')}
+            ${feat.items.map(item => `<li>${item}</li>`).join("")}
           </ul>
         </div>
-        `).join('') : ''}
+        `).join("") : ""}
       </div>
     </section>
+
+    <!-- Full-Screen Photo Contact Sheet Dialog -->
+    <dialog class="gallery-sheet-dialog" id="sheet-${home.id}" closedby="any" aria-labelledby="sheet-title-${home.id}">
+      <div class="gallery-sheet-header">
+        <div class="gallery-sheet-title-wrap">
+          <span class="gallery-sheet-tag">Complete Photo Tour &middot; ${totalPhotos} Photos</span>
+          <h3 class="gallery-sheet-title" id="sheet-title-${home.id}">${home.title}</h3>
+        </div>
+        <button type="button" class="gallery-sheet-close" data-close-sheet="sheet-${home.id}">
+          Close &times;
+        </button>
+      </div>
+      <div class="gallery-sheet-grid">
+        <div class="gallery-sheet-item is-featured sheet-lightbox-item" data-home-id="${home.id}" data-img-index="0">
+          <div class="gallery-sheet-thumb">
+            <img src="${home.elevationImage.src}" alt="${home.elevationImage.alt}" style="${home.elevationImage.style || ""}">
+          </div>
+          <div class="gallery-sheet-caption">
+            <strong>Front Elevation</strong>
+            <span>1 of ${totalPhotos}</span>
+          </div>
+        </div>
+        ${(home.carouselImages || []).map((img, i) => `
+        <div class="gallery-sheet-item sheet-lightbox-item" data-home-id="${home.id}" data-img-index="${i + 1}">
+          <div class="gallery-sheet-thumb">
+            <img src="${img.src}" alt="${img.alt}" loading="lazy">
+          </div>
+          <div class="gallery-sheet-caption">
+            <strong>${img.label}</strong>
+            <span>${i + 2} of ${totalPhotos}</span>
+          </div>
+        </div>`).join("")}
+      </div>
+    </dialog>
     `;
   });
 
@@ -230,10 +303,10 @@ function renderPortfolio(container) {
               <span class="sold-tag">${img.sublabel}</span>
             </div>
           </div>
-          `).join('')}
+          `).join("")}
         </div>
       </div>
-      `).join('')}
+      `).join("")}
     </div>
   </section>
   `;
@@ -295,31 +368,76 @@ portfolioData.forEach(home => {
 });
 
 /**
- * Initializes carousel navigation arrows to scroll one photo at a time
+ * Keeps the sticky property jump bar pills highlighted as the user scrolls
  */
-function initPortfolioCarousels() {
-  document.querySelectorAll(".portfolio-carousel-wrapper").forEach(wrapper => {
-    const track = wrapper.querySelector(".portfolio-carousel-track");
-    const prevBtn = wrapper.querySelector(".carousel-arrow.prev");
-    const nextBtn = wrapper.querySelector(".carousel-arrow.next");
+function initJumpBarScrollSpy() {
+  const pills = Array.from(document.querySelectorAll(".jump-pill[data-jump-target]"));
+  if (!pills.length) return;
 
-    if (!track || !prevBtn || !nextBtn) return;
+  const sections = pills
+    .map(pill => document.getElementById(pill.getAttribute("data-jump-target")))
+    .filter(Boolean);
 
-    const getScrollStep = () => {
-      const firstCard = track.querySelector(".portfolio-carousel-card");
-      if (!firstCard) return 320;
-      const cardWidth = firstCard.getBoundingClientRect().width;
-      return cardWidth + 20; // 1 card width + 20px gap
-    };
-
-    nextBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      track.scrollBy({ left: getScrollStep(), behavior: "smooth" });
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        pills.forEach(p => p.classList.toggle("active", p.getAttribute("data-jump-target") === id));
+      }
     });
+  }, { rootMargin: "-25% 0px -60% 0px", threshold: 0.01 });
 
-    prevBtn.addEventListener("click", (e) => {
+  sections.forEach(sec => observer.observe(sec));
+}
+
+/**
+ * Handles native <dialog closedby="any"> full-screen photo sheets + Safari fallback
+ */
+function initGallerySheets(openLightbox) {
+  document.querySelectorAll("[data-open-sheet]").forEach(btn => {
+    btn.addEventListener("click", (e) => {
       e.stopPropagation();
-      track.scrollBy({ left: -getScrollStep(), behavior: "smooth" });
+      const homeId = btn.getAttribute("data-open-sheet");
+      const dialog = document.getElementById(`sheet-${homeId}`);
+      if (dialog && typeof dialog.showModal === "function") {
+        dialog.showModal();
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-close-sheet]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const dialog = document.getElementById(btn.getAttribute("data-close-sheet"));
+      if (dialog) dialog.close();
+    });
+  });
+
+  // Fallback light-dismiss for browsers without <dialog closedby="any"> (e.g. Safari)
+  document.querySelectorAll("dialog.gallery-sheet-dialog").forEach(dialog => {
+    if (!("closedBy" in HTMLDialogElement.prototype)) {
+      dialog.addEventListener("click", (event) => {
+        if (event.target !== dialog) return;
+        const rect = dialog.getBoundingClientRect();
+        const isInside =
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width;
+        if (!isInside) dialog.close();
+      });
+    }
+  });
+
+  // Clicking a photo inside the contact sheet closes the sheet & opens full-screen Lightbox
+  document.querySelectorAll(".sheet-lightbox-item").forEach(item => {
+    item.addEventListener("click", () => {
+      const homeId = item.getAttribute("data-home-id");
+      const idx = parseInt(item.getAttribute("data-img-index") || "0", 10);
+      const dialog = item.closest("dialog");
+      if (dialog) dialog.close();
+      if (homeGalleries[homeId]) {
+        openLightbox(homeGalleries[homeId], idx);
+      }
     });
   });
 }
@@ -348,7 +466,7 @@ function initPortfolioLightbox(openLightbox) {
     });
   });
 
-  document.querySelectorAll(".card-map-link, .specs-map-link, .portfolio-inquire-link, .cta-button, .carousel-arrow").forEach(link => {
+  document.querySelectorAll(".card-map-link, .specs-map-link, .portfolio-inquire-link, .cta-button").forEach(link => {
     link.addEventListener("click", (e) => {
       e.stopPropagation();
     });

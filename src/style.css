@@ -44,7 +44,7 @@ html, body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
-  overflow-x: hidden;
+  overflow-x: clip;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
 }
@@ -1398,80 +1398,9 @@ footer {
   max-width: 600px;
 }
 
-/* Carousel / Slider Gallery styles */
-.portfolio-carousel-wrapper {
-  grid-column: 1 / -1;
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  min-width: 0;
-  margin-top: 20px;
-}
-
-.portfolio-carousel-track {
-  display: flex;
-  gap: 30px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  width: 100%;
-  padding: 15px 0;
-  scrollbar-width: none;
-}
-
-.portfolio-carousel-track::-webkit-scrollbar {
-  display: none;
-}
-
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: rgba(10, 10, 10, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1.5px solid rgba(197, 160, 89, 0.5);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 20;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.55), 0 0 0 1px rgba(197,160,89,0.15);
-  opacity: 1;
-}
-
-.carousel-arrow svg {
-  width: 22px;
-  height: 22px;
-  stroke-width: 2.5;
-}
-
-.carousel-arrow:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-  background: rgba(10, 10, 10, 0.95);
-  transform: translateY(-50%) scale(1.08);
-  box-shadow: 0 6px 32px rgba(0,0,0,0.65), 0 0 0 2px rgba(197,160,89,0.35);
-}
-
-.carousel-arrow.prev {
-  left: 12px;
-}
-
-.carousel-arrow.next {
-  right: 12px;
-}
-
 /* Portfolio Responsive Breakpoints */
 @media (max-width: 1024px) {
   .portfolio-hero h1 { font-size: 3.5rem; }
-  .carousel-arrow.prev { left: 10px; }
-  .carousel-arrow.next { right: 10px; }
 }
 
 @media (max-width: 768px) {
@@ -1485,16 +1414,6 @@ footer {
   .portfolio-hero h1 { font-size: 2.8rem; }
   .portfolio-home-section { padding: 80px 25px; }
   .home-section-header h2 { font-size: 2.2rem; }
-  .portfolio-carousel-track {
-    gap: 15px;
-  }
-  .carousel-arrow {
-    width: 44px;
-    height: 44px;
-  }
-  .carousel-arrow svg { width: 18px; height: 18px; }
-  .carousel-arrow.prev { left: 10px; }
-  .carousel-arrow.next { right: 10px; }
 }
 
 @media (max-width: 480px) {
@@ -1502,16 +1421,6 @@ footer {
   .portfolio-hero h1 { font-size: 2.1rem; }
   .portfolio-hero .subtitle { font-size: 0.95rem; }
   .home-section-header h2 { font-size: 1.8rem; }
-  .portfolio-carousel-track {
-    gap: 10px;
-  }
-  .carousel-arrow {
-    width: 38px;
-    height: 38px;
-  }
-  .carousel-arrow svg { width: 16px; height: 16px; }
-  .carousel-arrow.prev { left: 8px; }
-  .carousel-arrow.next { right: 8px; }
 }
 
 @media (max-height: 600px) {
