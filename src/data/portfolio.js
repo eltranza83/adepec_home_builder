@@ -3,7 +3,7 @@ export const portfolioData = [
     id: "now-available-9908",
     title: "9908 North 25th Street",
     tagline: "Now Available",
-    description: "Located at the exclusive Falcon's Cove subdivision. A newly completed premium architectural residence ready for move-in in McAllen, Texas, 78504.",
+    description: "Move-in ready in Falcon's Cove, McAllen (78504). Designed with a warm, inviting finish palette—wood-look porcelain tile throughout, a gold-flecked kitchen backsplash, and natural Cantera stone.",
     hasSpecs: true,
     mapUrl: "https://maps.google.com/?q=9908+North+25th+Street,+McAllen,+Texas+78504",
     elevationImage: {
@@ -44,7 +44,7 @@ export const portfolioData = [
         tagline: "Finishes & Climate",
         title: "Premium Features",
         items: [
-          "<strong>Premium Finishes:</strong> Porcelain tile flooring throughout the entire home and showers, paired with custom quartz countertops.",
+          "<strong>Premium Finishes:</strong> Warm wood-look porcelain tile flooring throughout the home, a gold-flecked kitchen backsplash, tiled showers, and custom quartz countertops.",
           "<strong>Exterior Styling:</strong> Built with a stucco exterior and natural Cantera stone accents.",
           "<strong>Climate Systems:</strong> Driven by two separate air conditioning units (7.5 tons total).",
           "<strong>Insulation:</strong> Energy-saving spray foam insulation applied on both the rafters and exterior walls to keep the home cool and lower electric bills."
@@ -67,7 +67,7 @@ export const portfolioData = [
     id: "now-available-9905",
     title: "9905 North 25th Street",
     tagline: "Now Available",
-    description: "Located at the exclusive Falcon's Cove subdivision. A newly completed premium architectural residence ready for move-in in McAllen, Texas, 78504.",
+    description: "Move-in ready in Falcon's Cove, McAllen (78504). Distinguished by its bold extended roofline accent and sleek 2×4 Calacatta-style large-format porcelain tile flooring throughout.",
     hasSpecs: true,
     mapUrl: "https://maps.google.com/?q=9905+North+25th+Street,+McAllen,+Texas+78504",
     elevationImage: {
@@ -115,8 +115,8 @@ export const portfolioData = [
         tagline: "Finishes & Climate",
         title: "Premium Features",
         items: [
-          "<strong>Premium Finishes:</strong> Porcelain tile flooring throughout the entire home and showers, paired with custom quartz countertops.",
-          "<strong>Exterior Styling:</strong> Built with a stucco exterior and natural Cantera stone accents.",
+          "<strong>Premium Finishes:</strong> Sleek 2×4 Calacatta-style large-format porcelain tile flooring throughout the home and showers, paired with custom quartz countertops.",
+          "<strong>Exterior Styling:</strong> Stucco facade accented by natural Cantera stone and a bold extended architectural roofline wall.",
           "<strong>Climate Systems:</strong> Driven by two separate air conditioning units (7.5 tons total).",
           "<strong>Insulation:</strong> Energy-saving spray foam insulation applied on both the rafters and exterior walls to keep the home cool and lower electric bills."
         ]
