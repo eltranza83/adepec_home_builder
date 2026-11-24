@@ -122,6 +122,41 @@ export function initLightbox() {
     }
   });
 
+  // Mobile touch-swipe support for horizontal lightbox navigation
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let isTrackingSwipe = false;
+
+  lightbox.addEventListener("touchstart", (e) => {
+    if (!lightbox.classList.contains("open") || currentGallery.length <= 1 || e.touches.length !== 1) {
+      isTrackingSwipe = false;
+      return;
+    }
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    isTrackingSwipe = true;
+  }, { passive: true });
+
+  lightbox.addEventListener("touchend", (e) => {
+    if (!isTrackingSwipe || !lightbox.classList.contains("open") || currentGallery.length <= 1) {
+      isTrackingSwipe = false;
+      return;
+    }
+    isTrackingSwipe = false;
+    const touch = e.changedTouches && e.changedTouches[0];
+    if (!touch) return;
+
+    const dx = touch.clientX - touchStartX;
+    const dy = touch.clientY - touchStartY;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) {
+        showNext();
+      } else {
+        showPrev();
+      }
+    }
+  }, { passive: true });
+
   // Return the open function
   return function openLightbox(target, initialIndex = 0, captionText = null, mapUrl = null) {
     if (Array.isArray(target)) {
@@ -140,6 +175,16 @@ export function initLightbox() {
     lightbox.classList.add("open");
     document.body.style.overflow = "hidden";
   };
+}
+
+/**
+ * Keeps footer copyright year current across pages
+ */
+export function initCopyrightYear() {
+  const yearEl = document.getElementById("copyright-year");
+  if (yearEl) {
+    yearEl.textContent = String(new Date().getFullYear());
+  }
 }
 
 /**

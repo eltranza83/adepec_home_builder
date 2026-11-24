@@ -5,3 +5,5 @@ dist/
 .system_generated/
 instagram-assets.html
 logo-preview.html
+*.pdf
+minecraft-chess/

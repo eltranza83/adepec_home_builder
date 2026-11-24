@@ -17,6 +17,7 @@ export const portfolioData = [
     },
     carouselImages: [
       { src: "./assets/houses/9908-n-25th-st/openarea1.webp", alt: "Open Living Area", caption: "9908 North 25th Street — Open Living Area", label: "Open Living Area", sublabel: "Interior" },
+      { src: "./assets/houses/9908-n-25th-st/foyer_media_wall.webp", alt: "Grand Foyer & Built-In Media Wall", caption: "9908 North 25th Street — Grand Foyer & Built-In Media Wall", label: "Foyer & Media Wall", sublabel: "Interior" },
       { src: "./assets/houses/9908-n-25th-st/masterBath.webp", alt: "Master Bathroom", caption: "9908 North 25th Street — Master Bathroom", label: "Master Bathroom", sublabel: "Interior" },
       { src: "./assets/houses/9908-n-25th-st/kitchen.webp", alt: "Gourmet Kitchen", caption: "9908 North 25th Street — Gourmet Kitchen", label: "Gourmet Kitchen", sublabel: "Interior" },
       { src: "./assets/houses/9908-n-25th-st/bedroom1.webp", alt: "Bedroom 1", caption: "9908 North 25th Street — Bedroom 1", label: "Bedroom 1", sublabel: "Interior" },

@@ -4,27 +4,6 @@
    PROTOTYPE 1: ARCHITECTURAL GALLERY (WARM CONTRAST RHYTHM)
    ========================================================================== */
 
-/* 1. Header: Scroll with the page naturally so it NEVER blocks content */
-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  z-index: 1000;
-}
-
-
-/* Hero Headline: Replace metallic mustard with luminous champagne sand */
-.hero h1 em,
-.hero h1 .gold-accent {
-  color: #E8DEC8 !important;
-  text-shadow: 0 0 24px rgba(232, 222, 200, 0.25) !important;
-}
-
 /* ==========================================================================
    ULTRAWIDE FULL-BLEED FIX: SECTIONS SPAN 100% OF DISPLAY
    ========================================================================== */
@@ -32,10 +11,10 @@ section,
 section.showcase,
 section.approach-section,
 section.contact {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
   padding-left: clamp(24px, 5vw, 90px);
   padding-right: clamp(24px, 5vw, 90px);
   box-sizing: border-box;
@@ -108,7 +87,7 @@ section.contact {
 #residences .project-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-  border-color: #c5a059;
+  border-color: #926f29;
 }
 
 #residences .project-img-wrapper,
@@ -187,8 +166,8 @@ section.contact {
 }
 
 .status-dot.construction-dot {
-  color: #c5a059;
-  text-shadow: 0 0 6px rgba(197, 160, 89, 0.35);
+  color: #926f29;
+  text-shadow: 0 0 6px rgba(146, 111, 41, 0.35);
 }
 
 .card-specs-pill {
@@ -303,7 +282,7 @@ section.contact {
 #residences .view-specs-btn {
   color: #83601e;
   border: 1px solid rgba(146, 111, 41, 0.35);
-  background: rgba(197, 160, 89, 0.06);
+  background: rgba(146, 111, 41, 0.06);
   padding: 11px 20px;
   min-height: 44px;
   display: inline-flex;
@@ -351,12 +330,6 @@ section.contact {
 
 .card-map-link:hover .map-icon {
   transform: translateY(-1px);
-}
-
-.prop-inquire-btn {
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
 }
 
 #residences .card-details-text {
@@ -441,12 +414,27 @@ section.contact {
 }
 
 .approach-bento-item {
+  display: block;
   position: relative;
   overflow: hidden;
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
   aspect-ratio: 3 / 2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.approach-bento-item:hover,
+.approach-bento-item:focus-visible {
+  border-color: rgba(217, 200, 176, 0.45);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.55);
+}
+
+.approach-bento-item:focus-visible {
+  outline: 2px solid #E8DEC8;
+  outline-offset: 3px;
 }
 
 .approach-bento-item--wide {
@@ -466,8 +454,9 @@ section.contact {
   object-position: left center;
 }
 
-.approach-bento-item:hover img {
-  transform: scale(1.03);
+.approach-bento-item:hover img,
+.approach-bento-item:focus-visible img {
+  transform: scale(1.04);
 }
 
 @media (max-width: 1150px) {
@@ -550,6 +539,13 @@ section.contact {
   gap: 10px;
 }
 
+.contact-call-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+}
+
 .contact-phone-link {
   display: inline-flex;
   align-items: center;
@@ -571,6 +567,39 @@ section.contact {
   width: 20px;
   height: 20px;
   color: #926f29;
+  flex-shrink: 0;
+}
+
+.contact-sms-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  min-height: 38px;
+  border-radius: 3px;
+  border: 1px solid rgba(146, 111, 41, 0.35);
+  background: rgba(146, 111, 41, 0.06);
+  font-family: var(--font-cinzel);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #83601e;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.contact-sms-link:hover,
+.contact-sms-link:focus-visible {
+  background: #926f29;
+  border-color: #926f29;
+  color: #ffffff;
+}
+
+.contact-sms-icon {
+  width: 14px;
+  height: 14px;
   flex-shrink: 0;
 }
 
@@ -1089,23 +1118,23 @@ section.contact {
     min-height: auto !important;
   }
   .enclave-badge-beacon {
-    font-size: 0.65rem !important;
-    padding: 5px 10px !important;
-    letter-spacing: 0.1em !important;
-    white-space: nowrap !important;
+    font-size: 0.65rem;
+    padding: 5px 10px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
   }
   .beacon-pulse {
-    width: 6px !important;
-    height: 6px !important;
+    width: 6px;
+    height: 6px;
   }
   .enclave-opt2-title {
-    font-size: 2.15rem !important;
-    line-height: 1.15 !important;
-    margin-bottom: 6px !important;
+    font-size: 2.15rem;
+    line-height: 1.15;
+    margin-bottom: 6px;
   }
   .enclave-opt2-desc {
-    font-size: 0.94rem !important;
-    line-height: 1.7 !important;
+    font-size: 0.94rem;
+    line-height: 1.7;
   }
 }
 
@@ -1114,7 +1143,7 @@ section.contact {
     padding: 42px 18px !important;
   }
   .enclave-opt2-title {
-    font-size: 1.9rem !important;
+    font-size: 1.9rem;
   }
 }
 
@@ -1140,12 +1169,13 @@ section.contact {
    ========================================================================== */
 
 .portfolio-hero {
-  background: #0c0d0e !important;
+  position: relative;
+  background: #0c0d0e;
   color: #ffffff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 150px clamp(24px, 5vw, 80px) 75px !important;
-  height: auto !important;
-  min-height: 380px !important;
+  padding: 150px clamp(24px, 5vw, 80px) 75px;
+  height: auto;
+  min-height: 380px;
   display: flex;
   align-items: flex-end;
   box-sizing: border-box;
@@ -1158,28 +1188,34 @@ section.contact {
 }
 
 .portfolio-hero h1 {
-  font-family: var(--font-cinzel) !important;
-  font-size: clamp(2.8rem, 5.5vw, 5rem) !important;
-  font-weight: 400 !important;
-  color: #ffffff !important;
-  letter-spacing: -0.01em !important;
-  line-height: 1.1 !important;
-  margin-bottom: 15px !important;
+  font-family: var(--font-cinzel);
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
 }
 
 .portfolio-hero h1 em {
-  font-family: var(--font-display) !important;
-  font-style: italic !important;
-  color: #E8DEC8 !important;
-  font-weight: 400 !important;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: #E8DEC8;
+  font-weight: 400;
 }
 
 .portfolio-hero .subtitle {
-  font-size: 1.05rem !important;
-  color: rgba(255, 255, 255, 0.72) !important;
-  line-height: 1.7 !important;
-  max-width: 620px !important;
-  font-weight: 300 !important;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+  max-width: 620px;
+  font-weight: 300;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
 }
 
 /* Warm Limestone Gallery Canvas for Active Residences */
@@ -1191,41 +1227,41 @@ section.contact {
 }
 
 .portfolio-home-section {
-  padding: 100px clamp(24px, 5vw, 80px) !important;
-  max-width: 1400px !important;
-  margin: 0 auto !important;
-  width: 100% !important;
+  padding: 100px clamp(24px, 5vw, 80px);
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
   box-sizing: border-box;
 }
 
 .portfolio-home-section + .portfolio-home-section {
-  border-top: 1px solid #dfdad0 !important;
+  border-top: 1px solid #dfdad0;
 }
 
 .portfolio-home-section .home-section-header {
-  margin-bottom: 40px !important;
+  margin-bottom: 40px;
 }
 
 .portfolio-home-section .home-section-header .section-tag {
-  color: #926f29 !important;
+  color: #926f29;
   display: inline-block;
   margin-bottom: 10px;
 }
 
 .portfolio-home-section .home-section-header h2 {
-  font-family: var(--font-cinzel) !important;
-  font-size: clamp(2.2rem, 4vw, 3.4rem) !important;
-  font-weight: 400 !important;
-  color: #141619 !important;
-  letter-spacing: -0.01em !important;
-  margin-bottom: 12px !important;
+  font-family: var(--font-cinzel);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 400;
+  color: #141619;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
 }
 
 .portfolio-home-section .home-section-header p {
-  color: #4a4d52 !important;
-  font-size: 1.02rem !important;
-  line-height: 1.7 !important;
-  max-width: 680px !important;
+  color: #4a4d52;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  max-width: 680px;
 }
 
 /* Sticky Property Jump Bar */
@@ -1708,11 +1744,11 @@ dialog.gallery-sheet-dialog::backdrop {
 
 @media (max-width: 1180px) and (min-width: 861px) {
   #portfolio-container .build-specs-card {
-    padding: 24px 20px !important;
+    padding: 24px 20px;
   }
   #portfolio-container .specs-table td {
     font-size: 0.86rem;
-    padding: 10px 4px !important;
+    padding: 10px 4px;
   }
 }
 
@@ -1723,58 +1759,58 @@ dialog.gallery-sheet-dialog::backdrop {
 }
 
 #portfolio-container .build-specs-card {
-  background: #ffffff !important;
-  border: 1px solid #e2ddd4 !important;
-  border-radius: 4px !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05) !important;
-  padding: 32px !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+  background: #ffffff;
+  border: 1px solid #e2ddd4;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  padding: 32px;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 #portfolio-container .build-specs-card .section-tag {
-  color: #926f29 !important;
+  color: #926f29;
 }
 
 #portfolio-container .build-specs-card h4 {
-  font-family: var(--font-cinzel) !important;
-  font-size: 1.4rem !important;
-  font-weight: 500 !important;
-  color: #141619 !important;
-  margin-bottom: 20px !important;
-  letter-spacing: -0.01em !important;
+  font-family: var(--font-cinzel);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #141619;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
 }
 
 #portfolio-container .specs-table td {
-  border-bottom: 1px solid #ece7df !important;
-  color: #141619 !important;
-  padding: 12px 0 !important;
+  border-bottom: 1px solid #ece7df;
+  color: #141619;
+  padding: 12px 0;
 }
 
 #portfolio-container .specs-table td:first-child {
-  color: #6a6c70 !important;
+  color: #6a6c70;
 }
 
 #portfolio-container .specs-table td:last-child strong {
-  color: #926f29 !important;
-  font-weight: 700 !important;
+  color: #926f29;
+  font-weight: 700;
 }
 
 #portfolio-container .specs-map-link {
-  color: #926f29 !important;
+  color: #926f29;
 }
 
 #portfolio-container .features-list li {
-  color: #2c2e33 !important;
-  line-height: 1.6 !important;
+  color: #2c2e33;
+  line-height: 1.6;
 }
 
 #portfolio-container .features-list li strong {
-  color: #141619 !important;
+  color: #141619;
 }
 
 #portfolio-container .features-list li::before {
-  color: #926f29 !important;
+  color: #926f29;
 }
 
 /* Sold Showcase Section (Dark Architectural Transition) */
@@ -1793,7 +1829,7 @@ dialog.gallery-sheet-dialog::backdrop {
 }
 
 .sold-showcase-section .section-tag {
-  color: #C5A059;
+  color: var(--color-accent);
 }
 
 .sold-showcase-section h2 {
@@ -1878,7 +1914,7 @@ dialog.gallery-sheet-dialog::backdrop {
 }
 
 .sold-photo-card:hover {
-  border-color: rgba(197, 160, 89, 0.4);
+  border-color: rgba(217, 200, 176, 0.4);
   transform: translateY(-4px);
 }
 
@@ -1919,7 +1955,7 @@ dialog.gallery-sheet-dialog::backdrop {
 .sold-photo-card span.sold-tag {
   font-family: var(--font-cinzel);
   font-size: 0.65rem;
-  color: #C5A059;
+  color: #C8B69A;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -1940,7 +1976,7 @@ dialog.gallery-sheet-dialog::backdrop {
 }
 
 .portfolio-bottom-cta .section-tag {
-  color: #C5A059;
+  color: var(--color-accent);
   margin-bottom: 12px;
 }
 
@@ -2002,7 +2038,7 @@ dialog.gallery-sheet-dialog::backdrop {
 
 #showcase .project-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(197, 160, 89, 0.4);
+  border-color: rgba(217, 200, 176, 0.4);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
 }
 
@@ -2121,62 +2157,62 @@ dialog.gallery-sheet-dialog::backdrop {
    ========================================================================== */
 
 .showcase-header {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: flex-end !important;
-  margin-bottom: 50px !important;
-  width: 100% !important;
-  gap: 20px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 50px;
+  width: 100%;
+  gap: 20px;
 }
 
 .showcase-header > div:first-child {
-  max-width: none !important;
-  flex: 1 1 auto !important;
+  max-width: none;
+  flex: 1 1 auto;
 }
 
 .showcase-header > div:last-child {
-  max-width: 320px !important;
-  flex-shrink: 0 !important;
+  max-width: 320px;
+  flex-shrink: 0;
 }
 
 .showcase-header h2 {
-  font-family: var(--font-cinzel) !important;
-  font-size: clamp(2.2rem, 4vw, 3.4rem) !important;
-  font-weight: 400 !important;
-  letter-spacing: -0.01em !important;
-  margin: 0 !important;
-  white-space: normal !important;
-  line-height: 1.15 !important;
+  font-family: var(--font-cinzel);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin: 0;
+  white-space: normal;
+  line-height: 1.15;
 }
 
 #showcase .showcase-header h2 {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 #showcase .showcase-header h2 em {
-  font-family: var(--font-display) !important;
-  font-style: italic !important;
-  color: #E8DEC8 !important;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: #E8DEC8;
 }
 
 #showcase .showcase-header > div:last-child {
-  color: rgba(255, 255, 255, 0.6) !important;
-  font-family: var(--font-cinzel) !important;
-  font-size: 0.8rem !important;
-  letter-spacing: 0.15em !important;
-  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-cinzel);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
 @media (max-width: 768px) {
   .showcase-header {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 12px !important;
-    margin-bottom: 30px !important;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 30px;
   }
   .showcase-header h2 {
-    font-size: 2.1rem !important;
-    line-height: 1.2 !important;
+    font-size: 2.1rem;
+    line-height: 1.2;
   }
 }
 
@@ -2259,13 +2295,6 @@ dialog.gallery-sheet-dialog::backdrop {
     top: 25px;
   }
 }
-
-
-
-
-
-
-
 
 /* Direct desktop navigation, with the full menu available at every size. */
 .desktop-nav {

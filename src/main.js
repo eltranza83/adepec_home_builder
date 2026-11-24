@@ -1,9 +1,10 @@
-import { initTheme, initNavMenu } from "./common.js";
+import { initTheme, initNavMenu, initCopyrightYear } from "./common.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Initialize Common/Shared UI Features
   initTheme();
   initNavMenu();
+  initCopyrightYear();
 
   // 2. Element Selectors for Landing Page
   const loader = document.getElementById("loader");
@@ -47,10 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (loaderContent) loaderContent.classList.add("active");
     }, 50);
 
-    // 2. Slide up curtain into the ceiling (~1s snappy intro)
+    // 2. Slide up curtain into the ceiling (~0.45s snappy intro)
     setTimeout(() => {
       if (loader) loader.classList.add("loaded");
-    }, 850);
+    }, 450);
 
     // 3. Reveal hero elements in smooth choreography
     setTimeout(() => {
@@ -67,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         heroImg.style.transition = "transform 1.4s cubic-bezier(0.16, 1, 0.3, 1)";
         heroImg.style.transform = "translate3d(0, 0, 0) scale(1.1)";
       }
-    }, 1000);
+    }, 550);
   };
   runIntro();
 
@@ -110,6 +111,24 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", () => {
       requestAnimationFrame(updateParallax);
     }, { passive: true });
+  }
+
+  // 6b. Auto-select inquiry dropdown (?interest=...) and property CTA pre-fill
+  const interestSelect = document.getElementById("interest-select");
+  if (interestSelect) {
+    const urlInterest = new URLSearchParams(window.location.search).get("interest");
+    if (urlInterest) {
+      interestSelect.value = urlInterest;
+    }
+
+    document.querySelectorAll(".prop-inquire-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const interest = btn.getAttribute("data-interest");
+        if (interest) {
+          interestSelect.value = interest;
+        }
+      });
+    });
   }
 
   // 7. Contact Form Handling

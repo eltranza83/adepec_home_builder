@@ -1,10 +1,11 @@
-import { initTheme, initLightbox, initNavMenu } from "./common.js";
+import { initTheme, initLightbox, initNavMenu, initCopyrightYear } from "./common.js";
 import { portfolioData } from "./data/portfolio.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Initialize Common/Shared UI Features
   initTheme();
   initNavMenu();
+  initCopyrightYear();
   const openLightbox = initLightbox();
 
   // 2. Render Portfolio Sections (Sticky Jump Bar + Bento Mosaic + Contact Sheet + Sold Legacy)

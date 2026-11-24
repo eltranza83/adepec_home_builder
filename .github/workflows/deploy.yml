@@ -37,6 +37,8 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm install
+      - name: Check assets
+        run: npm run check-assets
       - name: Build
         run: npm run build
       - name: Setup Pages
