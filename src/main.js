@@ -48,10 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (loaderContent) loaderContent.classList.add("active");
     }, 50);
 
-    // 2. Slide up curtain into the ceiling (~0.45s snappy intro)
+    // 2. Slide up curtain into the ceiling (1s intro hold)
     setTimeout(() => {
       if (loader) loader.classList.add("loaded");
-    }, 450);
+    }, 1000);
 
     // 3. Reveal hero elements in smooth choreography
     setTimeout(() => {
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         heroImg.style.transition = "transform 1.4s cubic-bezier(0.16, 1, 0.3, 1)";
         heroImg.style.transform = "translate3d(0, 0, 0) scale(1.1)";
       }
-    }, 550);
+    }, 1150);
   };
   runIntro();
 
